@@ -4,7 +4,7 @@ navbar_name: "Zhen Yang 杨振"
 
 positions:
 - name: Bachelor of Science in Computer Science and Technology
-- name: Sun Yat-sen University
+- name: Sun Yat-sen University (Sun Yat-sen University)
   logo: /assets/images/badges/SYSU_green.png  # Logo is optional
 
 
@@ -22,7 +22,7 @@ twitter: AliceDeRoss2  # Do not include the '@' symbol
 short_bio_text_justify: false
 short_bio: >-
   <p>
-    I am Zhen Yang (杨振), an undergraduate student at Sun Yat-Sen University, majoring in Computer Science and Technology.
+    I am Zhen Yang (杨振), an undergraduate student at Sun Yat-sen University, majoring in Computer Science and Technology.
   </p>
 
 portrait_url: /assets/images/photos/portrait.jpg
