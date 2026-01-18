@@ -1,11 +1,12 @@
 ---
-layout: blog_post
-title: "科研笔记：深度学习基础"
+layout: blog
+title: '科研笔记：深度学习基础'
 date: 2024-03-10
-author: Michael Yeung
-categories: [Research, Machine Learning]
-tags: [deep-learning, neural-networks, research]
-excerpt: "记录深度学习的基础概念和常用技术"
+tags:
+  - deep-learning
+  - neural-networks
+  - research
+  - machine-learning
 ---
 
 # 科研笔记：深度学习基础

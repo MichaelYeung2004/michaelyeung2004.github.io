@@ -1,11 +1,12 @@
 ---
-layout: blog_post
-title: "Jekyll 博客搭建指南"
+layout: blog
+title: 'Jekyll 博客搭建指南'
 date: 2024-02-20
-author: Michael Yeung
-categories: [Technical, Web Development]
-tags: [jekyll, github-pages, tutorial]
-excerpt: "分享如何使用 Jekyll 和 GitHub Pages 搭建个人学术主页"
+tags:
+  - jekyll
+  - github-pages
+  - tutorial
+  - technical
 ---
 
 # Jekyll 博客搭建指南

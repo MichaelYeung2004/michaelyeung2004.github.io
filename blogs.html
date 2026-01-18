@@ -1,146 +1,33 @@
 ---
 layout: default
-title: Blogs
+title : Blogs
 navbar_title: Blogs
+body_attr: >-
+  data-spy="scroll" data-target="#navbar-year" data-offset="100"
 ---
 
 {% assign blogs_by_year = site.blogs | sort: "date" | reverse | group_by_exp: "item", "item.date | date: '%Y'" %}
 
-<div class="container">
-  <div class="row">
+<div class="row">
     <div class="col-12 col-lg-10">
-      {% for year in blogs_by_year %}
-      <h2 class="pt-4 mb-3" id="year-{{ year.name }}">{{ year.name }}</h2>
-      
-      {% for blog in year.items %}
-      <div class="card mb-4 shadow-sm blog-card">
-        <div class="card-body">
-          <h3 class="card-title">
-            <a href="{{ blog.url | relative_url }}" class="text-decoration-none">
-              {{ blog.title }}
-            </a>
-          </h3>
-          
-          <p class="card-text text-muted mb-2">
-            <small>
-              <i class="far fa-calendar"></i> {{ blog.date | date: "%Y年%m月%d日" }}
-              {% if blog.author %}
-              • <i class="far fa-user"></i> {{ blog.author }}
-              {% endif %}
-            </small>
-          </p>
-
-          {% if blog.categories %}
-          <div class="mb-2">
-            {% for category in blog.categories %}
-            <span class="badge bg-primary me-1">{{ category }}</span>
-            {% endfor %}
-          </div>
-          {% endif %}
-
-          {% if blog.excerpt %}
-          <p class="card-text">{{ blog.excerpt }}</p>
-          {% endif %}
-
-          <a href="{{ blog.url | relative_url }}" class="btn btn-sm btn-outline-primary">
-            阅读全文 →
-          </a>
-        </div>
-      </div>
-      {% endfor %}
-      
-      {% endfor %}
-    </div>
-
-    <!-- 侧边栏：年份导航 -->
-    <div class="col-2 d-none d-lg-block">
-      <div id="navbar-year" class="nav nav-pills flex-column sticky-top" style="top: 80px">
         {% for year in blogs_by_year %}
-        <a class="nav-link" href="#year-{{ year.name }}">{{ year.name }}</a>
+        {% assign num_blogs = year.items | size %}
+        <h2 class="pt-4" id="year-{{ year.name }}">{{ year.name }}</h2>
+        <div class="my-0 p-0 bg-white shadow-sm rounded-xl">
+            {% for item in year.items %}
+                {% include widgets/blog_card.html item=item hide_bottom_border=forloop.last first=forloop.first last=forloop.last %}
+            {% endfor %}
+        </div>
         {% endfor %}
-      </div>
     </div>
-  </div>
+
+    <div class="col-2 d-none d-lg-block">
+        <div id="navbar-year" class="nav nav-pills flex-column sticky-top" style="top: 80px">
+            {% for year in blogs_by_year %}
+            <a class="nav-link d-block" href="#year-{{ year.name }}">{{ year.name }}</a>
+            {% endfor %}
+        </div>
+    </div>
+
 </div>
-
-<style>
-.blog-card {
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  border: none;
-  background-color: white;
-  border-radius: 10px;
-}
-
-.blog-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
-}
-
-.blog-card .card-title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-
-.blog-card .card-title a {
-  color: #212529;
-  transition: color 0.2s ease-in-out;
-}
-
-.blog-card .card-title a:hover {
-  color: #0d6efd;
-}
-
-.blog-card .card-text {
-  color: #6c757d;
-  line-height: 1.6;
-}
-
-#navbar-year .nav-link {
-  color: #6c757d;
-  padding: 0.5rem 1rem;
-  border-left: 3px solid transparent;
-  transition: all 0.2s ease-in-out;
-}
-
-#navbar-year .nav-link:hover,
-#navbar-year .nav-link.active {
-  color: #0d6efd;
-  border-left-color: #0d6efd;
-  background-color: transparent;
-}
-
-h2 {
-  font-weight: 700;
-  color: #212529;
-  border-bottom: 2px solid #e9ecef;
-  padding-bottom: 0.5rem;
-}
-</style>
-
-<script>
-// 高亮当前年份
-document.addEventListener('DOMContentLoaded', function() {
-  const navLinks = document.querySelectorAll('#navbar-year .nav-link');
-  
-  window.addEventListener('scroll', function() {
-    let current = '';
-    
-    document.querySelectorAll('h2[id^="year-"]').forEach(function(section) {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.clientHeight;
-      if (pageYOffset >= sectionTop - 100) {
-        current = section.getAttribute('id');
-      }
-    });
-
-    navLinks.forEach(function(link) {
-      link.classList.remove('active');
-      if (link.getAttribute('href').substring(1) === current) {
-        link.classList.add('active');
-      }
-    });
-  });
-});
-</script>
 

@@ -35,7 +35,10 @@ plugins:
 # timezone: Asia/Shanghai
 
 collections:
-  - publications
-  - news
-  - showcase
-  - blogs
+  publications:
+    output: true
+  blogs:
+    output: true
+    permalink: /posts/:year/:month/:title/
+  news:
+  showcase:

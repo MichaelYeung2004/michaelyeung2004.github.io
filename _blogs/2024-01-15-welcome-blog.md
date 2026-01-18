@@ -1,11 +1,11 @@
 ---
-layout: blog_post
-title: "欢迎来到我的博客"
+layout: blog
+title: '欢迎来到我的博客'
 date: 2024-01-15
-author: Michael Yeung
-categories: [General, Welcome]
-tags: [introduction, blog]
-excerpt: "这是我博客的第一篇文章，欢迎大家来访问！"
+tags:
+  - introduction
+  - blog
+  - welcome
 ---
 
 # 欢迎来到我的博客
