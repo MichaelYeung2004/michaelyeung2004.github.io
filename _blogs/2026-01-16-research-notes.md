@@ -12,10 +12,12 @@ Comparing Probability Distributions with
 Conditional Transport
 (Huangjie Zheng and Mingyuan Zhou
 The University of Texas at Austin)
+
 测量两个概率分布之间的差异是统计学和机器学习中的一个基本问题。常用的统计距离包括 Kullback-Leibler (KL)散度、Jensen-Shannon (JS)散度和Wasserstein距离。KL散度要求两个概率分布拥有相同的支撑集，因此如果其中任何一个是概率密度函数 (PDF) 未知的隐式分布，那么 KL 散度通常不适用。GAN最初使用JS散度，但在生成器和判别器之间维持良好平衡非常困难，导致 GAN 的训练非常脆弱。Wasserstein的理论虽好，但在实际计算中，特别是它的对偶形式，为了满足一个严格的数学约束（Lipschitz约束），需要很多技巧，实现起来很麻烦，而且计算出的梯度可能还是有偏差的。如果用它的原始形式，计算成本又非常高。
 
 ## Conditional Transport
 因此，选择引入**条件传输 (CT)** 作为一种新的散度来量化两个概率分布之间的差异。我们将它们称为源分布和目标分布，并将其概率密度函数 (PDF) 分别表示为 $p_x(x)$ 和 $p_y(y)$。
+
 CT的核心思想非常直观，我们可以用一个**物流系统**的类比来理解它：
 
 *   **真实数据分布 $p_x(x)$**：想象成全国各地所有的“**发货仓库**”。
