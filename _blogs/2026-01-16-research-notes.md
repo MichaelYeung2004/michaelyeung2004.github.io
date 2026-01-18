@@ -8,6 +8,8 @@ tags:
   - paper
 ---
 
+[TOC]
+
 Comparing Probability Distributions with
 Conditional Transport
 (Huangjie Zheng and Mingyuan Zhou
