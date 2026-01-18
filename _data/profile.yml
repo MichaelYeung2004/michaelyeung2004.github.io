@@ -42,7 +42,17 @@ education:
   date: Sep. 2023 - present
 
 experience:
-
+- name: Stony Brook University
+  logo: /assets/images/badges/SBU.jpg
+  position: >- 
+    Research Intern
+  date: Jan. 2026 - present
+  
+- name: University of Science and Technology of China
+  logo: /assets/images/badges/USTC_blue.png
+  position: >- 
+    Research Intern
+  date: Nov. 2025 - present
 
 - name: Sun Yat-sen University
   logo: /assets/images/badges/SYSU_green.png
