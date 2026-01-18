@@ -34,14 +34,17 @@ CT引入了两个非常重要的概念：**双向传输** 和 **导航器 (Navig
 >In short，Mode Covering 的目标是雨露均沾（覆盖所有数据），Mode Seeking的目标是独宠一人（只关注概率最高的区域）。
 
 Anyway,双向传输非常重要，因为只考虑前向（Mode Covering），可能会导致生成器为了覆盖所有真实样本，生成一些模糊、质量不高的样本（比如把“1”和“7”混合在一起，试图同时覆盖两者）。只考虑后向（模式搜寻），可能会导致Mode Collapse。即生成器发现只生成最简单的、最像真实数据的某一种样本（比如只生成数字“1”）就能让后向成本很低，于是它就放弃学习其他模式了。
+
 CT通过将前向和后向成本加权平均，实现了Mode Covering和Mode Seeking的完美平衡，这是它相比之前方法的一个巨大优势。
 
 ### Navigator与数学公式解析
-CT引入了一个叫做**Navigator $\pi(y|x)$** 的东西。可以把它想象成一个智能的Google Map，它会告诉你从起点 $x$ 出发，去往各个可能的目标点 $y$ 的“推荐路线”概率。
-**前向导航器 (Forward Navigator)**
-$$ \pi_\phi(y|x) \stackrel{\text{def}}{=} \frac{e^{-d_\phi(x, y)} p_\theta(y)}{\int e^{-d_\phi(x, y')} p_\theta(y') dy'} $$
+CT引入了一个叫做**Navigator $\pi(y\mid x)$** 的东西。可以把它想象成一个智能的Google Map，它会告诉你从起点 $x$ 出发，去往各个可能的目标点 $y$ 的“推荐路线”概率。
 
-*   $\pi_\phi(y|x)$：表示给定一个真实数据点 $x$ (起点)，它被传输到生成数据点 $y$ (终点) 的条件概率。$\phi$ 是这个导航器自身的参数（比如一个神经网络的权重）。
+**前向导航器 (Forward Navigator)**
+
+$$ \pi_\phi(y\mid x) \stackrel{\text{def}}{=} \frac{e^{-d_\phi(x, y)} p_\theta(y)}{\int e^{-d_\phi(x, y')} p_\theta(y') dy'} $$
+
+*   $$\pi_\phi(y\mid x)$$：表示给定一个真实数据点 $$x$$ (起点)，它被传输到生成数据点 $$y$$ (终点) 的条件概率。$$\phi$$ 是这个导航器自身的参数（比如一个神经网络的权重）。
 *   $p_\theta(y)$：是生成分布在 $y$ 点的密度。可以理解为**目标点 $y$ 的“热门程度”**。一个地方越热门，导航系统就越可能推荐你去。
 *   $d_\phi(x, y)$：这是一个可学习的**距离函数**，衡量 $x$ 和 $y$ 的“距离”或“不相似度”。这个距离也是由一个神经网络（参数是$\phi$）算出来的。
 *   $e^{-d_\phi(x, y)}$：这是将距离转化为了一个**“吸引力”分数**。距离 $d$ 越小，这个分数就越大，表示 $x$ 和 $y$ 越“亲近”，传输过去的可能性就越高。
@@ -50,19 +53,21 @@ $$ \pi_\phi(y|x) \stackrel{\text{def}}{=} \frac{e^{-d_\phi(x, y)} p_\theta(y)}{\
 So this formula means that从真实点 $x$ 出发，导航器会优先推荐你去那些**本身很热门 ( $p_\theta(y)$ 大)** 并且**离 $x$ 很近 ( $d_\phi(x, y)$ 小)** 的生成点 $y$。
 
 有了Navigator，我们就可以定义**前向CT的总成本**了：
-$$ C_{\phi, \theta}(\mu \to \nu) = \mathbb{E}_{x \sim p_x(x)} \mathbb{E}_{y \sim \pi_\phi(y|x)}[c(x, y)] $$
+$$ C_{\phi, \theta}(\mu \to \nu) = \mathbb{E}_{x \sim p_x(x)} \mathbb{E}_{y \sim \pi_\phi(y\mid x)}[c(x, y)] $$
 
 *   $\mathbb{E}_{x \sim p_x(x)}$：表示“对于一个随机从真实数据中抽取的点 $x$...” (在所有发货仓库中平均来看...)
-*   $\mathbb{E}_{y \sim \pi_\phi(y|x)}$：表示“...再根据我们的导航器 $\pi_\phi(y|x)$ 随机选择一个目标点 $y$...” (...按照Google Map的推荐路线走...)
+*   $$\mathbb{E}_{y \sim \pi_\phi(y\mid x)}$$：表示“...再根据我们的导航器 $\pi_\phi(y\mid x)$ 随机选择一个目标点 $$y$$ ...” (...按照Google Map的推荐路线走...)
 *   $c(x, y)$：是点对点的**运输成本**（比如可以是 $x$ 和 $y$ 的欧氏距离）。
 前向CT成本就是，我们从所有真实仓库出发，按照导航器的指引发货，所需要付出的平均运输成本。
 
 **后向导航器 (Backward Navigator)** 和后向成本的定义与前向完全对称，只是把 $x$ 和 $y$ 的角色互换了而已：
-$$ \pi_\phi(x|y) \stackrel{\text{def}}{=} \frac{e^{-d_\phi(x, y)} p_x(x)}{\int e^{-d_\phi(x', y)} p_x(x') dx'} $$
+$$ \pi_\phi(x\mid y) \stackrel{\text{def}}{=} \frac{e^{-d_\phi(x, y)} p_x(x)}{\int e^{-d_\phi(x', y)} p_x(x') dx'} $$
+
 现在是从生成点 $y$ 出发，去往那些**本身很热门的真实点 $x$ ( $p_x(x)$ 大)** 并且**离 $y$ 很近**的地方。
 
 最后，**总CT成本**，就是把前向和后向成本简单地平均一下：
 $$ C_{\phi, \theta}(\mu, \nu) \stackrel{\text{def}}{=} \frac{1}{2} C_{\phi, \theta}(\mu \to \nu) + \frac{1}{2} C_{\phi, \theta}(\mu \leftarrow \nu) $$
+
 **模型训练的目标**：就是调整生成器 $G_\theta$ (决定了 $p_\theta(y)$) 和导航器 $\pi_\phi$ (决定了路径)，来**minimize这个总的CT成本 $C_{\phi, \theta}(\mu, \nu)$**。
 
 ## 摊销式条件传输 (Amortized Conditional Transport, ACT)
@@ -71,39 +76,42 @@ $$ C_{\phi, \theta}(\mu, \nu) \stackrel{\text{def}}{=} \frac{1}{2} C_{\phi, \the
 ACT的目标就是把理论CT中那个需要积分、需要知道完整分布的复杂计算，变成只需要用一小批（mini-batch）样本就能简单计算的步骤。
 ### **1. 问题的根源：连续分布 vs. 离散样本**
 我们再看一下前向导航器的公式：
-$$ \pi_\phi(y|x) = \frac{e^{-d_\phi(x, y)} p_\theta(y)}{\int e^{-d_\phi(x, y')} p_\theta(y') dy'} $$
-这个公式是为**continuous**的概率分布 $p_\theta(y)$ 设计的。但在实际的深度学习训练中，我们没有连续的分布，我们只有从生成器 $G_\theta$ 中采样出来的一批**discrete**的样本。
-比如，在一个训练步骤中，我们从真实数据集中随机抽取了 $N$ 个样本，组成一个小批量 $\{x_1, x_2, ..., x_N\}$。同时，我们也让生成器生成了 $M$ 个假样本，组成一个小批量 $\{y_1, y_2, ..., y_M\}$。
-我们能做的，就是用这些离散的样本点来**近似**代替完整的连续分布。
+$$ \pi_\phi(y\mid x) = \frac{e^{-d_\phi(x, y)} p_\theta(y)}{\int e^{-d_\phi(x, y')} p_\theta(y') dy'} $$
+
+这个公式是为**continuous**的概率分布 $p_\theta(y)$ 设计的。但在实际的深度学习训练中，我们没有连续的分布，我们只有从生成器 $G_\theta$ 中采样出来的一批**discrete**的样本。比如，在一个训练步骤中，我们从真实数据集中随机抽取了 $N$ 个样本，组成一个小批量 $\{x_1, x_2, ..., x_N\}$。同时，我们也让生成器生成了 $M$ 个假样本，组成一个小批量 $\{y_1, y_2, ..., y_M\}$。我们能做的，就是用这些离散的样本点来**近似**代替完整的连续分布。
+
 ### **2. ACT的解决方案：用样本“投票”**
 
 ACT的做法非常intuitive：
 
-*   用真实样本 $\{x_i\}_{i=1}^N$ 组成的**经验分布 $\hat{\mu}_N$** 来近似真实的 $p_x(x)$。
-*   用生成样本 $\{y_j\}_{j=1}^M$ 组成的**经验分布 $\hat{\nu}_M$** 来近似生成的 $p_\theta(y)$。
+*   用真实样本 $$\{x_i\}_{i=1}^N$$ 组成的**经验分布 $\hat{\mu}_N$** 来近似真实的 $p_x(x)$。
+*   用生成样本 $$\{y_j\}_{j=1}^M$$ 组成的**经验分布 $$\hat{\nu}_M$$** 来近似生成的 $p_\theta(y)$。
 
 一个经验分布是什么样的？可以想象，在每个样本点的位置上，我们放上一个权重为 $1/N$（或 $1/M$）的“沙粒”，其他地方都是空的。
 
 现在，我们把连续的 $p_\theta(y)$ 换成离散的 $\{y_j\}_{j=1}^M$。原来那个需要积分的导航器公式，就变成了一个简单的、基于样本的“投票”公式。
 
 **离散的前向导航器**
-$$ \hat{\pi}_M(y_j|x, \phi) \stackrel{\text{def}}{=} \frac{e^{-d_\phi(x, y_j)}}{\sum_{l=1}^M e^{-d_\phi(x, y_l)}} $$
+$$ \hat{\pi}_M(y_j\mid x, \phi) \stackrel{\text{def}}{=} \frac{e^{-d_\phi(x, y_j)}}{\sum_{l=1}^M e^{-d_\phi(x, y_l)}} $$
 
 让我们来解析这个**ACT的核心公式**：
-*   $\hat{\pi}_M(y_j|x, \phi)$：给定一个真实点 $x$，它被传输到**某一个特定的生成样本 $y_j$** 的概率。
+*   $\hat{\pi}_M(y_j\mid x, \phi)$：给定一个真实点 $x$，它被传输到**某一个特定的生成样本 $y_j$** 的概率。
 *   $e^{-d_\phi(x, y_j)}$：分子是 $x$ 和 $y_j$ 之间的“吸引力”分数。
 *   $\sum_{l=1}^M e^{-d_\phi(x, y_l)}$：分母是 $x$ 对**当前批次中所有**生成样本 $\{y_1, ..., y_M\}$ 的“吸引力”分数总和。
 
 So this formula means that给定一个真实点 $x$，它会以一个概率被运送到生成样本 $y_j$。这个概率的大小，取决于 $y_j$ 相对于批次中所有其他生成样本，离 $x$ 有多“近”。这本质上就是一个 **Softmax** 函数。它在所有可用的目标点 $\{y_l\}$ 上进行了一次加权选择。
+
 有了这个离散的Navigator，前向ACT成本的计算也变得非常简单：
 **前向ACT的点对批次成本**
-$$ C_{\phi, \theta}(x \to \hat{\nu}_M) \stackrel{\text{def}}{=} \sum_{j=1}^M c(x, y_j) \hat{\pi}_M(y_j|x, \phi) $$
-This formula means that从一个真实点 $x$ 出发，到当前这批生成样本 $\{y_j\}$ 的**期望运输成本**。它就是把去往每个 $y_j$ 的成本 $c(x, y_j)$ 乘以去往该点的概率 $\hat{\pi}_M(y_j|x, \phi)$，然后加起来。
+$$ C_{\phi, \theta}(x \to \hat{\nu}_M) \stackrel{\text{def}}{=} \sum_{j=1}^M c(x, y_j) \hat{\pi}_M(y_j\mid x, \phi) $$
+
+This formula means that从一个真实点 $x$ 出发，到当前这批生成样本 $\{y_j\}$ 的**期望运输成本**。它就是把去往每个 $y_j$ 的成本 $c(x, y_j)$ 乘以去往该点的概率 $\hat{\pi}_M(y_j\mid x, \phi)$，然后加起来。
+
 **后向ACT** 的公式也是完全对称的，是从一个生成点 $y$ 到当前这批真实样本 $\{x_i\}$ 的期望运输成本。
 
 ### **3. ACT的总成本与无偏估计量**
-我们定义了ACT问题：
-$$ \min_{\phi, \theta} \{ C_{\phi, \theta}(\mu, \nu, N, M) \}$$
+我们定义了ACT问题：$$ \min_{\phi, \theta} \{ C_{\phi, \theta}(\mu, \nu, N, M) \}$$
+
 现在我们有了计算一个点到一个批次成本的方法。那么，对于**一整个批次**的真实数据和生成数据，总的ACT成本怎么算呢？
 
 **总ACT成本的定义**
@@ -115,14 +123,14 @@ $$ C_{\phi, \theta}(\mu, \nu, N, M) = \frac{1}{2} \mathbb{E}_{y_{1:M}}[C_{\phi, 
 
 这就是论文中最重要的实践公式之一：
 **ACT成本的无偏估计量**
-$$ \mathcal{L}_{\phi, \theta}(x_{1:N}, y_{1:M}) = \sum_{i=1}^N \sum_{j=1}^M c(x_i, y_j) \times (\frac{1}{2N}\hat{\pi}_M(y_j|x_i, \phi) + \frac{1}{2M}\hat{\pi}_N(x_i|y_j, \phi)) $$
+$$ \mathcal{L}_{\phi, \theta}(x_{1:N}, y_{1:M}) = \sum_{i=1}^N \sum_{j=1}^M c(x_i, y_j) \times (\frac{1}{2N}\hat{\pi}_M(y_j\mid x_i, \phi) + \frac{1}{2M}\hat{\pi}_N(x_i\mid y_j, \phi)) $$
 
 这个公式就是我们**最终在代码里计算损失函数 (Loss Function) 的依据**。让我们拆解它：
 
 *   $\sum_{i=1}^N \sum_{j=1}^M$：这是一个双重循环，遍历了当前批次中**每一对**真实样本 $x_i$ 和生成样本 $y_j$。
 *   $c(x_i, y_j)$：计算这对样本之间的点对点运输成本。
-*   $\frac{1}{2N}\hat{\pi}_M(y_j|x_i, \phi)$：这是**前向部分**。对于给定的 $x_i$，我们计算它被运到 $y_j$ 的概率，然后除以 $N$ (在所有真实样本上平均) 和 2 (前向后向各占一半)。
-*   $\frac{1}{2M}\hat{\pi}_N(x_i|y_j, \phi)$：这是**后向部分**。对于给定的 $y_j$，我们计算它被运到 $x_i$ 的概率，然后除以 $M$ (在所有生成样本上平均) 和 2。
+*   $\frac{1}{2N}\hat{\pi}_M(y_j\mid x_i, \phi)$：这是**前向部分**。对于给定的 $x_i$，我们计算它被运到 $y_j$ 的概率，然后除以 $N$ (在所有真实样本上平均) 和 2 (前向后向各占一半)。
+*   $\frac{1}{2M}\hat{\pi}_N(x_i\mid y_j, \phi)$：这是**后向部分**。对于给定的 $y_j$，我们计算它被运到 $x_i$ 的概率，然后除以 $M$ (在所有生成样本上平均) 和 2。
 
 **这个公式的优势在于**：
 1.  **完全可计算**：它只涉及当前小批量中的样本，没有任何积分或未知的分布。
@@ -132,22 +140,27 @@ $$ \mathcal{L}_{\phi, \theta}(x_{1:N}, y_{1:M}) = \sum_{i=1}^N \sum_{j=1}^M c(x_
 ### **4. 引入“评判家”(Critic)来提升效果**
 
 到目前为止，我们假设点对点成本 $c(x, y)$ 和导航器距离 $d_\phi(x, y)$ 是直接在原始数据（比如图像的像素）上计算的。但论文作者指出，对于高维数据（如图像），像素级别的距离往往不能反映我们人眼感知的“语义”距离。一张“猫”的图片和一张“狗”的图片，在像素上可能差异巨大，也可能很小，这不靠谱。
+
 因此，论文引入了一个**评判家 (Critic) $T_\eta(\cdot)$**，这是一个由参数 $\eta$ 控制的深度神经网络。它的作用是：
+
 *   **提取特征**：把原始的高维数据 $x$（比如一张 64x64x3 的图片）映射到一个低维的、更有意义的**特征空间 (feature space)** 中去，得到特征向量 $T_\eta(x)$。
 *   **让距离计算更合理**：我们不再直接比较 $x$ 和 $y$，而是比较它们的特征向量 $T_\eta(x)$ 和 $T_\eta(y)$。
 **基于评判家的成本函数**
 $$c_\eta(x, y) = 1 - \cos(T_\eta(x), T_\eta(y))$$
 这里使用了**余弦相异性 (cosine dissimilarity)** 来计算成本。两个特征向量的方向越接近，余弦相似度越接近1，成本 $c_\eta$ 就越接近0。
 
-同样，导航器中的距离 $d$ 也在特征空间中计算：$ d_{\phi, \eta}(x, y) = d_\phi(\frac{T_\eta(x)}{\|T_\eta(x)\|}, \frac{T_\eta(y)}{\|T_\eta(y)\|}). $
+同样，导航器中的距离 $d$ 也在特征空间中计算：$ d_{\phi, \eta}(x, y) = d_\phi(\frac{T_\eta(x)}{\\mid T_\eta(x)\\mid }, \frac{T_\eta(y)}{\\mid T_\eta(y)\\mid }). $
 
 **对抗性训练 (Adversarial Training)**
+
 现在我们有三个玩家了：
 
 *   **生成器 $G_\theta$** 和 **导航器 $\pi_\phi$**：它们是一伙的，目标是生成好的样本并规划好路径，来**最小化**最终的ACT成本 $\mathcal{L}$。
 *   **评判家 $T_\eta$**：它是**对抗方**，目标是调整特征空间，**最大化**ACT成本 $\mathcal{L}$。它会努力地把真实样本的特征和生成样本的特征在特征空间中推得尽可能远，从而让成本变高。
-总之，给定训练数据 $\mathcal{X}$，为了训练生成器 $G_\theta$、前向导航器 $\pi_\phi(y|x)$、后向导航器 $\pi_\phi(x|y)$ 和评判家 $T_\eta$，我们建议解决一个最小-最大问题：
+
+总之，给定训练数据 $\mathcal{X}$，为了训练生成器 $G_\theta$、前向导航器 $\pi_\phi(y\mid x)$、后向导航器 $\pi_\phi(x\mid y)$ 和评判家 $T_\eta$，我们建议解决一个最小-最大问题：
 $$ \min_{\phi, \theta} \max_\eta \mathbb{E}_{x_{1:N} \stackrel{\text{iid}}{\sim} \mathcal{X}, \epsilon_{1:M} \stackrel{\text{iid}}{\sim} p(\epsilon)} [\mathcal{L}_{\phi, \theta, \eta}(x_{1:N}, \{G_\theta(\epsilon_j)\}_{j=1}^M)]$$
+
 这种min-max博弈使得评判家学会了如何最有效地分辨真假样本的特征，从而为生成器和导航器提供了更强大、更有意义的梯度信号。
 
 论文证明，**即使这个评判家 $T_\eta$ 训练得不那么完美，ACT成本的梯度仍然是无偏的**。这解决了训练WGAN时的一个核心痛点，即必须把评判家训练得非常好（接近最优），否则生成器的梯度就会不准。ACT则没有这个烦恼，大大增强了训练的稳定性和鲁棒性。

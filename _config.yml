@@ -17,6 +17,11 @@ baseurl: "" # the subpath of your site, e.g. /blog
 
 # Build settings
 markdown: kramdown
+kramdown:
+  math_engine: null
+  parse_block_html: true
+  parse_span_html: true
+  hard_wrap: false
 plugins:
   - jekyll-email-protect
 
