@@ -3,9 +3,9 @@ secondary_name: ""
 navbar_name: "Zhen Yang"
 
 positions:
-- name: Title or Position
-- name: Affiliation Name
-  logo: /assets/images/badges/MIT_Social_circle.png  # Logo is optional
+- name: Bachelor of Science in Computer Science and Technology
+- name: Sun Yat-sen University
+  logo: /assets/images/badges/SYSU_green.png  # Logo is optional
 
 
 email: "yangzh273@mail2.sysu.edu.cn"
