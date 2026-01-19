@@ -23,7 +23,7 @@ tags:
 
 2.  **绘画大师 (视频生成模型)**：使用一个现成的、强大的视频生成模型。这个模型非常擅长“画画”，能根据文字描述生成精美的画面，但它不懂物理。
 
-![image-20260119204019963](D:\michaelyeung2004.github.io\assets\images\photos\image-20260119204019963.png)
+![image-20260119204019963](https://michaelyeung2004.github.io\assets\images\photos\image-20260119204019963.png)
 
 NewtonGen工作过程分为两个阶段：
 
