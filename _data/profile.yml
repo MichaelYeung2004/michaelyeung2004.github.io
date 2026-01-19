@@ -58,3 +58,11 @@ experience:
 awards:
 - name: Provincial First Prize in the China Mathematical Olympiad (CMO) Preliminary Round
   date: 2021
+
+advisors:
+- name: 教授姓名
+  affiliation: 所属机构
+  url: https://professor-homepage.com  # 可选：教授主页链接
+  logo: /assets/images/badges/institution_logo.png  # 可选：机构 logo
+  position: Research Advisor / Ph.D. Advisor  # 职位描述
+  date: 时间段

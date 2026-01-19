@@ -67,6 +67,39 @@
                     </div>
                     {% endif %}
 
+                    {% if site.data.profile.advisors %}
+                    <div class="col-lg-6">
+                        <div class="mx-2 my-1">
+                            <h6>Academic Advisors</h6>
+                            <ul class="list-unstyled mb-1">
+                                {% for item in site.data.profile.advisors %}
+                                <li class="media mb-1">
+                                    {% if item.logo %}
+                                    <img src="{{ item.logo | relative_url }}" alt="{{ item.affiliation }}" style="width: 18px;" class="mr-1 mt-1">
+                                    {% endif %}
+                                    <div class="media-body">
+                                        <div>
+                                            {% if item.url %}
+                                            <a href="{{ item.url }}" target="_blank">{{ item.name }}</a>
+                                            {% else %}
+                                            {{ item.name }}
+                                            {% endif %}
+                                        </div>
+                                        <div class="small">{{ item.affiliation }}</div>
+                                        <div class="small d-flex">
+                                            <div>{{ item.position }}</div>
+                                            {% if item.date %}
+                                            <div class="mt-auto ml-auto no-break"><em>{{ item.date }}</em></div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    {% endif %}
+
                 </div>
 
             </div>
