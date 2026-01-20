@@ -230,9 +230,6 @@ $$ \min_{\phi, \theta} \max_\eta \mathbb{E}_{x_{1:N} \stackrel{\text{iid}}{\sim}
     *   **FID (Fréchet Inception Distance)**：目前最主流的GAN评价指标，分数**越低越好**，代表生成图像的质量和多样性都与真实图像更接近。
     *   **IS (Inception Score)**：一个较早的指标，分数**越高越好**，主要衡量生成图像的清晰度和多样性。
 *   **核心发现**：
-    ![image-20260120160146094](D:\michaelyeung2004.github.io\assets\images\photos\image-20260120160146094.png)
-    *   **一致的提升**：将原始的DCGAN和SNGAN的损失函数换成ACT后，得到的ACT-DCGAN和ACT-SNGAN在所有数据集上的**FID分数都显著降低**（性能提升）。
-    *   **达到顶尖水平**：特别是在SNGAN这种强大的基线上，ACT-SNGAN的性能达到了与当时顶尖模型（SOTA）相媲美的水平。
-    *   **即插即用**：这证明了ACT是一个**兼容性很强、即插即用**的模块。它不需要对原有的复杂网络结构做大改动，只需要替换掉衡量分布差异的“尺子”（损失函数），就能带来性能提升。
+    ![image-20260120160146094](https://michaelyeung2004.github.io/assets/images/photos/image-20260120160146094.png)
 
 ![image-20260120155824190](https://michaelyeung2004.github.io/assets/images/photos/image-20260120155824190.png)
