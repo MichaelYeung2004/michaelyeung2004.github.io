@@ -8,6 +8,8 @@ tags:
   - paper
 ---
 
+NewtonGen: Physics-Consistent and Controllable Text-to-Video Generation via Neural Newtonian Dynamics
+
 ## Background
 
 当今AI视频生成技术遇到了两个问题：
