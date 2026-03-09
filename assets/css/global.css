@@ -271,6 +271,12 @@ pre code {
     white-space: nowrap;
 }
 
+/* Let flex item shrink so position/award text can wrap instead of being cut off */
+.experience-card-desc {
+    min-width: 0;
+    flex: 1 1 auto;
+}
+
 .cover-image {
     width: 180px;
     max-height: 120px;
