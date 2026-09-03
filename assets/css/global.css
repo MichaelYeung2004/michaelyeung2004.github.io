@@ -277,6 +277,46 @@ pre code {
     flex: 1 1 auto;
 }
 
+.experience-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+        "education"
+        "experience"
+        "awards";
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.experience-grid-section {
+    min-width: 0;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.experience-grid-education {
+    grid-area: education;
+}
+
+.experience-grid-experience {
+    grid-area: experience;
+}
+
+.experience-grid-awards {
+    grid-area: awards;
+}
+
+@media (min-width: 992px) {
+    .experience-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: auto 1fr;
+        grid-template-areas:
+            "education experience"
+            "awards experience";
+        row-gap: 1rem;
+    }
+}
+
 .cover-image {
     width: 180px;
     max-height: 120px;
