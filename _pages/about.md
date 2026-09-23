@@ -22,7 +22,7 @@ I am Zhen Yang (杨振), an undergraduate student in Computer Science and Techno
 
 # 📝 Publications
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">arXiv 2026</div><img src='/assets/VPT_motion_tune_method_optimized.png' alt="Overview of the VPT method" width="630" height="420" loading="lazy" decoding="async"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">arXiv 2026</div><img src='/assets/VPT_motion_tune_method_optimized.png' data-full-src='/assets/VPT_motion_tune_method.png' class='progressive-image' alt="Overview of the VPT method" width="630" height="420" decoding="async"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [Enhancing Video Physical Consistency via Role-aware Joint Training and Modality-decoupled Denoising](https://arxiv.org/abs/2607.04653)
