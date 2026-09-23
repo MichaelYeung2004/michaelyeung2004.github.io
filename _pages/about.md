@@ -16,16 +16,21 @@ I am currently looking for PhD opportunities for Fall 2027. Please feel free to 
 
 # 📝 Publications
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">arXiv 2026</div><img src='/assets/VPT_motion_tune_method.png' alt="Overview of the VPT method" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><img src='/assets/VPT_motion_tune_method.png' alt="Overview of the VPT method"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [Enhancing Video Physical Consistency via Role-aware Joint Training and Modality-decoupled Denoising](https://arxiv.org/abs/2607.04653)
 
 Guangting Zheng\*, Haojing Chen\*, Hao Li, Jingtao Zhang, **Zhen Yang**, Xiaosong Jia, Xue Yang, Shaofeng Zhang†, Yanyong Zhang†
 
-[[arXiv]](https://arxiv.org/abs/2607.04653) [[PDF]](https://arxiv.org/pdf/2607.04653) [[Project]](https://tom-zgt.github.io/VPT/) [[Code]](https://github.com/Tom-zgt/VPT)
+<div class="publication-meta"><span class="publication-venue publication-venue--preprint">Preprint</span><span class="publication-year">2026</span></div>
 
-- VPT improves long-range physical consistency in video diffusion models through role-aware supervision, modality-decoupled denoising, loss-weight decay, and cross-step auto-guidance.
+<div class="publication-links">
+  <a class="publication-link publication-link--arxiv" href="https://arxiv.org/abs/2607.04653"><span class="publication-link__icon"><i class="ai ai-arxiv" aria-hidden="true"></i></span><span>arXiv</span></a>
+  <a class="publication-link publication-link--pdf" href="https://arxiv.org/pdf/2607.04653"><span class="publication-link__icon"><i class="fas fa-file-pdf" aria-hidden="true"></i></span><span>PDF</span></a>
+  <a class="publication-link publication-link--project" href="https://tom-zgt.github.io/VPT/"><span class="publication-link__icon"><i class="fas fa-globe" aria-hidden="true"></i></span><span>Project</span></a>
+  <a class="publication-link publication-link--code" href="https://github.com/Tom-zgt/VPT"><span class="publication-link__icon"><i class="fas fa-code" aria-hidden="true"></i></span><span>Code</span></a>
+</div>
 
 </div>
 </div>
@@ -36,8 +41,8 @@ Guangting Zheng\*, Haojing Chen\*, Hao Li, Jingtao Zhang, **Zhen Yang**, Xiaoson
 
 # 📖 Educations
 
-- *Sep. 2023 - Jun. 2027*, Bachelor of Science in Computer Science and Technology, Sun Yat-sen University.
-- *Sep. 2027 - Jun. 2030*, Master of Engineering in Computer Technology, Institute of Computing Technology, Chinese Academy of Sciences.
+- *Sep. 2023 - Jun. 2027*, Bachelor in Computer Science and Technology, Sun Yat-sen University.
+- *Sep. 2027 - Jun. 2030*, Master in Computer Technology, Institute of Computing Technology, Chinese Academy of Sciences.
 
 # 💻 Research Experience
 
