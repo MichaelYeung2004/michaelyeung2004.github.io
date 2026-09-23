@@ -1,5 +1,5 @@
 title                    : "Zhen Yang (杨振)"
-description              : "Research interests: Mathematics, Deep Learning Theory, Computer Vision, Video Generation, Multimodal Large Language Models, and Medical Imaging."
+description              : "Cease to struggle and you cease to live."
 repository               : "MichaelYeung2004/michaelyeung2004.github.io"
 google_scholar_stats_use_cdn : true
 
@@ -14,8 +14,8 @@ baidu_site_verification  :
 author:
   name             : "Zhen Yang (杨振)"
   avatar           : "assets/images/photos/yangzhen.png"
-  bio              : "Sun Yat-sen University"
-  location         : "Guangzhou, China"
+  bio              : "Institute of Computing Technology, Chinese Academy of Sciences"
+  location         : "Beijing, China"
   employer         :
   pubmed           :
   googlescholar    : "https://scholar.google.com/citations?user=tHhfOMoAAAAJ&hl=en"
@@ -34,7 +34,7 @@ author:
   instagram        :
   impactstory      :
   lastfm           :
-  linkedin         :
+  linkedin         : "zhen-yang-034192314"
   dblp             :
   orcid            :
   pinterest        :
