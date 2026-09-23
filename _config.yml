@@ -1,65 +1,145 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+title                    : "Zhen Yang (杨振)"
+description              : "Research interests: Mathematics, Deep Learning Theory, Computer Vision, Video Generation, Multimodal Large Language Models, and Medical Imaging."
+repository               : "MichaelYeung2004/michaelyeung2004.github.io"
+google_scholar_stats_use_cdn : true
 
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-title: "Zhen Yang (杨振) - Homepage"
-description: "Zhen Yang is an undergraduate researcher at Sun Yat-sen University working on deep learning theory, computer vision, video generation, multimodal models, and medical imaging."
-repository: "MichaelYeung2004/michaelyeung2004.github.io"
-baseurl: ""
-url: "https://michaelyeung2004.github.io"
+url                      : "https://michaelyeung2004.github.io"
+baseurl                  : ""
+
+google_analytics_id      :
+google_site_verification :
+bing_site_verification   :
+baidu_site_verification  :
 
 author:
-  name: "Zhen Yang (杨振)"
-  avatar: "/assets/images/photos/yangzhen.png"
-  bio: "B.S. student in Computer Science and Technology"
-  location: "Guangzhou, China"
-  employer: "Sun Yat-sen University"
-  email: "yangzh273@mail2.sysu.edu.cn"
-  github: "MichaelYeung2004"
-  googlescholar: "https://scholar.google.com/citations?user=tHhfOMoAAAAJ&hl=en"
-  twitter: "AliceDeRoss2"
+  name             : "Zhen Yang (杨振)"
+  avatar           : "assets/images/photos/yangzhen.png"
+  bio              : "Sun Yat-sen University"
+  location         : "Guangzhou, China"
+  employer         :
+  pubmed           :
+  googlescholar    : "https://scholar.google.com/citations?user=tHhfOMoAAAAJ&hl=en"
+  email            : "yangzh273@mail2.sysu.edu.cn"
+  researchgate     :
+  uri              :
+  bitbucket        :
+  codepen          :
+  dribbble         :
+  flickr           :
+  facebook         :
+  foursquare       :
+  github           : "MichaelYeung2004"
+  google_plus      :
+  keybase          :
+  instagram        :
+  impactstory      :
+  lastfm           :
+  linkedin         :
+  dblp             :
+  orcid            :
+  pinterest        :
+  soundcloud       :
+  stackoverflow    :
+  steam            :
+  tumblr           :
+  twitter          : "AliceDeRoss2"
+  vine             :
+  weibo            :
+  xing             :
+  youtube          :
+  wikipedia        :
 
-# Build settings
+include:
+  - .htaccess
+  - _pages
+  - files
+exclude:
+  - docs
+  - google_scholar_crawler
+  - _blogs
+  - _news
+  - _publications
+  - _showcase
+  - blogs.html
+  - index_layout2.html
+  - publications.html
+  - showcase.html
+  - test.md
+  - "*.sublime-project"
+  - "*.sublime-workspace"
+  - .asset-cache
+  - .bundle
+  - .jekyll-assets-cache
+  - .sass-cache
+  - .github
+  - CHANGELOG
+  - Capfile
+  - Gemfile
+  - Gruntfile.js
+  - LICENSE
+  - README
+  - Rakefile
+  - assets/js/_main.js
+  - assets/js/plugins
+  - assets/js/vendor
+  - config
+  - gulpfile.js
+  - log
+  - node_modules
+  - package.json
+  - tmp
+  - vendor
+keep_files:
+  - .git
+  - .svn
+encoding: "utf-8"
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+
 markdown: kramdown
+highlighter: rouge
+lsi: false
+excerpt_separator: "\n\n"
+incremental: false
+
 kramdown:
-  math_engine: null
-  parse_block_html: true
-  parse_span_html: true
+  input: GFM
   hard_wrap: false
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  enable_coderay: false
+
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: default
+      author_profile: true
+
+sass:
+  sass_dir: _sass
+  style: compressed
+
+permalink: /:categories/:title/
+timezone: Asia/Shanghai
+
 plugins:
-  - jekyll-email-protect
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jekyll-redirect-from
+whitelist:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jemoji
 
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
-
-# timezone: Asia/Shanghai
-
-collections:
-  publications:
-    output: false
-  blogs:
-    output: false
-  news:
-    output: false
-  showcase:
-    output: false
+compress_html:
+  clippings: all
+  ignore:
+    envs: development

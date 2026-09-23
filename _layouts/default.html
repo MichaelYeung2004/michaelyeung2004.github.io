@@ -1,64 +1,33 @@
+---
+layout: compress
+---
+
 <!doctype html>
 <html lang="en" class="no-js">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="{{ site.description | strip_html | escape }}">
-    <meta name="theme-color" content="#ffffff">
-    <title>{% if page.title and page.title != "" %}{{ page.title }} | {% endif %}{{ site.title }}</title>
-    <link rel="canonical" href="{{ page.url | absolute_url }}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ '/assets/css/acad-homepage.css' | relative_url }}">
+    {% include head.html %}
+    {% include head/custom.html %}
   </head>
+
   <body>
-    <header class="masthead">
-      <div class="masthead__inner">
-        <a class="site-title" href="{{ '/' | relative_url }}">{{ site.author.name }}</a>
-        <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-        <nav class="site-nav" aria-label="Primary navigation">
-          <a href="{{ '/' | relative_url }}#about-me">About Me</a>
-          <a href="{{ '/' | relative_url }}#publications">Publications</a>
-          <a href="{{ '/' | relative_url }}#awards">Awards</a>
-          <a href="{{ '/' | relative_url }}#education">Education</a>
-          <a href="{{ '/' | relative_url }}#experience">Experience</a>
-        </nav>
-      </div>
-    </header>
 
-    <main class="page-shell">
-      <aside class="sidebar" aria-label="Profile">
-        <img class="profile-avatar" src="{{ site.author.avatar | relative_url }}" alt="Portrait of {{ site.author.name }}">
-        <h1>{{ site.author.name }}</h1>
-        <p class="profile-bio">{{ site.author.bio }}</p>
-        <ul class="profile-links">
-          {% if site.author.location %}<li><span aria-hidden="true">📍</span>{{ site.author.location }}</li>{% endif %}
-          {% if site.author.employer %}<li><span aria-hidden="true">🏛️</span>{{ site.author.employer }}</li>{% endif %}
-          {% if site.author.email %}<li><span aria-hidden="true">✉️</span><a href="mailto:{{ site.author.email }}">Email</a></li>{% endif %}
-          {% if site.author.github %}<li><span aria-hidden="true">⌘</span><a href="https://github.com/{{ site.author.github }}">GitHub</a></li>{% endif %}
-          {% if site.author.googlescholar %}<li><span aria-hidden="true">🎓</span><a href="{{ site.author.googlescholar }}">Google Scholar</a></li>{% endif %}
-          {% if site.author.twitter %}<li><span aria-hidden="true">𝕏</span><a href="https://x.com/{{ site.author.twitter }}">X / Twitter</a></li>{% endif %}
-        </ul>
-      </aside>
+    {% include browser-upgrade.html %}
+    {% include masthead.html %}
 
-      <article class="page-content">
-        {{ content }}
+    <div id="main" role="main">
+      {% include sidebar.html %}
+
+      <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+        {% if page.title %}<meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
+        <div class="page__inner-wrap">
+          <section class="page__content" itemprop="text">
+            {{ content }}
+          </section>
+        </div>
       </article>
-    </main>
+    </div>
 
-    <script>
-      const toggle = document.querySelector('.nav-toggle');
-      const nav = document.querySelector('.site-nav');
-      toggle.addEventListener('click', () => {
-        const open = toggle.getAttribute('aria-expanded') === 'true';
-        toggle.setAttribute('aria-expanded', String(!open));
-        nav.classList.toggle('is-open');
-      });
-      nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
-        nav.classList.remove('is-open');
-        toggle.setAttribute('aria-expanded', 'false');
-      }));
-    </script>
+    {% include scripts.html %}
+
   </body>
 </html>
