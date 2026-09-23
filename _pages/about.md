@@ -10,9 +10,7 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-I am Zhen Yang (杨振), an undergraduate student at Sun Yat-sen University, majoring in Computer Science and Technology. My research interests primarily focus on Mathematics, Deep Learning Theory, Computer Vision, Video Generation, Multimodal Large Language Models, and Medical Imaging.
-
-I am currently looking for PhD opportunities for Fall 2027. Please feel free to contact me if our research interests overlap.
+I am Zhen Yang (杨振), an undergraduate student in Computer Science and Technology at Sun Yat-sen University. I will be a master's student at the [Vision Information Processing and Learning (VIPL) Laboratory](https://vipl.ict.ac.cn/), Institute of Computing Technology, Chinese Academy of Sciences, starting in 2027, advised by Prof. [Ruiping Wang](https://vipl.ict.ac.cn/people/rpwang/). My research interests lie in 3D Computer Vision and Multimodal Large Language Models.
 
 # 📝 Publications
 
