@@ -13,8 +13,22 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-baseurl: "" # the subpath of your site, e.g. /blog
+title: "Zhen Yang (杨振) - Homepage"
+description: "Zhen Yang is an undergraduate researcher at Sun Yat-sen University working on deep learning theory, computer vision, video generation, multimodal models, and medical imaging."
+repository: "MichaelYeung2004/michaelyeung2004.github.io"
+baseurl: ""
 url: "https://michaelyeung2004.github.io"
+
+author:
+  name: "Zhen Yang (杨振)"
+  avatar: "/assets/images/photos/yangzhen.png"
+  bio: "B.S. student in Computer Science and Technology"
+  location: "Guangzhou, China"
+  employer: "Sun Yat-sen University"
+  email: "yangzh273@mail2.sysu.edu.cn"
+  github: "MichaelYeung2004"
+  googlescholar: "https://scholar.google.com/citations?user=tHhfOMoAAAAJ&hl=en"
+  twitter: "AliceDeRoss2"
 
 # Build settings
 markdown: kramdown
@@ -42,9 +56,10 @@ plugins:
 
 collections:
   publications:
-    output: true
+    output: false
   blogs:
-    output: true
-    permalink: /posts/:year/:month/:title/
+    output: false
   news:
+    output: false
   showcase:
+    output: false
