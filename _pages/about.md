@@ -16,7 +16,7 @@ I am currently looking for PhD opportunities for Fall 2027. Please feel free to 
 
 # 📝 Publications
 
-<div class='paper-box'><div class='paper-box-image'><div><img src='/assets/VPT_motion_tune_method.png' alt="Overview of the VPT method"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">arXiv 2026</div><img src='/assets/VPT_motion_tune_method.png' alt="Overview of the VPT method"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [Enhancing Video Physical Consistency via Role-aware Joint Training and Modality-decoupled Denoising](https://arxiv.org/abs/2607.04653)

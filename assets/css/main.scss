@@ -57,6 +57,7 @@
         order: 1;
         margin-bottom: 1.25em;
         > div {
+            position: relative;
             width: 100%;
             max-width: 280px;
         }
@@ -107,15 +108,16 @@
 .publication-meta {
     display: flex;
     align-items: center;
-    gap: 0.55em;
-    margin: 0.75em 0;
+    gap: 0.45em;
+    margin: 0.55em 0;
+    font-size: 0.88em;
 }
 
 .publication-venue {
     display: inline-flex;
     align-items: center;
-    min-height: 2em;
-    padding: 0.18em 0.8em;
+    min-height: 1.8em;
+    padding: 0.1em 0.65em;
     border: 1px solid;
     border-radius: 999px;
     font-weight: 700;
@@ -142,26 +144,27 @@
 
 .publication-year {
     color: #718096;
-    font-size: 1.15em;
+    font-size: 0.95em;
 }
 
 .publication-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.55em;
-    margin-top: 0.85em;
+    gap: 0.4em;
+    margin-top: 0.65em;
+    font-size: 0.82em;
 }
 
 .publication-link {
     display: inline-flex;
     align-items: center;
-    gap: 0.45em;
-    padding: 0.28em 0.65em 0.28em 0.35em;
+    gap: 0.35em;
+    padding: 0.2em 0.5em 0.2em 0.28em;
     color: #263238 !important;
     background: #fff;
     border: 1px solid #d9dee3;
-    border-radius: 9px;
-    font-weight: 700;
+    border-radius: 7px;
+    font-weight: 600;
     line-height: 1.2;
     text-decoration: none !important;
     box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
@@ -177,9 +180,9 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 1.8em;
-    height: 1.8em;
-    border-radius: 7px;
+    width: 1.6em;
+    height: 1.6em;
+    border-radius: 5px;
 }
 
 .publication-link--arxiv .publication-link__icon {
