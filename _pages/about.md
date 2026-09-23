@@ -47,8 +47,8 @@ Guangting Zheng\*, Haojing Chen\*, Hao Li, Jingtao Zhang, **Zhen Yang**, Xiaoson
 
 # 📖 Educations
 
-- *Sep. 2023 - Jun. 2027*, Bachelor in Computer Science and Technology, Sun Yat-sen University.
 - *Sep. 2027 - Jun. 2030*, Master in Computer Technology, Institute of Computing Technology, Chinese Academy of Sciences.
+- *Sep. 2023 - Jun. 2027*, Bachelor in Computer Science and Technology, Sun Yat-sen University.
 
 # 💻 Research Experience
 
