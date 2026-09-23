@@ -230,6 +230,16 @@
     background: #e8f0e9;
 }
 
+/* Avoid a persistent click outline while preserving a clear keyboard focus. */
+a:focus {
+    outline: none;
+}
+
+a:focus-visible {
+    outline: 2px solid rgba(6, 69, 173, 0.45);
+    outline-offset: 2px;
+}
+
 $scroll_offset : 2em;
 h1:before, .anchor:before { 
     content: ''; 

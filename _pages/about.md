@@ -32,7 +32,7 @@ Guangting Zheng\*, Haojing Chen\*, Hao Li, Jingtao Zhang, **Zhen Yang**, Xiaoson
 <div class="publication-meta"><span class="publication-venue publication-venue--preprint">Preprint</span><span class="publication-year">2026</span></div>
 
 <div class="publication-links">
-  <a class="publication-link publication-link--arxiv" href="https://arxiv.org/abs/2607.04653"><span class="publication-link__icon"><i class="ai ai-arxiv" aria-hidden="true"></i></span><span>arXiv</span></a>
+  <a class="publication-link publication-link--arxiv" href="https://arxiv.org/abs/2607.04653"><span class="publication-link__icon"><i class="fas fa-file-alt" aria-hidden="true"></i></span><span>arXiv</span></a>
   <a class="publication-link publication-link--pdf" href="https://arxiv.org/pdf/2607.04653"><span class="publication-link__icon"><i class="fas fa-file-pdf" aria-hidden="true"></i></span><span>PDF</span></a>
   <a class="publication-link publication-link--project" href="https://tom-zgt.github.io/VPT/"><span class="publication-link__icon"><i class="fas fa-globe" aria-hidden="true"></i></span><span>Project</span></a>
   <a class="publication-link publication-link--code" href="https://github.com/Tom-zgt/VPT"><span class="publication-link__icon"><i class="fas fa-code" aria-hidden="true"></i></span><span>Code</span></a>
