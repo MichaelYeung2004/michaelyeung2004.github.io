@@ -59,7 +59,7 @@
         > div {
             position: relative;
             width: 100%;
-            max-width: 280px;
+            max-width: 260px;
         }
         img {
             display: block;
@@ -67,7 +67,7 @@
             height: auto;
             border: 1px solid #e5e7eb;
             border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
+            box-shadow: 0 7px 16px rgba(15, 23, 42, 0.22);
         }
     }
     
@@ -84,9 +84,9 @@
 
         .paper-box-image{
             justify-content: left;
-            flex: 0 0 230px;
-            min-width: 230px;
-            max-width: 230px;
+            flex: 0 0 210px;
+            min-width: 210px;
+            max-width: 210px;
             order: 1;
             margin-bottom: 0;
         }
