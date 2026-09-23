@@ -36,10 +36,10 @@ Guangting Zheng\*, Haojing Chen\*, Hao Li, Jingtao Zhang, **Zhen Yang**, Xiaoson
 
 # 📖 Educations
 
-- *Sep. 2023 - Present*, Bachelor of Science in Computer Science and Technology, Sun Yat-sen University.
+- *Sep. 2023 - Jun. 2027*, Bachelor of Science in Computer Science and Technology, Sun Yat-sen University.
+- *Sep. 2027 - Jun. 2030*, Master of Engineering in Computer Technology, Institute of Computing Technology, Chinese Academy of Sciences.
 
 # 💻 Research Experience
 
 - *Jan. 2026 - Present*, Research Intern at Stony Brook University, advised by [Chenyu You](https://chenyuyou.me/).
-- *Nov. 2025 - Present*, Research Intern at University of Science and Technology of China, advised by [Shaofeng Zhang](https://sherrylone.github.io/).
-- *Jun. 2025 - Present*, Research Intern at Sun Yat-sen University, advised by [Weibin Wu](https://sse.sysu.edu.cn/teacher/249).
+- *Nov. 2025 - May 2026*, Research Intern at University of Science and Technology of China, advised by [Shaofeng Zhang](https://sherrylone.github.io/).
