@@ -142,7 +142,7 @@
 
   @include breakpoint($large) {
     width: 122.5px;
-    margin-top: 14px;
+    margin: 14px auto 0;
 
     &::before,
     &::after {
