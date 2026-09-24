@@ -106,7 +106,7 @@
 .author__avatar-frame {
   position: relative;
   isolation: isolate;
-  width: 60px;
+  width: 75px;
   margin-top: 7px;
 
   &::before,
@@ -114,42 +114,42 @@
     content: "";
     position: absolute;
     z-index: 0;
-    top: -7.2px;
-    width: 23.2px;
-    height: 23.2px;
-    border: 2.4px solid #fff;
+    top: -9px;
+    width: 29px;
+    height: 29px;
+    border: 3px solid #fff;
     border-radius: 50%;
     background: radial-gradient(circle at 50% 54%, #efc2ad 0 35%, #a86f4c 38% 100%);
     box-shadow: 0 0 0 1px $border-color, 0 3px 8px rgba(49, 52, 54, 0.12);
   }
 
   &::before {
-    left: -2.4px;
+    left: -3px;
   }
 
   &::after {
-    right: -2.4px;
+    right: -3px;
   }
 
   img {
     position: relative;
     z-index: 1;
-    min-width: 60px;
+    min-width: 75px;
     background: #fff;
     border: 1.33px solid #ff79b0;
     box-shadow: 0 0 8px rgba(255, 121, 176, 0.34);
   }
 
   @include breakpoint($large) {
-    width: 140px;
+    width: 122.5px;
     margin-top: 14px;
 
     &::before,
     &::after {
-      top: -14.4px;
-      width: 49.6px;
-      height: 49.6px;
-      border-width: 4px;
+      top: -12.6px;
+      width: 43.4px;
+      height: 43.4px;
+      border-width: 3.5px;
       box-shadow: 0 0 0 1px $border-color, 0 5px 13px rgba(49, 52, 54, 0.14);
     }
 
