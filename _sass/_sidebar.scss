@@ -141,15 +141,15 @@
   }
 
   @include breakpoint($large) {
-    width: 122.5px;
+    width: 131.25px;
     margin: 14px auto 0;
 
     &::before,
     &::after {
-      top: -12.6px;
-      width: 43.4px;
-      height: 43.4px;
-      border-width: 3.5px;
+      top: -13.5px;
+      width: 46.5px;
+      height: 46.5px;
+      border-width: 3.75px;
       box-shadow: 0 0 0 1px $border-color, 0 5px 13px rgba(49, 52, 54, 0.14);
     }
 
