@@ -53,4 +53,4 @@ Guangting Zheng\*, Haojing Chen\*, Hao Li, Jingtao Zhang, **Zhen Yang**, Xiaoson
 # 💻 Research Experience
 
 - *Jan. 2026 - Present*, Research Intern at Stony Brook University, advised by [Chenyu You](https://chenyuyou.me/).
-- *Nov. 2025 - May 2026*, Research Intern at University of Science and Technology of China, advised by [Shaofeng Zhang](https://sherrylone.github.io/).
+- *Nov. 2025 - May. 2026*, Research Intern at University of Science and Technology of China, advised by [Shaofeng Zhang](https://sherrylone.github.io/).
