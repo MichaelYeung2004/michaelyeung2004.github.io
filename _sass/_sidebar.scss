@@ -134,8 +134,8 @@
     position: relative;
     z-index: 1;
     background: #fff;
-    border: 1.33px solid #dfff00;
-    box-shadow: 0 0 8px rgba(223, 255, 0, 0.34);
+    border: 1.33px solid #ff79b0;
+    box-shadow: 0 0 8px rgba(255, 121, 176, 0.34);
   }
 
   @include breakpoint($large) {
