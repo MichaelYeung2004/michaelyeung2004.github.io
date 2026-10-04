@@ -11,6 +11,11 @@
 .typora-reader #write h2 { font-size: 25px; }
 .typora-reader #write h3 { font-size: 21px; }
 .typora-reader #write h4 { font-size: 19px; }
+@media (min-width: 768px) {
+  .typora-reader #write h2 { font-size: 29px; }
+  .typora-reader #write h3 { font-size: 23px; }
+  .typora-reader #write h4 { font-size: 21px; }
+}
 .blog-toc-list a, .blog-toc-title { font-size: 16px; }
 .typora-reader #write > :last-child { margin-bottom: 0; }
 .typora-reader #write > .article-header { border: 0; padding: 0; margin: 0; }
