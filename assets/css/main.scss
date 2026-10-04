@@ -150,6 +150,60 @@ body.homepage {
     background-color: var(--site-background, #faf9f6);
 }
 
+@media (max-width: ($large - 1px)) {
+    .homepage .profile_box {
+        display: grid;
+        grid-template-columns: 110px minmax(0, 1fr);
+        align-items: center;
+        gap: 16px;
+    }
+    .homepage .author__avatar-frame {
+        display: block;
+        width: 110px;
+        margin-top: 14px;
+    }
+    .homepage .author__avatar-frame img {
+        display: block;
+        width: 110px;
+        min-width: 110px;
+    }
+    .homepage .author__avatar-frame::before,
+    .homepage .author__avatar-frame::after {
+        width: 40px;
+        height: 40px;
+        top: -12px;
+    }
+    .homepage .author__content {
+        display: block;
+        padding: 0;
+        min-width: 0;
+    }
+    .homepage .author__urls-wrapper {
+        display: block;
+        grid-column: 1 / -1;
+        width: 100%;
+        margin: 0;
+        cursor: default;
+    }
+    .homepage .author__urls_sm {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+        gap: 12px;
+        padding: 0;
+        font-size: 22px;
+    }
+    .homepage .author__urls_sm a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 32px;
+        min-height: 32px;
+        line-height: 1;
+    }
+}
+
 @include breakpoint($large) {
     .homepage #main > .sidebar {
         text-align: center;
