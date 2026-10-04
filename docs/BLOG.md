@@ -7,10 +7,10 @@ Blog 地址：`/blog/`。保留最初的浅色青绿色单栏布局，仅参考 
 1. 在 Typora 打开 `docs/blog-template.md`，另存为 `_posts/YYYY-MM-DD-english-slug.md`（没有 `_posts` 文件夹时先创建），例如 `_posts/2026-10-04-first-note.md`。
 2. 保留最上方两个 `---` 之间的信息，填写 `title`、`date`、`description` 和 `tags`。日期不要晚于实际发布时间；正文不必重复写文章标题。
 3. 在第二个 `---` 下面写 Markdown 正文。二级、三级标题会自动加入阅读目录。
-4. 图片放到 `assets/images/blog/`，正文写 `![图片说明](/assets/images/blog/example.png)`。不要使用本机磁盘路径。
+4. 图片放到 `_posts/assets/`，正文写 `![图片说明](assets/example.png)` 或 `![图片说明](/_posts/assets/example.png)`。相对路径会自动转换成网站路径，Typora 也能直接预览。不要使用本机磁盘路径。
 5. 提交并推送到 GitHub 后自动构建；文章默认地址为 `/blog/english-slug/`，列表按日期倒序。
 
-`tags: [研究笔记, 3D Vision]` 自动提供筛选；可添加 `categories: [研究]`，显示分类筛选。支持年份筛选；搜索匹配标题、摘要、正文、标签和分类，多个空格分隔的关键词需要全部匹配。每次显示 10 篇，可加载更多。`description` 是文章摘要；不写时使用第一段。
+`tags: [研究笔记, 3D Vision]` 自动提供筛选；可添加 `categories: [研究]`，显示分类筛选。支持年份筛选和标题/正文搜索范围。搜索结果先标题匹配、后正文匹配，同类按时间从新到旧排序；高亮关键词，标题匹配显示正文第一句话，正文匹配显示命中句。多个空格分隔的关键词需要全部在标题或全部在正文中匹配。每次显示 10 篇，可加载更多。`description` 是非搜索状态的摘要；不写时使用第一段。
 
 尚未接入全站浏览量统计。Argon 将浏览量写入 WordPress 后端；GitHub Pages 是静态站点，需要独立计数后端或第三方服务。没有使用 localStorage 伪造全站数据。
 

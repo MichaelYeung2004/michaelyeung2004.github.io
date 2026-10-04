@@ -21,4 +21,5 @@
 .typora-reader #write .md-task-list-item > input { appearance: auto; position: static; margin: 0 .5em 0 0; accent-color: var(--taskfocus-color); }
 .typora-reader #write .md-task-list-item > input::before { display: none; }
 .typora-reader #write :is(h2,h3,h4,h5,h6) { scroll-margin-top: 90px; }
+.typora-reader #write h2::before { margin-left: 0; font-size: 1em; vertical-align: baseline; }
 @media (prefers-reduced-motion: reduce) { .typora-reader #write h2::before, .typora-reader #write span { animation: none !important; } }

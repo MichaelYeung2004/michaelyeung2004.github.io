@@ -9,18 +9,73 @@
   var more = document.querySelector('.blog-load-more');
   var resultCount = document.querySelector('.blog-result-count');
   var visibleLimit = 10;
+  var scope = document.querySelector('[data-search-scope]');
+  var list = document.querySelector('.blog-post-list');
+  var segmenter = typeof Intl.Segmenter === 'function' ? new Intl.Segmenter('zh', { granularity: 'sentence' }) : null;
+  function sentences(text) {
+    return segmenter ? Array.from(segmenter.segment(text), function (item) { return item.segment.trim(); }).filter(Boolean) : (text.match(/[^。！？!?]+[。！？!?]?/g) || [text]);
+  }
+  function includesAll(text, terms) {
+    var lower = text.toLocaleLowerCase();
+    return terms.every(function (term) { return lower.indexOf(term) >= 0; });
+  }
+  function highlight(element, text, terms) {
+    element.replaceChildren();
+    var lower = text.toLocaleLowerCase();
+    var cursor = 0;
+    while (cursor < text.length) {
+      var start = text.length;
+      var length = 0;
+      terms.forEach(function (term) {
+        var position = lower.indexOf(term, cursor);
+        if (position >= 0 && (position < start || (position === start && term.length > length))) { start = position; length = term.length; }
+      });
+      element.appendChild(document.createTextNode(text.slice(cursor, start)));
+      if (!length) break;
+      var mark = document.createElement('mark');
+      mark.textContent = text.slice(start, start + length);
+      element.appendChild(mark);
+      cursor = start + length;
+    }
+  }
+  var entries = cards.map(function (card) {
+    var template = card.querySelector('.blog-search-body');
+    var body = template.content.cloneNode(true);
+    body.querySelectorAll('script,style').forEach(function (node) { node.remove(); });
+    var paragraphs = Array.from(body.querySelectorAll('p,pre,h2,h3,h4,li,td'), function (node) { return node.textContent.trim(); }).filter(Boolean);
+    var sentenceList = paragraphs.flatMap(sentences);
+    var firstParagraph = body.querySelector('p');
+    var title = card.querySelector('h2 a');
+    var excerpt = card.querySelector('.blog-excerpt');
+    return { card: card, titleElement: title, title: title.textContent, excerptElement: excerpt, excerpt: excerpt.textContent, body: body.textContent, sentences: sentenceList, first: sentences(firstParagraph ? firstParagraph.textContent : body.textContent)[0] || '', date: Date.parse(card.dataset.date) || 0, rank: 0 };
+  });
   function filterPosts() {
     var query = search ? search.value.trim().toLocaleLowerCase() : '';
     var terms = query.split(/\s+/).filter(Boolean);
     var shown = 0;
-    cards.forEach(function (card) {
+    var matched = [];
+    entries.forEach(function (entry) {
+      var card = entry.card;
       var tags = JSON.parse(card.dataset.tags || '[]');
       var categories = JSON.parse(card.dataset.categories || '[]');
-      var haystack = (card.dataset.search || card.textContent).toLocaleLowerCase() + ' ' + tags.join(' ').toLocaleLowerCase() + ' ' + categories.join(' ').toLocaleLowerCase();
-      var matches = (!activeTag || tags.indexOf(activeTag) >= 0) && (!yearFilter || !yearFilter.value || yearFilter.value === card.dataset.year) && (!categoryFilter || !categoryFilter.value || categories.indexOf(categoryFilter.value) >= 0) && terms.every(function (term) { return haystack.indexOf(term) >= 0; });
-      if (matches) shown++;
-      card.hidden = !matches || shown > visibleLimit;
+      var titleMatch = includesAll(entry.title, terms);
+      var bodyMatch = includesAll(entry.body, terms);
+      var mode = scope ? scope.value : 'all';
+      var matches = (!activeTag || tags.indexOf(activeTag) >= 0) && (!yearFilter || !yearFilter.value || yearFilter.value === card.dataset.year) && (!categoryFilter || !categoryFilter.value || categories.indexOf(categoryFilter.value) >= 0) && (!terms.length || (mode !== 'body' && titleMatch) || (mode !== 'title' && bodyMatch));
+      entry.rank = titleMatch && mode !== 'body' ? 0 : 1;
+      card.hidden = true;
+      var badge = card.querySelector('.blog-match-type');
+      badge.hidden = !query;
+      badge.textContent = entry.rank === 0 ? '标题匹配' : '正文匹配';
+      var snippet = entry.excerpt;
+      if (query) snippet = entry.rank === 0 ? entry.first : (entry.sentences.find(function (sentence) { return includesAll(sentence, terms); }) || entry.sentences.find(function (sentence) { return terms.some(function (term) { return sentence.toLocaleLowerCase().indexOf(term) >= 0; }); }) || entry.first);
+      highlight(entry.titleElement, entry.title, terms);
+      highlight(entry.excerptElement, snippet, terms);
+      if (matches) matched.push(entry);
     });
+    matched.sort(function (a, b) { return (query ? a.rank - b.rank : 0) || b.date - a.date; });
+    matched.forEach(function (entry, index) { list.appendChild(entry.card); entry.card.hidden = index >= visibleLimit; });
+    shown = matched.length;
     var empty = document.querySelector('.blog-no-results');
     if (empty) empty.hidden = shown > 0;
     if (more) more.hidden = shown <= visibleLimit;
@@ -37,6 +92,7 @@
   if (search) search.addEventListener('input', resetFilters);
   if (yearFilter) yearFilter.addEventListener('change', resetFilters);
   if (categoryFilter) categoryFilter.addEventListener('change', resetFilters);
+  if (scope) scope.addEventListener('change', resetFilters);
   if (more) more.addEventListener('click', function () { visibleLimit += 10; filterPosts(); });
   filterPosts();
   var content = document.querySelector('.blog-content');

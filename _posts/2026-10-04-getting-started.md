@@ -132,13 +132,13 @@ $$
 
 ## 3. 添加图片
 
-将图片放在网站的 `assets/images/blog/` 文件夹中，再在正文引用：
+将图片放在网站的 `_posts/assets/` 文件夹中，再在正文引用：
 
 ```markdown
-![实验结果说明](/assets/images/blog/my-result.png)
+![实验结果说明](assets/my-result.png)
 ```
 
-这里的文件名是示例，需要换成真实存在的图片。路径以 `/` 开头，表示网站根目录，不是当前文章所在的目录。
+这里的文件名是示例，需要换成真实存在的图片。`assets/` 相对于 Markdown 文件，适合 Typora 预览；发布时网站会自动转换到 `/_posts/assets/`。也可以直接写 `/_posts/assets/my-result.png`。
 
 > Typora 中能显示的本机图片，不一定能在网页中显示。请不要把 `C:\...`、`D:\...` 或 `file://...` 当作发布后的图片地址。
 
@@ -164,7 +164,7 @@ jekyll _3.10.0_ serve --port 4100
 将文章和它引用的图片一起提交到 GitHub。可以用 Git 客户端，也可以在项目目录运行：
 
 ```bash
-git add _posts/2026-10-04-my-first-note.md assets/images/blog/my-result.png
+git add _posts/2026-10-04-my-first-note.md _posts/assets/my-result.png
 git commit -m "Add my first blog note"
 git push origin main
 ```

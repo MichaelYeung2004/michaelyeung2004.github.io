@@ -49,6 +49,7 @@ author:
   wikipedia        :
 
 include:
+  - _posts
   - .htaccess
   - _pages
   - files
@@ -125,6 +126,13 @@ defaults:
     values:
       layout: default
       author_profile: true
+
+  # Traverse _posts for static images without publishing duplicate Markdown pages.
+  - scope:
+      path: "_posts"
+      type: pages
+    values:
+      published: false
 
 sass:
   sass_dir: _sass

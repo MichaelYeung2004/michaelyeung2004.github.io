@@ -95,3 +95,5 @@
 .blog-archive-tools { max-width: 900px; margin: 0 auto 20px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; color: var(--muted); font-size: 12px; }
 .blog-archive-tools select { font: inherit; color: var(--ink); background: white; border: 1px solid var(--line); border-radius: 6px; padding: 6px 10px; }
 .blog-load-more { display: block; margin: 24px auto; padding: 10px 24px; font: inherit; font-size: 13px; color: #08796e; background: #e4f5f1; border: 1px solid #bce7dd; border-radius: 8px; cursor: pointer; }
+.blog-card mark { background: #fff0a6; color: inherit; border-radius: 2px; padding: 0 1px; }
+.blog-match-type { display: block; color: #168174; font-size: 11px; margin-bottom: 12px; }
