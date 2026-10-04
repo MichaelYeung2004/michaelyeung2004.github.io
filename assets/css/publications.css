@@ -3,4 +3,10 @@
 .publication-card a { color: #007bff; text-decoration: none; }
 .publication-card a:hover { color: #0056b3; text-decoration: underline; }
 .publication-card .abstract-links a { display: inline-block; margin-right: 8px; }
-@media (max-width: 767px) { .publication-card img { max-width: 200px; } }
+@media (max-width: 767px) {
+    .publication-card { text-align: center; }
+    .publication-card > div { width: 100%; }
+    .publication-card img { display: block; max-width: 200px; margin: 0 auto; }
+    .publication-card .abstract-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+    .publication-card .abstract-links a { margin-right: 0; }
+}
