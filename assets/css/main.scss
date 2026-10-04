@@ -156,6 +156,7 @@ body.homepage {
         grid-template-columns: 110px minmax(0, 1fr);
         align-items: center;
         gap: 16px;
+        margin: 0 12px;
     }
     .homepage .author__avatar-frame {
         display: block;
@@ -175,7 +176,7 @@ body.homepage {
     }
     .homepage .author__content {
         display: block;
-        padding: 0 12px;
+        padding: 0;
         min-width: 0;
         text-align: center;
     }
