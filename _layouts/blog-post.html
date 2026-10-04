@@ -20,5 +20,5 @@ layout: blog-shell
       {% if page.next %}<a href="{{ page.next.url | relative_url }}" target="_self"><small>下一篇</small>{{ page.next.title | escape }}</a>{% endif %}
     </nav>
   </article>
-  <aside class="blog-toc" hidden><details open><summary>ON THIS PAGE <span>目录</span></summary><nav aria-label="文章目录"></nav></details></aside>
+  <aside class="blog-toc" aria-label="文章目录卡片" hidden><details open><summary><span class="toc-eyebrow">ON THIS PAGE</span><span class="toc-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/></svg>文章目录</span></summary><nav aria-label="文章目录"></nav></details></aside>
 </div>
