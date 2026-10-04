@@ -1,6 +1,6 @@
 # 如何添加博客
 
-Blog 地址：`/blog/`。布局参考 Argon 的横幅、左侧概览与文章卡片。文章直接使用本地 Typora **dyzj-light** 的原始设置、字体与图标资源。长文自动生成目录与阅读进度。
+Blog 地址：`/blog/`。保留最初的浅色青绿色单栏布局，仅参考 Argon 的文章组织功能，不采用它的横幅与侧栏外观。文章直接使用本地 Typora **dyzj-light** 的原始设置、字体与图标资源。长文自动生成目录与阅读进度。
 
 ## 发布文章
 
@@ -10,7 +10,9 @@ Blog 地址：`/blog/`。布局参考 Argon 的横幅、左侧概览与文章卡
 4. 图片放到 `assets/images/blog/`，正文写 `![图片说明](/assets/images/blog/example.png)`。不要使用本机磁盘路径。
 5. 提交并推送到 GitHub 后自动构建；文章默认地址为 `/blog/english-slug/`，列表按日期倒序。
 
-`tags: [研究笔记, 3D Vision]` 自动提供筛选；搜索匹配标题和摘要。`description` 是文章摘要；不写时使用第一段。
+`tags: [研究笔记, 3D Vision]` 自动提供筛选；可添加 `categories: [研究]`，显示分类筛选。支持年份筛选；搜索匹配标题、摘要、正文、标签和分类，多个空格分隔的关键词需要全部匹配。每次显示 10 篇，可加载更多。`description` 是文章摘要；不写时使用第一段。
+
+尚未接入全站浏览量统计。Argon 将浏览量写入 WordPress 后端；GitHub Pages 是静态站点，需要独立计数后端或第三方服务。没有使用 localStorage 伪造全站数据。
 
 ## 草稿与预览
 

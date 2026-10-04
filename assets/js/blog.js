@@ -4,25 +4,41 @@
   var filters = Array.from(document.querySelectorAll('[data-filter]'));
   var search = document.querySelector('.blog-search input');
   var activeTag = '';
+  var yearFilter = document.querySelector('[data-year-filter]');
+  var categoryFilter = document.querySelector('[data-category-filter]');
+  var more = document.querySelector('.blog-load-more');
+  var resultCount = document.querySelector('.blog-result-count');
+  var visibleLimit = 10;
   function filterPosts() {
     var query = search ? search.value.trim().toLocaleLowerCase() : '';
+    var terms = query.split(/\s+/).filter(Boolean);
     var shown = 0;
     cards.forEach(function (card) {
       var tags = JSON.parse(card.dataset.tags || '[]');
-      card.hidden = (activeTag && tags.indexOf(activeTag) < 0) || card.textContent.toLocaleLowerCase().indexOf(query) < 0;
-      if (!card.hidden) shown++;
+      var categories = JSON.parse(card.dataset.categories || '[]');
+      var haystack = (card.dataset.search || card.textContent).toLocaleLowerCase() + ' ' + tags.join(' ').toLocaleLowerCase() + ' ' + categories.join(' ').toLocaleLowerCase();
+      var matches = (!activeTag || tags.indexOf(activeTag) >= 0) && (!yearFilter || !yearFilter.value || yearFilter.value === card.dataset.year) && (!categoryFilter || !categoryFilter.value || categories.indexOf(categoryFilter.value) >= 0) && terms.every(function (term) { return haystack.indexOf(term) >= 0; });
+      if (matches) shown++;
+      card.hidden = !matches || shown > visibleLimit;
     });
     var empty = document.querySelector('.blog-no-results');
     if (empty) empty.hidden = shown > 0;
+    if (more) more.hidden = shown <= visibleLimit;
+    if (resultCount) resultCount.textContent = '共 ' + shown + ' 篇文章';
   }
+  function resetFilters() { visibleLimit = 10; filterPosts(); }
   filters.forEach(function (button) {
     button.addEventListener('click', function () {
       activeTag = button.dataset.filter;
       filters.forEach(function (item) { item.setAttribute('aria-pressed', String(item === button)); });
-      filterPosts();
+      resetFilters();
     });
   });
-  if (search) search.addEventListener('input', filterPosts);
+  if (search) search.addEventListener('input', resetFilters);
+  if (yearFilter) yearFilter.addEventListener('change', resetFilters);
+  if (categoryFilter) categoryFilter.addEventListener('change', resetFilters);
+  if (more) more.addEventListener('click', function () { visibleLimit += 10; filterPosts(); });
+  filterPosts();
   var content = document.querySelector('.blog-content');
   if (!content) return;
   // Supply the editor DOM classes expected by the verbatim Typora stylesheet.
