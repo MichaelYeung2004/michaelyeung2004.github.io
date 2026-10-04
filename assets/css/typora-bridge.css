@@ -15,6 +15,7 @@
 .typora-reader #write > :last-child { margin-bottom: 0; }
 .typora-reader #write > .article-header { border: 0; padding: 0; margin: 0; }
 .typora-reader #write .article-header h1 { font-size: 37.4px; margin-top: 0; margin-bottom: 12px; padding-bottom: 0; letter-spacing: normal; overflow-wrap: anywhere; }
+@media (max-width: 767px) { .typora-reader #write .article-header h1 { font-size: 30px; } }
 .typora-reader #write .article-meta { justify-content: center; gap: 12px 20px; margin-bottom: 21px !important; font: 400 17px/1.5 Lato, sans-serif; }
 .typora-reader #write .article-date,
 .typora-reader #write .article-tags { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 6px; }
