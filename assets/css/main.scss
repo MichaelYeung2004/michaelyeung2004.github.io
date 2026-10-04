@@ -137,6 +137,14 @@ body.homepage {
     background-color: #f8f9fa;
 }
 
+/* Enlarge homepage prose without changing navigation, sidebar or paper cards. */
+.homepage .page__content > p,
+.homepage .page__content > ul,
+.homepage .page__content > ol,
+.homepage .news-panel__body {
+    font-size: 17px;
+}
+
 .homepage .masthead,
 .homepage .greedy-nav {
     background-color: #f8f9fa;
