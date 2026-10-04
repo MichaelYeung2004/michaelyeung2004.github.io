@@ -14,12 +14,12 @@ I am Zhen Yang (杨振), an undergraduate student in Computer Science and Techno
 
 <section class="news-panel" id="-news" aria-label="News">
   <details open>
-    <summary class="news-panel__head"><span class="news-panel__title">News</span><span class="news-panel__chevron" aria-hidden="true"></span></summary>
+    <summary class="news-panel__head"><span class="news-panel__title">🔥 News</span><span class="news-panel__chevron" aria-hidden="true"></span></summary>
     <div class="news-panel__body">
       <ul class="news-timeline">
         <li class="news-timeline__item">
           <span class="news-timeline__dot" aria-hidden="true"></span>
-          <time class="news-timeline__date" datetime="2026-09">Sep. 2026</time>
+          <time class="news-timeline__date" datetime="2026-09">2026.09</time>
           <p>I will join <a href="https://vipl.ict.ac.cn/">VIPL</a> as a master's student in 2027.</p>
         </li>
       </ul>
@@ -27,7 +27,9 @@ I am Zhen Yang (杨振), an undergraduate student in Computer Science and Techno
   </details>
 </section>
 
-# 📝 Publications
+<section class="publications-panel" id="-publications" aria-label="Publications">
+<details open markdown="1">
+<summary class="news-panel__head"><span class="news-panel__title">📝 Publications</span><span class="news-panel__chevron" aria-hidden="true"></span></summary>
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">arXiv 2026</div><img src='/assets/VPT_motion_tune_method_optimized.png' data-full-src='/assets/VPT_motion_tune_method.png' class='progressive-image' alt="Overview of the VPT method" width="630" height="420" decoding="async"></div></div>
 <div class='paper-box-text' markdown="1">
@@ -47,6 +49,9 @@ Guangting Zheng\*, Haojing Chen\*, Hao Li, Jingtao Zhang, **Zhen Yang**, Xiaoson
 
 </div>
 </div>
+
+</details>
+</section>
 
 # 🎖 Honors and Awards
 
