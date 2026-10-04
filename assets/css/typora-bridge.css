@@ -35,17 +35,24 @@
 .typora-reader #write blockquote > * { margin-left: 28px !important; }
 .typora-reader #write blockquote > :first-child { margin-top: 6px; }
 .typora-reader #write blockquote > :last-child { margin-bottom: 6px; }
-/* Paper-style superscript footnotes, separate from ordinary list numbering. */
+/* ICLR-style parenthesized citations, separate from ordinary list numbering. */
 .typora-reader #write sup.md-footnote {
     background: transparent;
     color: inherit;
-    font-size: .75em;
+    font-size: 1em;
+    line-height: inherit;
+    vertical-align: baseline;
+    top: auto;
 }
+.typora-reader #write sup.md-footnote::before { content: '('; }
+.typora-reader #write sup.md-footnote::after { content: ')'; }
 .typora-reader #write sup.md-footnote a {
     padding: 0;
-    border: 0;
+    border: .5px solid #00ff00;
+    border-radius: 0;
     background: transparent;
     color: inherit;
+    text-decoration: none;
 }
 .typora-reader #write .footnotes > ol {
     counter-reset: paper-footnote;
@@ -53,10 +60,10 @@
 }
 .typora-reader #write .footnotes > ol > li {
     counter-increment: paper-footnote;
-    padding-left: 16px;
+    padding-left: 28px;
 }
 .typora-reader #write .footnotes > ol > li::before {
-    content: counter(paper-footnote);
+    content: '(' counter(paper-footnote) ')';
     counter-increment: none;
     position: absolute;
     left: 0;
@@ -68,8 +75,8 @@
     border-radius: 0;
     background: transparent;
     color: inherit;
-    font-size: .75em;
-    line-height: 1;
+    font-size: 1em;
+    line-height: inherit;
     cursor: default;
     transform: none;
     transition: none;
