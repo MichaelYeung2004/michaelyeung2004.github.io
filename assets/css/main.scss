@@ -153,6 +153,14 @@ body.homepage {
 @include breakpoint($large) {
     .homepage #main > .sidebar {
         text-align: center;
+        // Match the initial position instead of moving up to the old 6em threshold.
+        position: sticky;
+        top: 96px;
+    }
+
+    .homepage #main > .sidebar.sidebar--scrollable {
+        position: relative;
+        top: auto;
     }
 
     .homepage #main > .sidebar::after {
