@@ -154,6 +154,7 @@
   var headings = Array.from(content.querySelectorAll('h2, h3, h4'));
   var toc = document.querySelector('.blog-toc');
   var links = [];
+  var navbarHeight = 90;
   if (headings.length) {
     toc.hidden = false;
     if (window.matchMedia('(max-width: 950px)').matches) toc.querySelector('details').open = false;
@@ -164,6 +165,16 @@
       link.target = '_self';
       link.textContent = heading.textContent;
       link.dataset.level = heading.tagName.slice(1);
+      link.addEventListener('click', function (event) {
+        event.preventDefault();
+        // Same smooth-scroll and hash history as upstream; use document-relative
+        // coordinates because the Typora wrapper changes the offset parent.
+        window.scrollTo({
+          top: heading.getBoundingClientRect().top + window.scrollY - navbarHeight,
+          behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+        });
+        history.pushState(null, null, link.getAttribute('href'));
+      });
       (toc.querySelector('.blog-toc-list') || toc.querySelector('nav')).appendChild(link);
       links.push(link);
     });
@@ -175,7 +186,7 @@
     var value = distance > 0 ? Math.min(1, Math.max(0, -rect.top / distance)) : (rect.top <= 0 ? 1 : 0);
     progress.style.transform = 'scaleX(' + value + ')';
     var current = 0;
-    headings.forEach(function (heading, index) { if (heading.getBoundingClientRect().top <= 110) current = index; });
+    headings.forEach(function (heading, index) { if (heading.getBoundingClientRect().top <= navbarHeight + 10) current = index; });
     links.forEach(function (link, index) { if (index === current) link.setAttribute('aria-current', 'location'); else link.removeAttribute('aria-current'); });
   }
   window.addEventListener('scroll', onScroll, { passive: true });
