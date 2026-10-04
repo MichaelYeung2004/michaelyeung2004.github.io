@@ -10,6 +10,7 @@ function card(title, body, date) {
   return { dataset: { tags: '[]', categories: '[]', date, year: '2026' }, nodes, querySelector(selector) { return nodes[selector]; } };
 }
 const cards = [card('Alpha old', 'Opening sentence. Next sentence.', '2026-01-01'), card('Other new', 'Opening sentence. Alpha appears here.', '2026-09-01'), card('Alpha new', 'First sentence. More text.', '2026-08-01')];
+cards[2].dataset.description = 'The full description, not the opening sentence.';
 const search = { value: 'Alpha', addEventListener() {} };
 const scope = { value: 'all', addEventListener() {} };
 const list = { order: [], appendChild(item) { this.order.push(item); } };
@@ -25,7 +26,7 @@ function run(query, range = 'all') {
   return list.order;
 }
 assert.deepEqual(run('Alpha'), [cards[2], cards[0], cards[1]], 'Title first, descending dates within each match type');
-assert.equal(cards[2].nodes['.blog-excerpt'].children.map(n => n.textContent).join(''), 'First sentence.');
+assert.equal(cards[2].nodes['.blog-excerpt'].children.map(n => n.textContent).join(''), 'The full description, not the opening sentence.');
 assert.equal(cards[1].nodes['.blog-excerpt'].children.map(n => n.textContent).join(''), 'Alpha appears here.');
 assert.equal(cards[1].nodes['.blog-excerpt'].children.some(n => n.textContent === 'Alpha'), true);
 assert.deepEqual(run('Alpha', 'title'), [cards[2], cards[0]]);

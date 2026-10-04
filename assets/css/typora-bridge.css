@@ -5,6 +5,8 @@
 .typora-reader #write > .article-header { border: 0; padding: 0; margin: 0; }
 .typora-reader #write .article-header h1 { letter-spacing: normal; overflow-wrap: anywhere; }
 .typora-reader .article-meta { justify-content: center; }
+.typora-reader #write .blog-tags a { font-size: 12px; padding: 2px 8px; color: #168174; background: #edf8f5; border: 0; border-radius: 5px; line-height: 1.7; }
+.typora-reader #write .blog-tags a:hover { color: #08796e !important; background: #dff2ec; text-decoration: none; }
 .typora-reader #write .article-header > p { text-align: center; }
 .typora-reader #write .table-scroll { overflow-x: auto; margin: .8em 0; }
 .typora-reader #write .table-scroll table { display: table; width: 100%; }

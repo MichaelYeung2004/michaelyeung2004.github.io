@@ -6,9 +6,9 @@ layout: blog-shell
   <article class="blog-paper">
     <div class="typora-reader"><div class="typora-content"><div class="blog-content" id="write">
     <header class="article-header">
-      <div class="blog-tags">{% for tag in page.tags %}<span>{{ tag }}</span>{% endfor %}</div>
+      <div class="blog-tags">{% for tag in page.tags %}<a href="{{ '/blog/' | relative_url }}?tag={{ tag | url_encode }}" target="_self" aria-label="查看标签：{{ tag | escape }}">{{ tag | escape }}</a>{% endfor %}</div>
       <h1><span>{{ page.title | escape }}</span></h1>
-      <div class="article-meta"><span>{{ site.author.name }}</span><span aria-hidden="true">·</span><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%Y.%m.%d' }}</time><span class="reading-time"></span></div>
+      <div class="article-meta"><span>{{ site.author.name }}</span><span aria-hidden="true">·</span><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%Y.%m.%d' }}</time></div>
       {% if page.description %}<p>{{ page.description | escape }}</p>{% endif %}
     </header>
     {% assign blog_image_root = '/_posts/assets/' | relative_url %}

@@ -31,7 +31,8 @@
 .blog-card-date { display: flex; flex-direction: column; gap: 5px; color: #869397; font-size: 12px; padding-top: 4px; }
 .blog-card-date time { color: #46565d; font-size: 15px; font-weight: 700; }
 .blog-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-.blog-tags span { color: #168174; background: #edf8f5; border-radius: 5px; padding: 2px 8px; font-size: 11px; line-height: 1.7; }
+.blog-tags a { color: #168174; background: #edf8f5; border-radius: 5px; padding: 2px 8px; font-size: 12px; line-height: 1.7; }
+.blog-tags a:hover { background: #dff2ec; color: #08796e; text-decoration: none; }
 .blog-card h2 { margin: 12px 0; font-size: 23px; line-height: 1.4; letter-spacing: -.3px; }
 .blog-card h2 a { color: var(--ink); }
 .blog-card p { color: #6c7980; font-size: 14px; line-height: 1.9; margin: 0 0 16px; }
@@ -51,9 +52,8 @@
 .blog-paper { min-width: 0; background: white; border: 1px solid var(--line); border-radius: 16px; padding: 44px 48px; box-shadow: 0 8px 35px rgba(21, 53, 50, .035); }
 .article-header { padding-bottom: 28px; margin-bottom: 32px; border-bottom: 1px solid var(--line); }
 .article-header h1 { font-size: clamp(28px, 3.5vw, 40px); line-height: 1.4; margin: 18px 0; letter-spacing: -.6px; overflow-wrap: anywhere; }
-.article-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; color: #879398; font-size: 12px; }
+.article-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; color: #879398; font-size: 14px; }
 .article-header > p { font-size: 15px; color: #77868b; line-height: 1.9; margin: 20px 0 0; }
-.reading-time:not(:empty)::before { content: '·'; margin-right: 10px; }
 .blog-toc { grid-column: 1; grid-row: 1; position: sticky; top: 28px; min-width: 0; padding: 20px 16px; font-size: 15px; background: #fff; border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 6px 24px rgba(24,65,60,.055); }
 .blog-toc summary { position: relative; list-style: none; padding: 0 10px 16px; border-bottom: 1px solid var(--line); cursor: pointer; }
 .blog-toc summary::-webkit-details-marker { display: none; }

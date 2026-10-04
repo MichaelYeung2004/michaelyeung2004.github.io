@@ -47,7 +47,7 @@
     var firstParagraph = body.querySelector('p');
     var title = card.querySelector('h2 a');
     var excerpt = card.querySelector('.blog-excerpt');
-    return { card: card, titleElement: title, title: title.textContent, excerptElement: excerpt, excerpt: excerpt.textContent, body: body.textContent, sentences: sentenceList, first: sentences(firstParagraph ? firstParagraph.textContent : body.textContent)[0] || '', date: Date.parse(card.dataset.date) || 0, rank: 0 };
+    return { card: card, titleElement: title, title: title.textContent, excerptElement: excerpt, excerpt: excerpt.textContent, description: card.dataset.description || excerpt.textContent, body: body.textContent, sentences: sentenceList, first: sentences(firstParagraph ? firstParagraph.textContent : body.textContent)[0] || '', date: Date.parse(card.dataset.date) || 0, rank: 0 };
   });
   function filterPosts() {
     var query = search ? search.value.trim().toLocaleLowerCase() : '';
@@ -68,7 +68,7 @@
       badge.hidden = !query;
       badge.textContent = entry.rank === 0 ? '标题匹配' : '正文匹配';
       var snippet = entry.excerpt;
-      if (query) snippet = entry.rank === 0 ? entry.first : (entry.sentences.find(function (sentence) { return includesAll(sentence, terms); }) || entry.sentences.find(function (sentence) { return terms.some(function (term) { return sentence.toLocaleLowerCase().indexOf(term) >= 0; }); }) || entry.first);
+      if (query) snippet = entry.rank === 0 ? entry.description : (entry.sentences.find(function (sentence) { return includesAll(sentence, terms); }) || entry.sentences.find(function (sentence) { return terms.some(function (term) { return sentence.toLocaleLowerCase().indexOf(term) >= 0; }); }) || entry.first);
       highlight(entry.titleElement, entry.title, terms);
       highlight(entry.excerptElement, snippet, terms);
       if (matches) matched.push(entry);
@@ -94,6 +94,13 @@
   if (categoryFilter) categoryFilter.addEventListener('change', resetFilters);
   if (scope) scope.addEventListener('change', resetFilters);
   if (more) more.addEventListener('click', function () { visibleLimit += 10; filterPosts(); });
+  if (list && typeof window !== 'undefined') {
+    var requestedTag = new URLSearchParams(window.location.search).get('tag');
+    if (requestedTag && filters.some(function (button) { return button.dataset.filter === requestedTag; })) {
+      activeTag = requestedTag;
+      filters.forEach(function (button) { button.setAttribute('aria-pressed', String(button.dataset.filter === activeTag)); });
+    }
+  }
   filterPosts();
   var content = document.querySelector('.blog-content');
   if (!content) return;
@@ -119,10 +126,6 @@
     input.closest('li').classList.add('md-task-list-item');
   });
   content.querySelectorAll('a[href^="#"]').forEach(function (link) { link.target = '_self'; });
-  var text = content.textContent;
-  var chinese = (text.match(/[\u3400-\u9fff]/g) || []).length;
-  var words = text.replace(/[\u3400-\u9fff]/g, '').trim().split(/\s+/).filter(Boolean).length;
-  document.querySelector('.reading-time').textContent = '约 ' + Math.max(1, Math.ceil(chinese / 350 + words / 220)) + ' 分钟阅读';
   var headings = Array.from(content.querySelectorAll('h2, h3'));
   var toc = document.querySelector('.blog-toc');
   var links = [];
