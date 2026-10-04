@@ -10,14 +10,11 @@ author_profile: false
 {% assign blogs_by_year = posts | group_by_exp: "item", "item.date | date: '%Y'" %}
 {% assign tags = posts | map: 'tags' | join: ',' | split: ',' | uniq | sort %}
 <div class="blog-search-tools mb-3">
-  <div class="blog-filters mb-2" role="group" aria-label="按标签筛选">
-    <button class="btn btn-sm btn-light" type="button" data-filter="" aria-pressed="true">全部 <span>{{ posts.size }}</span></button>
-    {% for tag in tags %}{% if tag != '' %}<button class="btn btn-sm btn-light" type="button" data-filter="{{ tag | escape }}" aria-pressed="false">{{ tag }}</button>{% endif %}{% endfor %}
-  </div>
   <div class="d-flex flex-wrap align-items-center blog-search-controls">
     <label class="blog-search mb-0"><span class="sr-only">搜索文章</span><input class="form-control form-control-sm" type="search" placeholder="搜索文章…" aria-label="搜索文章"></label>
     <select class="custom-select custom-select-sm" data-search-scope aria-label="搜索范围"><option value="all">标题和正文</option><option value="title">仅标题</option><option value="body">仅正文</option></select>
     <select class="custom-select custom-select-sm" data-year-filter aria-label="按年份筛选"><option value="">全部年份</option>{% for year in blogs_by_year %}<option value="{{ year.name }}">{{ year.name }}</option>{% endfor %}</select>
+    <select class="custom-select custom-select-sm" data-tag-filter aria-label="按标签筛选"><option value="">全部标签</option>{% for tag in tags %}{% if tag != '' %}<option value="{{ tag | escape }}">{{ tag | escape }}</option>{% endif %}{% endfor %}</select>
     {% if site.categories.size > 0 %}<select class="custom-select custom-select-sm" data-category-filter aria-label="按分类筛选"><option value="">全部分类</option>{% for category in site.categories %}<option value="{{ category[0] | escape }}">{{ category[0] }}</option>{% endfor %}</select>{% endif %}
     <span class="blog-result-count text-muted small" role="status">共 {{ posts.size }} 篇文章</span>
   </div>

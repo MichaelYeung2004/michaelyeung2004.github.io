@@ -2,8 +2,6 @@
 [hidden] { display: none !important; }
 .blog-search-controls { gap: 10px; }
 .blog-search-controls select { width: auto; }
-.blog-filters { display: flex; flex-wrap: wrap; gap: 6px; }
-.blog-filters [aria-pressed='true'] { background: #e9ecef; border-color: #ced4da; }
 .blog-card mark { background: #fff0a6; color: inherit; padding: 0; }
 .blog-card .badge { font-size: 12px; }
 .blog-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }

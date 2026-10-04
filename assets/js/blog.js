@@ -1,7 +1,7 @@
 (function () {
   'use strict';
   var cards = Array.from(document.querySelectorAll('.blog-card'));
-  var filters = Array.from(document.querySelectorAll('[data-filter]'));
+  var tagFilter = document.querySelector('[data-tag-filter]');
   var search = document.querySelector('.blog-search input');
   var activeTag = '';
   var yearFilter = document.querySelector('[data-year-filter]');
@@ -113,13 +113,7 @@
     if (resultCount) resultCount.textContent = '共 ' + shown + ' 篇文章';
   }
   function resetFilters() { visibleLimit = 10; filterPosts(); }
-  filters.forEach(function (button) {
-    button.addEventListener('click', function () {
-      activeTag = button.dataset.filter;
-      filters.forEach(function (item) { item.setAttribute('aria-pressed', String(item === button)); });
-      resetFilters();
-    });
-  });
+  if (tagFilter) tagFilter.addEventListener('change', function () { activeTag = tagFilter.value; resetFilters(); });
   if (search) search.addEventListener('input', resetFilters);
   if (yearFilter) yearFilter.addEventListener('change', resetFilters);
   if (categoryFilter) categoryFilter.addEventListener('change', resetFilters);
@@ -127,9 +121,9 @@
   if (more) more.addEventListener('click', function () { visibleLimit += 10; filterPosts(); });
   if (list && typeof window !== 'undefined') {
     var requestedTag = new URLSearchParams(window.location.search).get('tag');
-    if (requestedTag && filters.some(function (button) { return button.dataset.filter === requestedTag; })) {
+    if (requestedTag && tagFilter && Array.from(tagFilter.options).some(function (option) { return option.value === requestedTag; })) {
       activeTag = requestedTag;
-      filters.forEach(function (button) { button.setAttribute('aria-pressed', String(button.dataset.filter === activeTag)); });
+      tagFilter.value = activeTag;
     }
   }
   filterPosts();
