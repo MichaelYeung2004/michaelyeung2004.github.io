@@ -151,7 +151,7 @@
     input.closest('li').classList.add('md-task-list-item');
   });
   content.querySelectorAll('a[href^="#"]').forEach(function (link) { link.target = '_self'; });
-  var headings = Array.from(content.querySelectorAll('h2, h3'));
+  var headings = Array.from(content.querySelectorAll('h2, h3, h4'));
   var toc = document.querySelector('.blog-toc');
   var links = [];
   if (headings.length) {
