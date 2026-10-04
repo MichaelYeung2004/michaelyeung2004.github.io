@@ -298,7 +298,7 @@ a:focus {
 }
 
 a:focus-visible {
-    outline: 2px solid rgba(6, 69, 173, 0.45);
+    outline: 2px solid rgba(0, 123, 255, 0.45);
     outline-offset: 2px;
 }
 
@@ -319,6 +319,6 @@ h1:before, .anchor:before {
     margin-top: .5em;
     margin-left: -.5em;
     color: white;
-    background-color: #00369f;
+    background-color: $link-color;
     font-size: .8em;
 }
