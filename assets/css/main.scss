@@ -46,8 +46,12 @@
     align-items: flex-start;
     flex-direction: column;
     flex-wrap: wrap;
-    border-bottom: 1px #efefef solid;
-    padding: 1.5em 0 2em 0;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, .03);
+    border-radius: .8rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .075);
+    padding: 1.25em;
+    margin-bottom: 1.25em;
     
 
     .paper-box-image{
@@ -109,7 +113,7 @@
 }
 
 .paper-box-text > p:first-of-type {
-    font-size: 1.0625em;
+    font-size: 1.125em;
 }
 
 /* News timeline adapted from Pan-Zihao/Pan-Zihao.github.io, scoped to News only. */
@@ -118,7 +122,7 @@
     --news-line-strong: rgba(58, 52, 44, 0.28);
     --news-accent: #b04a36;
     --news-muted: #76705f;
-    margin: 1.5rem 0 3rem;
+    margin: 1.25rem 0 2rem;
     scroll-margin-top: 80px;
 }
 @media (max-width: 767px) {
@@ -134,12 +138,14 @@
     list-style: none;
     cursor: pointer;
     padding: 0 0 .6rem;
-    margin: 0 0 1.5rem;
+    margin: 0 0 1rem;
     border-bottom: 1px solid var(--news-line);
     color: $text-color;
     font-family: $header-font-family;
 }
 .news-panel__head::-webkit-details-marker { display: none; }
+.news-panel details:not([open]) > .news-panel__head,
+.publications-panel details:not([open]) > .news-panel__head { margin-bottom: .25rem; }
 .news-panel__head:focus-visible { outline: 2px solid $link-color; outline-offset: 4px; }
 .news-panel__title {
     position: relative;
@@ -355,7 +361,7 @@ body.homepage {
     }
 
     .homepage .author__urls_sm a {
-        color: $link-color;
+        color: #007bff;
         width: 25px;
         display: inline-flex;
         align-items: center;
@@ -371,7 +377,7 @@ a:focus {
 }
 
 a:focus-visible {
-    outline: 2px solid rgba(0, 123, 255, 0.45);
+    outline: 2px solid rgba(6, 69, 173, 0.45);
     outline-offset: 2px;
 }
 
@@ -392,6 +398,6 @@ h1:before, .anchor:before {
     margin-top: .5em;
     margin-left: -.5em;
     color: white;
-    background-color: $link-color;
+    background-color: #00369f;
     font-size: .8em;
 }

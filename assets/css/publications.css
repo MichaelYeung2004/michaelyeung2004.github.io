@@ -1,8 +1,8 @@
 .publication-card img { height: auto; aspect-ratio: 3 / 2; object-fit: cover; box-shadow: 0 3px 10px rgba(0,0,0,.12); }
-.publication-card h5 { font-size: 21px; }
+.publication-card h5 { font-size: 22px; }
 .publication-preprint { display: inline-block; padding: 2px 9px; border: 1px solid #d1d7de; border-radius: 20px; color: #536172; background: #f8f9fa; font-weight: 700; }
-.publication-card a { color: #007bff; text-decoration: none; }
-.publication-card a:hover { color: #0056b3; text-decoration: underline; }
+.publication-card a { color: #0645ad; text-decoration: none; }
+.publication-card a:hover { color: #0645ad; text-decoration: underline; }
 .publication-card .abstract-links a { display: inline-block; margin-right: 8px; }
 @media (max-width: 767px) {
     .publication-card { text-align: center; }

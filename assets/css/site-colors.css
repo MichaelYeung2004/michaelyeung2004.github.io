@@ -1,0 +1,9 @@
+/* Original deep-blue palette; personal social icons keep their bright blue. */
+body a { color: #0645ad; }
+body a:hover { color: #0645ad; }
+#navbar-year .nav-link.active { background-color: #0645ad; color: #fff; }
+.text-primary { color: #0645ad !important; }
+.bg-primary, .btn-primary, .badge-primary { background-color: #0645ad !important; }
+.btn-primary { border-color: #0645ad; }
+.form-control:focus, .custom-select:focus { border-color: #799aca; box-shadow: 0 0 0 .2rem rgba(6,69,173,.25); }
+.homepage .author__urls_sm a:hover { color: #007bff; }

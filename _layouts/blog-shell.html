@@ -23,6 +23,7 @@ layout: compress
   {% endif %}
   {% include head/custom.html %}
   <link rel="stylesheet" href="{{ '/assets/css/home-navbar.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+  <link rel="stylesheet" href="{{ '/assets/css/site-colors.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 </head>
 <body class="bg-light d-flex flex-column min-vh-100" {% if page.permalink == '/blog/' or page.navbar_title == 'Publications' %}data-spy="scroll" data-target="#navbar-year" data-offset="100"{% endif %}>
   <div class="reading-progress" aria-hidden="true"></div>
