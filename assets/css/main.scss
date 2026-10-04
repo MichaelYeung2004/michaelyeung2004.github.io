@@ -106,7 +106,7 @@
     width: 9px;
     height: 9px;
     border-radius: 50%;
-    background: #f8f9fa;
+    background: var(--site-background, #faf9f6);
     border: 1.5px solid var(--news-accent);
 }
 .news-timeline__item::before {
@@ -132,9 +132,9 @@
 .page__content .news-timeline__item p { margin: 0; }
 @media (prefers-reduced-motion: reduce) { .news-panel__chevron::after { transition: none; } }
 
-/* Homepage uses the upstream Bootstrap bg-light shade. */
+/* Warm-white background from soonera/qinren. */
 body.homepage {
-    background-color: #f8f9fa;
+    background-color: var(--site-background, #faf9f6);
 }
 
 /* Enlarge homepage prose without changing navigation, sidebar or paper cards. */
@@ -147,7 +147,7 @@ body.homepage {
 
 .homepage .masthead,
 .homepage .greedy-nav {
-    background-color: #f8f9fa;
+    background-color: var(--site-background, #faf9f6);
 }
 
 @include breakpoint($large) {

@@ -4,7 +4,7 @@ body.site-page { padding-top: 80px; }
 .site-navbar, .site-navbar *, .site-navbar *::before, .site-navbar *::after { box-sizing: border-box; }
 .site-navbar {
   color: #313436;
-  background: rgba(248,249,250,.92) !important;
+  background: var(--site-background, #faf9f6) !important;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   font: 400 16px/1.5 Lato,sans-serif;

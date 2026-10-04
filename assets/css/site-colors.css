@@ -1,5 +1,7 @@
 /* Bright-blue site palette; homepage main content and paper cards stay deep blue. */
+:root { --site-background: #faf9f6; }
 body { --site-blue: #007bff; }
+body.site-page, body.bg-light { background-color: var(--site-background) !important; }
 .homepage .page__content { --site-blue: #0645ad; }
 .paper-box { --site-blue: #0645ad; }
 body a, body a:hover { color: var(--site-blue); }
