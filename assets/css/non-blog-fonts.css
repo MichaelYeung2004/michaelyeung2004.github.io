@@ -1,7 +1,7 @@
-/* Match qinren's body font without changing typography measurements.
+/* Match luost26/academic-homepage's body font without changing typography measurements.
    Loaded only on non-Blog pages; icon and math fonts keep their own families. */
 body {
-  --non-blog-font: 'Fira Sans', Arial, sans-serif;
+  --non-blog-font: 'Lato', sans-serif;
   font-family: var(--non-blog-font);
 }
 .site-navbar,
