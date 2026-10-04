@@ -1,0 +1,20 @@
+/* Bootstrap 4 navbar sizing, isolated so the original homepage body is unchanged. */
+body.homepage { padding-top: 80px; }
+.homepage .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1030; display: flex; align-items: center; padding: .5rem 1rem; background: rgba(248,249,250,.92); backdrop-filter: blur(16px); box-shadow: 0 .125rem .25rem rgba(0,0,0,.075); font: 400 16px/1.5 Lato,sans-serif; }
+.homepage .navbar .container-lg { width: 100%; padding: 0 15px; margin: auto; display: flex; align-items: center; flex-wrap: wrap; justify-content: space-between; }
+.homepage .navbar-brand { display: inline-block; padding: .3125rem 0; margin-right: 1rem; font-size: 20px; line-height: inherit; color: rgba(0,0,0,.9); white-space: nowrap; }
+.homepage .navbar-nav { display: flex; padding: 0; margin: 0 0 0 auto; list-style: none; }
+.homepage .navbar .nav-link { display: block; padding: .5rem; color: rgba(0,0,0,.5); }
+.homepage .navbar .active .nav-link,.homepage .navbar .nav-link:hover { color: rgba(0,0,0,.9); }
+.homepage .navbar a { text-decoration: none; }
+.homepage .navbar-collapse { flex-grow: 1; display: flex; align-items: center; }
+.homepage .navbar-toggler { display: none; position: static; width: auto; height: auto; background: transparent; color: rgba(0,0,0,.5); border: 1px solid rgba(0,0,0,.1); border-radius: .25rem; font: inherit; line-height: 1; }
+@media (min-width: 992px) { .homepage .navbar .container-lg { max-width: 960px; } }
+@media (min-width: 1200px) { .homepage .navbar .container-lg { max-width: 1140px; } }
+@media (max-width: 575px) {
+ .homepage .navbar-toggler { display: block; }
+ .homepage .navbar-collapse { display: none; flex-basis: 100%; }
+ .homepage .navbar-collapse.show { display: block; }
+ .homepage .navbar-nav { flex-direction: column; }
+ .homepage .navbar .nav-link { padding: .5rem 0; }
+}

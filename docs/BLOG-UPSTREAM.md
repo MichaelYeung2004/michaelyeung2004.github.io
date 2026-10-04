@@ -9,4 +9,4 @@ Source: https://github.com/luost26/academic-homepage (main, imported 2026-10-04)
 - Blog index and article layouts use the upstream Bootstrap structure. Existing search behavior and Typora content are preserved.
 - `assets/css/luost-LICENSE.txt`: upstream MIT license.
 
-The personal homepage's layout and stylesheet remain independent.
+The personal homepage's body layout and stylesheet remain independent. Its navbar now reuses the upstream component with isolated Bootstrap-equivalent sizing. Publications uses the upstream year-group, card columns, and year-navigation structure; its images remain eagerly loaded with progressive full-resolution replacement.

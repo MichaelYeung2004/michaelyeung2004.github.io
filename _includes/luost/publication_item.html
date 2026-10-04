@@ -1,0 +1,14 @@
+{% assign item = include.item %}
+<div class="row no-gutters publication-card {% unless include.hide_bottom_border %}border-bottom{% endunless %} border-gray">
+  <div class="col-md-3 col-xl-2 p-3">
+    <img src="{{ item.cover | relative_url }}" data-full-src="{{ item.full_cover | relative_url }}" alt="Overview of the VPT method" class="w-100 rounded-sm progressive-image" width="630" height="420" decoding="async">
+  </div>
+  <div class="col-md-9 col-xl-10 p-3 pl-md-0">
+    <h5 class="mt-0 mb-1 font-weight-normal"><a href="{{ item.links.arXiv }}">{{ item.title }}</a></h5>
+    <p class="mt-0 mb-0 small">{{ item.authors }}</p>
+    <p class="mt-1 mb-1 small"><span class="publication-preprint">{{ item.venue }}</span> {{ item.year }}</p>
+    <p class="small pb-0 mb-0 lh-125 text-muted abstract-links">
+      {% for link in item.links %}<a href="{{ link[1] }}" target="_blank" rel="noopener">[{{ link[0] }}]</a> {% endfor %}
+    </p>
+  </div>
+</div>

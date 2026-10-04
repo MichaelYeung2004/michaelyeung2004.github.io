@@ -16,15 +16,17 @@ layout: compress
   <link rel="stylesheet" href="{{ '/assets/css/luost-global.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/luost-blog-layout.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/blog-compat.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+  {% if page.navbar_title == 'Publications' %}<link rel="stylesheet" href="{{ '/assets/css/publications.css' | relative_url }}">{% endif %}
   {% if page.layout == 'blog-post' %}
   <link rel="stylesheet" href="{{ '/assets/css/dyzj-light-web.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/typora-bridge.css' | relative_url }}">
   {% endif %}
   {% include head/custom.html %}
 </head>
-<body class="bg-light d-flex flex-column min-vh-100" {% if page.permalink == '/blog/' %}data-spy="scroll" data-target="#navbar-year" data-offset="100"{% endif %}>
+<body class="bg-light d-flex flex-column min-vh-100" {% if page.permalink == '/blog/' or page.navbar_title == 'Publications' %}data-spy="scroll" data-target="#navbar-year" data-offset="100"{% endif %}>
   <div class="reading-progress" aria-hidden="true"></div>
-  {% include luost/navbar.html active_page="Blog" %}
+  {% assign active_page = page.navbar_title | default: 'Blog' %}
+  {% include luost/navbar.html active_page=active_page %}
   <main class="flex-grow-1 flex-shrink-0 {% unless page.layout == 'blog-post' %}container-lg{% endunless %}">
     {{ content }}
   </main>
@@ -32,6 +34,7 @@ layout: compress
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
-  <script src="{{ '/assets/js/blog.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
+  {% unless page.navbar_title == 'Publications' %}<script src="{{ '/assets/js/blog.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>{% endunless %}
+  {% if page.navbar_title == 'Publications' %}<script src="{{ '/assets/js/progressive-images.js' | relative_url }}" defer></script>{% endif %}
 </body>
 </html>

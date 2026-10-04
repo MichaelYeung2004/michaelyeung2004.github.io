@@ -2,6 +2,6 @@ pages:
   - name: Home
     url: /
   - name: Publications
-    url: /#-publications
+    url: /publications/
   - name: Blog
     url: /blog/

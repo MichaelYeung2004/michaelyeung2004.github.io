@@ -1,0 +1,12 @@
+- title: Enhancing Video Physical Consistency via Role-aware Joint Training and Modality-decoupled Denoising
+  date: 2026-07-01
+  year: '2026'
+  authors: 'Guangting Zheng*, Haojing Chen*, Hao Li, Jingtao Zhang, <strong>Zhen Yang</strong>, Xiaosong Jia, Xue Yang, Shaofeng Zhang†, Yanyong Zhang†'
+  venue: Preprint
+  cover: /assets/VPT_motion_tune_method_optimized.png
+  full_cover: /assets/VPT_motion_tune_method.png
+  links:
+    arXiv: https://arxiv.org/abs/2607.04653
+    PDF: https://arxiv.org/pdf/2607.04653
+    Project: https://tom-zgt.github.io/VPT/
+    Code: https://github.com/Tom-zgt/VPT

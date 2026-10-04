@@ -1,5 +1,6 @@
 <script src="{{ '/assets/js/main.min.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/progressive-images.js' | relative_url }}"></script>
+{% if page.permalink == '/' %}<script src="{{ '/assets/js/home-navbar.js' | relative_url }}" defer></script>{% endif %}
 
 {% include analytics.html %}
 {% include fetch_google_scholar_stats.html %}

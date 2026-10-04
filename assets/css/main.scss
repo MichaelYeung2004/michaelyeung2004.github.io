@@ -250,7 +250,7 @@ body.homepage {
         display: block;
         position: absolute;
         top: 8px;
-        bottom: 0;
+        height: calc(100vh - 140px);
         right: -1em;
         width: 1px;
         background: linear-gradient(to bottom, transparent, #dce2e7 36px, #dce2e7 calc(100% - 36px), transparent);
@@ -278,10 +278,12 @@ body.homepage {
         flex-wrap: nowrap;
         gap: 12px;
         padding: 0;
-        font-size: 20px;
+        font-size: 22px;
     }
 
     .homepage .author__urls_sm a {
+        color: $link-color;
+        width: 25px;
         display: inline-flex;
         align-items: center;
         justify-content: center;
