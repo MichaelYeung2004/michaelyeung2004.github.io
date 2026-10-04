@@ -235,20 +235,58 @@ body.homepage {
     background-color: #f8f9fa;
 }
 
+.homepage .masthead,
+.homepage .greedy-nav {
+    background-color: #f8f9fa;
+}
+
 @include breakpoint($large) {
-    .homepage #main > .page {
-        position: relative;
+    .homepage #main > .sidebar {
+        text-align: center;
     }
 
-    .homepage #main > .page::before {
+    .homepage #main > .sidebar::after {
         content: '';
+        display: block;
         position: absolute;
         top: 8px;
-        bottom: 16px;
-        left: 0;
+        bottom: 0;
+        right: -1em;
         width: 1px;
         background: linear-gradient(to bottom, transparent, #dce2e7 36px, #dce2e7 calc(100% - 36px), transparent);
         pointer-events: none;
+    }
+
+    .homepage .author__avatar-frame {
+        transform: none;
+    }
+
+    .homepage .author__urls-wrapper {
+        margin-left: 0;
+        width: 100%;
+        cursor: default;
+    }
+
+    .homepage .author__urls > li:not(.author__tagline) {
+        display: none;
+    }
+
+    .homepage .author__urls_sm {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+        gap: 12px;
+        padding: 0;
+        font-size: 20px;
+    }
+
+    .homepage .author__urls_sm a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4px 0;
+        line-height: 1;
     }
 }
 
