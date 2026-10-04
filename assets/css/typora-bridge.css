@@ -35,6 +35,46 @@
 .typora-reader #write blockquote > * { margin-left: 28px !important; }
 .typora-reader #write blockquote > :first-child { margin-top: 6px; }
 .typora-reader #write blockquote > :last-child { margin-bottom: 6px; }
+/* Paper-style superscript footnotes, separate from ordinary list numbering. */
+.typora-reader #write sup.md-footnote {
+    background: transparent;
+    color: inherit;
+    font-size: .75em;
+}
+.typora-reader #write sup.md-footnote a {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+}
+.typora-reader #write .footnotes > ol {
+    counter-reset: paper-footnote;
+    padding-left: 0;
+}
+.typora-reader #write .footnotes > ol > li {
+    counter-increment: paper-footnote;
+    padding-left: 16px;
+}
+.typora-reader #write .footnotes > ol > li::before {
+    content: counter(paper-footnote);
+    counter-increment: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+    width: auto;
+    height: auto;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: inherit;
+    font-size: .75em;
+    line-height: 1;
+    cursor: default;
+    transform: none;
+    transition: none;
+}
+.typora-reader #write .footnotes > ol > li > p { padding-left: 0; }
 .typora-reader #write li { position: relative; }
 .typora-reader #write .md-image { display: block; text-align: center; }
 .typora-reader #write .md-image img { max-width: 100%; height: auto; }
