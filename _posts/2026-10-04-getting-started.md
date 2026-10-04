@@ -156,6 +156,22 @@ $$
 
 在 Typora 中插入图片后，检查文件是否已经复制到网站仓库、Markdown 中的路径是否正确。`![shadow-图片说明](图片路径)` 还可以为图片加上柔和阴影。
 
+### 给图片添加图注
+
+下面是一个真实例子：图片已保存在 `_posts/assets/tutorial-earth.jpg`。本博客的 dyzj-light 主题会自动将图片说明显示为下方居中的图注，并添加图号。
+
+![：阿波罗 17 号拍摄的地球——“蓝色弹珠”。](assets/tutorial-earth.jpg)
+
+对应的写法如下，单独一行插入图片，前后留一个空行：
+
+```markdown
+![：阿波罗 17 号拍摄的地球——“蓝色弹珠”。](assets/tutorial-earth.jpg)
+```
+
+方括号中的文字就是图注内容，图号由网页自动生成，不需要手动写“图 1”。这里开头的中文冒号用于分隔图号与说明。换成自己的图片时，修改图片路径和方括号中的文字即可；不要再额外添加一行图注，否则会重复显示。自动图注是本博客主题提供的效果，Typora 编辑器中的显示可能不同。
+
+图片来源：[NASA / Apollo 17 crew，Wikimedia Commons](https://commons.wikimedia.org/wiki/File:The_Earth_seen_from_Apollo_17.jpg)（公有领域）。
+
 ## 4. 预览并发布
 
 ### 本地预览
