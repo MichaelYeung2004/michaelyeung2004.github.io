@@ -1,7 +1,40 @@
 /* Small adapters for retained search and Typora content; layout is upstream. */
 [hidden] { display: none !important; }
-.blog-search-controls { gap: 10px; }
-.blog-search-controls select { width: auto; }
+.blog-search-tools {
+  padding: 16px;
+  background: #fff;
+  border: 1px solid #e8e9ec;
+  border-radius: 16px;
+  box-shadow: 0 3px 14px rgba(34, 47, 62, .04);
+}
+.blog-search-controls { gap: 12px; }
+.blog-search-controls .blog-search { position: relative; flex: 1 1 240px; min-width: 0; }
+.blog-search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: #8a96a3; font-size: 15px; pointer-events: none; }
+.blog-search-tools .form-control,
+.blog-search-tools .custom-select {
+  height: 44px;
+  font-size: 15px;
+  color: #46515f;
+  border: 1px solid #e0e5eb;
+  border-radius: 10px;
+  background-color: #f9fafb;
+  transition: border-color .18s ease, box-shadow .18s ease, background-color .18s ease;
+}
+.blog-search-tools .form-control { padding-left: 40px; }
+.blog-search-tools .form-control::placeholder { color: #8a96a3; }
+.blog-search-tools .custom-select { width: auto; flex: 0 1 auto; padding-left: 12px; padding-right: 32px; cursor: pointer; }
+.blog-search-tools .form-control:hover,
+.blog-search-tools .custom-select:hover { border-color: #bccbdd; background-color: #fff; }
+.blog-search-tools .form-control:focus,
+.blog-search-tools .custom-select:focus { border-color: #80bdff; background-color: #fff; box-shadow: 0 0 0 3px rgba(0, 123, 255, .1); }
+.blog-search-controls .blog-result-count { padding: 7px 12px; border-radius: 20px; background: #f1f5f9; font-size: 14px; white-space: nowrap; }
+@media (max-width: 767px) {
+  .blog-search-tools { padding: 12px; }
+  .blog-search-controls { gap: 10px; }
+  .blog-search-controls .blog-search { flex-basis: 100%; }
+  .blog-search-tools .custom-select { flex: 1 1 calc(50% - 10px); min-width: 0; }
+  .blog-search-controls .blog-result-count { margin-left: auto; }
+}
 .blog-card mark { background: #fff0a6; color: inherit; padding: 0; }
 .blog-card .badge { font-size: 12px; font-weight: 400; }
 .blog-card .blog-excerpt { font-size: 15px; line-height: 1.65; }
