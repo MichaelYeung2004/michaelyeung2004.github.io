@@ -73,7 +73,7 @@
       highlight(entry.excerptElement, snippet, terms);
       if (matches) matched.push(entry);
     });
-    matched.sort(function (a, b) { return (query ? a.rank - b.rank : 0) || b.date - a.date; });
+    matched.sort(function (a, b) { return b.date - a.date; });
     if (list) {
       entries.forEach(function (entry) { list.appendChild(entry.card); });
       list.querySelectorAll('.blog-year-heading,.blog-year-group').forEach(function (heading) { heading.remove(); });
