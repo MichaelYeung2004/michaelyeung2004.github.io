@@ -84,6 +84,12 @@
 .typora-reader #write .footnotes > ol > li > p { padding-left: 0; }
 .typora-reader #write li { position: relative; }
 .typora-reader #write .md-image { display: block; text-align: center; }
+.typora-reader #write p > .md-image.md-image-no-caption::after {
+    content: none !important;
+    display: none;
+    counter-increment: none;
+    margin: 0 !important;
+}
 .typora-reader #write .md-image img { max-width: 100%; height: auto; }
 .typora-reader #write .md-image img[alt|='shadow'] { box-shadow: #84A1A8 0px 10px 15px; }
 .typora-reader #write .highlighter-rouge { position: relative; margin: 10px 0; }

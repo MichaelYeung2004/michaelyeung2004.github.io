@@ -172,6 +172,12 @@ $$
 
 图片来源：[NASA / Apollo 17 crew，Wikimedia Commons](https://commons.wikimedia.org/wiki/File:The_Earth_seen_from_Apollo_17.jpg)（公有领域）。
 
+只有方括号中填写了说明文字才会显示图注。不需要图注时，把方括号留空即可（只写空格也不会显示）；无图注的图片不占用图号：
+
+```markdown
+![](assets/tutorial-earth.jpg)
+```
+
 ## 4. 预览并发布
 
 ### 本地预览

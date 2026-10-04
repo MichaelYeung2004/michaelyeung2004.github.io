@@ -139,10 +139,12 @@
   });
   content.querySelectorAll('pre').forEach(function (pre) { pre.classList.add('md-fences'); });
   content.querySelectorAll('img').forEach(function (image) {
+    var caption = image.alt.trim();
     if (image.parentElement.classList.contains('md-image')) return;
     var wrapper = document.createElement('span');
     wrapper.className = 'md-image';
     wrapper.setAttribute('alt', image.alt);
+    if (!caption) wrapper.classList.add('md-image-no-caption');
     image.parentNode.insertBefore(wrapper, image);
     wrapper.appendChild(image);
   });
