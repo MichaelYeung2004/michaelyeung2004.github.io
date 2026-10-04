@@ -12,8 +12,8 @@
 }
 
 .blog-toc-sidebar {
-    flex: 1 0 160px;
-    min-width: 160px;
+    flex: 0 0 auto;
+    width: clamp(160px, 18vw, 360px);
     display: none;
 }
 
