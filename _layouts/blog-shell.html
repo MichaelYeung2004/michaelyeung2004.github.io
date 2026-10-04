@@ -2,29 +2,33 @@
 layout: compress
 ---
 <!doctype html>
-<html lang="{{ page.lang | default: 'zh-CN' }}">
+<html lang="{{ page.lang | default: 'zh-CN' }}" class="js">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {% include seo.html %}
   {% include head/custom.html %}
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/blog.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/blog-academic.css' | relative_url }}?v={{ site.time | date: '%s' }}">
   {% if page.layout == 'blog-post' %}
   <link rel="stylesheet" href="{{ '/assets/css/dyzj-light-web.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/typora-bridge.css' | relative_url }}">
   {% endif %}
 </head>
-<body class="blog-site">
+<body class="blog-site blog-academic">
   <div class="reading-progress" aria-hidden="true"></div>
-  <header class="blog-nav">
-    <a class="blog-brand" href="{{ '/blog/' | relative_url }}" target="_self">Zhen Yang<span> / notes</span></a>
-    <nav aria-label="Blog navigation">
-      <a href="{{ '/' | relative_url }}" target="_self">Homepage</a>
-      <a href="{{ '/blog/' | relative_url }}" target="_self" {% if page.permalink == '/blog/' %}aria-current="page"{% endif %}>Blog</a>
-    </nav>
-  </header>
-  <main class="blog-main" id="top">{{ content }}</main>
-  <footer class="blog-footer"><span>© {{ 'now' | date: '%Y' }} Zhen Yang</span><span>Typography: dyzj-light</span><a href="#top" target="_self">Back to top ↑</a></footer>
-  <script src="{{ '/assets/js/blog.js' | relative_url }}" defer></script>
+  {% include masthead.html %}
+  <main class="blog-main" id="main">
+    {% if page.permalink == '/blog/' %}
+    <aside class="sidebar sticky">{% include author-profile.html %}</aside>
+    <div class="page"><div class="page__inner-wrap"><section class="page__content blog-index-content">{{ content }}</section></div></div>
+    {% else %}
+    {{ content }}
+    {% endif %}
+  </main>
+  <footer class="blog-footer"><span>© {{ 'now' | date: '%Y' }} Zhen Yang</span><span>Typography: dyzj-light</span><a href="#main" target="_self">Back to top ↑</a></footer>
+  {% include scripts.html %}
+  <script src="{{ '/assets/js/blog.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
 </body>
 </html>

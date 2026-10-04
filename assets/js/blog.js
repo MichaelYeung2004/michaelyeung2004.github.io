@@ -45,7 +45,7 @@
     var paragraphs = Array.from(body.querySelectorAll('p,pre,h2,h3,h4,li,td'), function (node) { return node.textContent.trim(); }).filter(Boolean);
     var sentenceList = paragraphs.flatMap(sentences);
     var firstParagraph = body.querySelector('p');
-    var title = card.querySelector('h2 a');
+    var title = card.querySelector('.blog-card-title a');
     var excerpt = card.querySelector('.blog-excerpt');
     return { card: card, titleElement: title, title: title.textContent, excerptElement: excerpt, excerpt: excerpt.textContent, description: card.dataset.description || excerpt.textContent, body: body.textContent, sentences: sentenceList, first: sentences(firstParagraph ? firstParagraph.textContent : body.textContent)[0] || '', date: Date.parse(card.dataset.date) || 0, rank: 0 };
   });
@@ -74,7 +74,19 @@
       if (matches) matched.push(entry);
     });
     matched.sort(function (a, b) { return (query ? a.rank - b.rank : 0) || b.date - a.date; });
-    matched.forEach(function (entry, index) { list.appendChild(entry.card); entry.card.hidden = index >= visibleLimit; });
+    if (list) list.querySelectorAll('.blog-year-heading').forEach(function (heading) { heading.remove(); });
+    var lastYear = '';
+    matched.forEach(function (entry, index) {
+      if (!query && index < visibleLimit && entry.card.dataset.year !== lastYear) {
+        var heading = document.createElement('h2');
+        heading.className = 'blog-year-heading';
+        heading.textContent = entry.card.dataset.year;
+        heading.id = 'blog-year-' + entry.card.dataset.year;
+        list.appendChild(heading);
+        lastYear = entry.card.dataset.year;
+      }
+      list.appendChild(entry.card); entry.card.hidden = index >= visibleLimit;
+    });
     shown = matched.length;
     var empty = document.querySelector('.blog-no-results');
     if (empty) empty.hidden = shown > 0;
