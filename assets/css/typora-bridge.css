@@ -84,6 +84,10 @@
 .typora-reader #write .footnotes > ol > li > p { padding-left: 0; }
 .typora-reader #write li { position: relative; }
 .typora-reader #write .md-image { display: block; text-align: center; }
+.typora-reader #write p > .md-image::after {
+    content: attr(alt) !important;
+    counter-increment: none;
+}
 .typora-reader #write p > .md-image.md-image-no-caption::after {
     content: none !important;
     display: none;

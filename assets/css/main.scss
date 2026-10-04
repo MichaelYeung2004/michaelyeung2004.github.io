@@ -44,6 +44,11 @@
 
 .publications-panel .publications-panel__head--static { cursor: default; }
 
+.homepage .page__content h1[id="-honors-and-awards"],
+.homepage .page__content h1[id="-educations"] {
+    border-bottom: 1px solid rgba(58, 52, 44, 0.14);
+}
+
 /* News timeline adapted from Pan-Zihao/Pan-Zihao.github.io, scoped to News only. */
 .news-panel, .publications-panel {
     --news-line: rgba(58, 52, 44, 0.14);
