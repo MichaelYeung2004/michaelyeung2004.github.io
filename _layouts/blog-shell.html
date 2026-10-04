@@ -4,9 +4,15 @@ layout: compress
 <!doctype html>
 <html lang="{{ page.lang | default: 'zh-CN' }}">
 <head>
-  {% include head.html %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% include seo.html %}
   {% include head/custom.html %}
   <link rel="stylesheet" href="{{ '/assets/css/blog.css' | relative_url }}">
+  {% if page.layout == 'blog-post' %}
+  <link rel="stylesheet" href="{{ '/assets/css/dyzj-light-web.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/typora-bridge.css' | relative_url }}">
+  {% endif %}
 </head>
 <body class="blog-site">
   <div class="reading-progress" aria-hidden="true"></div>
@@ -17,8 +23,9 @@ layout: compress
       <a href="{{ '/blog/' | relative_url }}" target="_self" {% if page.permalink == '/blog/' %}aria-current="page"{% endif %}>Blog</a>
     </nav>
   </header>
+  <div class="blog-banner" aria-hidden="true"><span class="banner-orb orb-one"></span><span class="banner-orb orb-two"></span><span class="banner-orb orb-three"></span></div>
   <main class="blog-main" id="top">{{ content }}</main>
-  <footer class="blog-footer"><span>© {{ 'now' | date: '%Y' }} Zhen Yang</span><span>Notes, ideas &amp; little discoveries.</span><a href="#top" target="_self">Back to top ↑</a></footer>
+  <footer class="blog-footer"><span>© {{ 'now' | date: '%Y' }} Zhen Yang</span><span>Layout inspired by <a href="https://github.com/solstice23/argon-theme">Argon</a> · Typography: dyzj-light</span><a href="#top" target="_self">Back to top ↑</a></footer>
   <script src="{{ '/assets/js/blog.js' | relative_url }}" defer></script>
 </body>
 </html>

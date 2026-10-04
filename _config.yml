@@ -53,6 +53,7 @@ include:
   - _pages
   - files
 exclude:
+  - tools
   - docs
   - google_scholar_crawler
   - _blogs

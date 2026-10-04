@@ -1,0 +1,24 @@
+/* DOM compatibility only. Visual settings live in the original dyzj-light CSS. */
+.typora-reader { background: var(--bg-color); display: block; }
+.typora-content { display: block; }
+.typora-reader #write { width: 100%; }
+.typora-reader #write > .article-header { border: 0; padding: 0; margin: 0; }
+.typora-reader #write .article-header h1 { letter-spacing: normal; overflow-wrap: anywhere; }
+.typora-reader .article-meta { justify-content: center; }
+.typora-reader #write .article-header > p { text-align: center; }
+.typora-reader #write .table-scroll { overflow-x: auto; margin: .8em 0; }
+.typora-reader #write .table-scroll table { display: table; width: 100%; }
+.typora-reader #write li { position: relative; }
+.typora-reader #write .md-image { display: block; text-align: center; }
+.typora-reader #write .md-image img { max-width: 100%; height: auto; }
+.typora-reader #write .md-image img[alt|='shadow'] { box-shadow: #84A1A8 0px 10px 15px; }
+.typora-reader #write .highlighter-rouge { position: relative; margin: .8em 0; }
+.typora-reader #write pre.md-fences { padding: 16px 12px; overflow-x: auto; margin: 0; }
+.typora-reader #write pre.md-fences code { display: block; background: transparent; color: var(--codeblockfont-color); padding: 0; font-size: .95em; white-space: pre; }
+.typora-reader #write .highlight { margin: 0; }
+.typora-reader #write .copy-code { position: absolute; right: 8px; top: 8px; font-size: 11px; padding: 3px 7px; border: 1px solid #d0d5d7; border-radius: 3px; background: var(--bg-color); color: var(--codeblockfont-color); cursor: pointer; }
+.typora-reader #write .MathJax_Display { overflow-x: auto; overflow-y: hidden; max-width: 100%; }
+.typora-reader #write .md-task-list-item > input { appearance: auto; position: static; margin: 0 .5em 0 0; accent-color: var(--taskfocus-color); }
+.typora-reader #write .md-task-list-item > input::before { display: none; }
+.typora-reader #write :is(h2,h3,h4,h5,h6) { scroll-margin-top: 90px; }
+@media (prefers-reduced-motion: reduce) { .typora-reader #write h2::before, .typora-reader #write span { animation: none !important; } }

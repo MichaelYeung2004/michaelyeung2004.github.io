@@ -25,6 +25,27 @@
   if (search) search.addEventListener('input', filterPosts);
   var content = document.querySelector('.blog-content');
   if (!content) return;
+  // Supply the editor DOM classes expected by the verbatim Typora stylesheet.
+  content.querySelectorAll('h1,h2,h3,h4,h5,h6').forEach(function (heading) {
+    if (!heading.querySelector('span')) {
+      var span = document.createElement('span');
+      while (heading.firstChild) span.appendChild(heading.firstChild);
+      heading.appendChild(span);
+    }
+  });
+  content.querySelectorAll('pre').forEach(function (pre) { pre.classList.add('md-fences'); });
+  content.querySelectorAll('img').forEach(function (image) {
+    if (image.parentElement.classList.contains('md-image')) return;
+    var wrapper = document.createElement('span');
+    wrapper.className = 'md-image';
+    wrapper.setAttribute('alt', image.alt);
+    image.parentNode.insertBefore(wrapper, image);
+    wrapper.appendChild(image);
+  });
+  content.querySelectorAll('sup[id^="fnref"]').forEach(function (note) { note.classList.add('md-footnote'); });
+  content.querySelectorAll('li input[type="checkbox"]').forEach(function (input) {
+    input.closest('li').classList.add('md-task-list-item');
+  });
   content.querySelectorAll('a[href^="#"]').forEach(function (link) { link.target = '_self'; });
   var text = content.textContent;
   var chinese = (text.match(/[\u3400-\u9fff]/g) || []).length;

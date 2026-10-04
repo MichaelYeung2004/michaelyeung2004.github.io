@@ -1,0 +1,12 @@
+{% assign blog_tags = site.posts | map: 'tags' | join: ',' | split: ',' | uniq | sort %}
+<aside class="blog-sidebar" aria-label="博客概览">
+  <section class="blog-widget blog-profile">
+    <div class="profile-cover"><span>记录 · 思考 · 生长</span></div>
+    <div class="blog-monogram" aria-hidden="true">ZY</div>
+    <h2>Zhen Yang</h2>
+    <p>Cease to struggle<br>and you cease to live.</p>
+    <div class="blog-stats"><div><strong>{{ site.posts.size }}</strong><span>文章</span></div><div><strong>{{ blog_tags.size }}</strong><span>标签</span></div></div>
+    <a class="sidebar-home" href="{{ '/' | relative_url }}" target="_self">← 返回学术主页</a>
+  </section>
+  <section class="blog-widget blog-side-note"><span class="blog-eyebrow">THE NOTEBOOK</span><p>把读过的、想过的、<br>还没想明白的，都记录下来。</p></section>
+</aside>

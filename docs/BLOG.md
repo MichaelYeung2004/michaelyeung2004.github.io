@@ -1,6 +1,6 @@
 # 如何添加博客
 
-Blog 地址：`/blog/`。文章采用本地 Typora **dyzj-light** 的网页适配样式：青绿色标题、浅蓝引用、代码高亮、表格、脚注、折叠块和数学公式。长文自动生成目录与阅读进度。
+Blog 地址：`/blog/`。布局参考 Argon 的横幅、左侧概览与文章卡片。文章直接使用本地 Typora **dyzj-light** 的原始设置、字体与图标资源。长文自动生成目录与阅读进度。
 
 ## 发布文章
 
@@ -34,4 +34,10 @@ jekyll _3.10.0_ serve --drafts --port 4100
 - 脚注：正文 `[^note]`，文末 `[^note]: 补充说明`。
 - 折叠：`<details markdown="1">`，内部加 `<summary>标题</summary>` 和 Markdown 正文。
 
-Typora 的 `[TOC]` 不必填写，网页自动生成目录。普通 Markdown 与常见 HTML 可使用；编辑器专用控件和本机字体不保证逐项相同。网页保留主页蓝色链接与仅悬停下划线的习惯。
+Typora 的 `[TOC]` 不必填写，网页自动生成目录。普通 Markdown 与常见 HTML 可使用。文章链接按 dyzj-light 原始设置显示青色下边框及悬停背景，不再使用主页的链接样式。
+
+## 主题源文件
+
+`assets/vendor/dyzj-light/` 保存从本地直接复制的原始主题文件。`source-manifest.json` 记录 SHA-256。`assets/css/dyzj-light-web.css` 由 `tools/sync-typora-theme.mjs` 机械生成：只隔离选择器、映射 HTML/body/content 容器和修正资源路径；所有原始字号、颜色、间距与动画设置保留。`typora-bridge.css` 将 Jekyll 的代码块、图片、脚注等 HTML 与主题所需的类名对应起来。
+
+主题的中文字体设置是 `等距更纱黑体 SC`，属于本机字体，原主题没有附带其字体文件；没有安装的设备会按原始设置回退到后续字体。Source Sans Pro、JetBrains Mono 与风车/提示图标字体已随网站提供。
