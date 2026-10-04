@@ -63,7 +63,7 @@
     padding-left: 28px;
 }
 .typora-reader #write .footnotes > ol > li::before {
-    content: '(' counter(paper-footnote) ')';
+    content: '[' counter(paper-footnote) ']';
     counter-increment: none;
     position: absolute;
     left: 0;
