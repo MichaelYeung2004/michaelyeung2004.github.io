@@ -50,7 +50,7 @@
     border: 1px solid rgba(0, 0, 0, .03);
     border-radius: .8rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .075);
-    padding: 1.25em;
+    padding: 1em 1.25em;
     margin-bottom: 1.25em;
     
 
@@ -115,6 +115,11 @@
 .paper-box-text > p:first-of-type {
     font-size: 1.125em;
 }
+
+body.publications-page { background: #f8f9fa; min-height: 100vh; }
+.publications-page #main { max-width: 1140px; }
+.publications-page #main > .page { width: 100%; float: none; margin: 0; padding: 0; }
+.publications-panel .publications-panel__head--static { cursor: default; }
 
 /* News timeline adapted from Pan-Zihao/Pan-Zihao.github.io, scoped to News only. */
 .news-panel, .publications-panel {

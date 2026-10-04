@@ -1,26 +1,9 @@
 ---
-layout: blog-shell
+layout: default
 title: Publications
 navbar_title: Publications
 permalink: /publications/
 lang: en
+author_profile: false
 ---
-{% assign publications = site.data.publication_list | sort: 'date' | reverse %}
-{% assign pubs_by_year = publications | group_by: 'year' %}
-<div class="row">
-  <div class="col-12 col-lg-10">
-    {% for year in pubs_by_year %}
-    <h2 class="pt-4" id="year-{{ year.name }}">{{ year.name }}</h2>
-    <div class="my-0 p-0 bg-white shadow-sm rounded-xl">
-      {% for item in year.items %}
-      {% include luost/publication_item.html item=item hide_bottom_border=forloop.last %}
-      {% endfor %}
-    </div>
-    {% endfor %}
-  </div>
-  <div class="col-2 d-none d-lg-block">
-    <div id="navbar-year" class="nav nav-pills flex-column sticky-top" style="top:80px">
-      {% for year in pubs_by_year %}<a class="nav-link d-block" href="#year-{{ year.name }}">{{ year.name }}</a>{% endfor %}
-    </div>
-  </div>
-</div>
+{% include publications-section.html collapsible=false %}

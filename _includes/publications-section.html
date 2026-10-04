@@ -1,0 +1,29 @@
+<section class="publications-panel" id="-publications" aria-label="Publications">
+{% if include.collapsible == false %}
+<div class="news-panel__head publications-panel__head--static" role="heading" aria-level="1"><span class="news-panel__title">📝 Publications</span></div>
+{% else %}
+<details open>
+<summary class="news-panel__head"><span class="news-panel__title">📝 Publications</span><span class="news-panel__chevron" aria-hidden="true"></span></summary>
+{% endif %}
+{% assign papers = site.data.publication_list | sort: 'date' | reverse %}
+{% for item in papers %}
+<div class="paper-box">
+  <div class="paper-box-image"><div>
+    <div class="badge">arXiv {{ item.year }}</div>
+    <img src="{{ item.cover | relative_url }}" data-full-src="{{ item.full_cover | relative_url }}" class="progressive-image" alt="Overview of the VPT method" width="630" height="420" decoding="async">
+  </div></div>
+  <div class="paper-box-text">
+    <p><a href="{{ item.links.arXiv }}">{{ item.title }}</a></p>
+    <p>{{ item.authors }}</p>
+    <div class="publication-meta"><span class="publication-venue publication-venue--preprint">{{ item.venue }}</span><span class="publication-year">{{ item.year }}</span></div>
+    <div class="publication-links">
+      <a class="publication-link publication-link--arxiv" href="{{ item.links.arXiv }}"><span class="publication-link__icon"><i class="fas fa-file-alt" aria-hidden="true"></i></span><span>arXiv</span></a>
+      <a class="publication-link publication-link--pdf" href="{{ item.links.PDF }}"><span class="publication-link__icon"><i class="fas fa-file-pdf" aria-hidden="true"></i></span><span>PDF</span></a>
+      <a class="publication-link publication-link--project" href="{{ item.links.Project }}"><span class="publication-link__icon"><i class="fas fa-globe" aria-hidden="true"></i></span><span>Project</span></a>
+      <a class="publication-link publication-link--code" href="{{ item.links.Code }}"><span class="publication-link__icon"><i class="fas fa-code" aria-hidden="true"></i></span><span>Code</span></a>
+    </div>
+  </div>
+</div>
+{% endfor %}
+{% unless include.collapsible == false %}</details>{% endunless %}
+</section>

@@ -9,7 +9,7 @@ layout: compress
     {% include head/custom.html %}
   </head>
 
-  <body class="site-page{% if page.permalink == '/' %} homepage{% endif %}">
+  <body class="site-page{% if page.permalink == '/' %} homepage{% endif %}{% if page.permalink == '/publications/' %} publications-page{% endif %}">
 
     {% include browser-upgrade.html %}
     {% include masthead.html %}
