@@ -1,0 +1,32 @@
+/* Match qinren's body font without changing typography measurements.
+   Loaded only on non-Blog pages; icon and math fonts keep their own families. */
+body {
+  --non-blog-font: 'Fira Sans', Arial, sans-serif;
+  font-family: var(--non-blog-font);
+}
+.site-navbar,
+.paper-box,
+.page__content,
+.sidebar,
+.sidebar p,
+.sidebar li,
+.sidebar h2, .sidebar h3, .sidebar h4, .sidebar h5, .sidebar h6,
+.author__name,
+.author__bio,
+.author__urls,
+.page__meta,
+.page__date,
+.archive__item-excerpt,
+.btn,
+button, input, select, textarea,
+h1, h2, h3, h4, h5, h6,
+table, figcaption,
+.news-panel__head,
+.news-timeline__date,
+.homepage .sidebar,
+.homepage .sidebar .author__name,
+.homepage .sidebar .author__bio,
+.homepage .sidebar .author__urls,
+.homepage .sidebar .author__urls_sm {
+  font-family: var(--non-blog-font);
+}
