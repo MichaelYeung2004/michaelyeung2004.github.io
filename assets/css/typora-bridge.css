@@ -30,6 +30,7 @@
 .typora-reader #write .article-header > p { text-align: center; margin-top: 0; }
 .typora-reader #write .table-scroll { overflow-x: auto; margin: .8em 0; }
 .typora-reader #write .table-scroll table { display: table; width: 100%; }
+.typora-reader #write table tbody tr:not(:hover) { background-color: transparent; }
 .typora-reader #write li { position: relative; }
 .typora-reader #write .md-image { display: block; text-align: center; }
 .typora-reader #write .md-image img { max-width: 100%; height: auto; }
