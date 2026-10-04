@@ -1,0 +1,198 @@
+.paper-box {
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, .03);
+    border-radius: .8rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .075);
+    padding: 1em 1.25em;
+    margin-bottom: 1.25em;
+    
+
+    .paper-box-image{
+        justify-content: center;
+        display: flex;
+        width: 100%;
+        order: 1;
+        margin-bottom: 1.25em;
+        > div {
+            position: relative;
+            width: 100%;
+            max-width: 260px;
+            aspect-ratio: 3 / 2;
+        }
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            box-shadow: 0 7px 16px rgba(15, 23, 42, 0.22);
+        }
+    }
+    
+    .paper-box-text{
+        width: 100%;
+        max-width: 100%;
+        order: 2;
+    }
+    
+    @include breakpoint($medium) {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 1.5em;
+
+        .paper-box-image{
+            justify-content: left;
+            flex: 0 0 210px;
+            min-width: 210px;
+            max-width: 210px;
+            order: 1;
+            margin-bottom: 0;
+        }
+        
+        .paper-box-text{
+            justify-content: left;
+            flex: 1 1 auto;
+            min-width: 0;
+            padding-left: 0;
+            max-width: none;
+            order: 2;
+        }
+
+    }
+
+
+}
+
+.paper-box-text > p:first-of-type {
+    font-size: 1.125em;
+}
+
+.publication-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.45em;
+    margin: 0.55em 0;
+    font-size: 0.88em;
+}
+
+.publication-venue {
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.8em;
+    padding: 0.1em 0.65em;
+    border: 1px solid;
+    border-radius: 999px;
+    font-weight: 700;
+    line-height: 1.35;
+
+    &--preprint {
+        color: #475569;
+        background: #f8fafc;
+        border-color: #cbd5e1;
+    }
+
+    &--conference {
+        color: #4338ca;
+        background: #eef2ff;
+        border-color: #c7d2fe;
+    }
+
+    &--journal {
+        color: #92400e;
+        background: #fffbeb;
+        border-color: #fcd34d;
+    }
+}
+
+.publication-year {
+    color: #718096;
+    font-size: 1rem;
+}
+
+.publication-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6em;
+    margin-top: 0.65em;
+    font-size: 0.82em;
+}
+
+.publication-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35em;
+    padding: 0.2em 0.5em 0.2em 0.28em;
+    color: #263238 !important;
+    background: #fff;
+    border: 1px solid #d9dee3;
+    border-radius: 7px;
+    font-weight: 600;
+    line-height: 1.2;
+    text-decoration: none !important;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+
+    &:hover {
+        border-color: #aeb8c2;
+        box-shadow: 0 3px 8px rgba(15, 23, 42, 0.1);
+        transform: translateY(-1px);
+    }
+}
+
+.publication-link__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.6em;
+    height: 1.6em;
+    border-radius: 5px;
+}
+
+.publication-link--arxiv .publication-link__icon {
+    color: #6d4ba0;
+    background: #f0ebf7;
+}
+
+.publication-link--pdf .publication-link__icon {
+    color: #b42318;
+    background: #fee4e2;
+}
+
+.publication-link--project .publication-link__icon {
+    color: #087f8c;
+    background: #e0f2f1;
+}
+
+.publication-link--code .publication-link__icon {
+    color: #3f704d;
+    background: #e8f0e9;
+}
+
+@media (max-width: 767px) {
+    .paper-box-text { text-align: center; }
+    .paper-box .publication-meta,
+    .paper-box .publication-links { justify-content: center; }
+}
+.paper-box .badge {
+    display: block;
+    border-radius: 0;
+    font-weight: 400;
+    line-height: 1.5;
+    padding: 0 1rem;
+    padding-right: 1rem;
+    position: absolute;
+    margin-top: .5em;
+    margin-left: -.5em;
+    color: white;
+    background-color: #00369f;
+    font-size: .8em;
+} 
+
+.paper-box { font-family: "Trebuchet MS", Helvetica, sans-serif; font-size: 16px; line-height: 1.5; color: #313436; }
+.paper-box-text p { margin: 0 0 8px; }
