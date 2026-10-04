@@ -1,18 +1,24 @@
 /* DOM compatibility only. Visual settings live in the original dyzj-light CSS. */
-.typora-reader { background: var(--bg-color); display: block; }
+.typora-reader { --article-body-size: 17px; background: var(--bg-color); display: block; }
+@media (max-width: 767px) { .typora-reader { --article-body-size: 16px; } }
 .typora-content { display: block; }
 /* Upstream article padding is 24px; keep a slightly roomier 28px, without
    stacking Typora's editor padding and 160px bottom space inside the card. */
 .blog-post-card { padding: 28px; }
 @media (min-width: 992px) { .blog-post-card { padding: 32px; } }
-.typora-reader #write { width: 100%; max-width: none; margin: 0; padding: 0; }
+.typora-reader #write { width: 100%; max-width: none; margin: 0; padding: 0; font-size: var(--article-body-size); line-height: 27.2px; }
+.typora-reader #write :is(p,ul,ol,li,blockquote,td,th) { font-size: var(--article-body-size); line-height: 27.2px; }
+.typora-reader #write h2 { font-size: 25px; }
+.typora-reader #write h3 { font-size: 21px; }
+.typora-reader #write h4 { font-size: 19px; }
+.blog-toc-list a, .blog-toc-title { font-size: 16px; }
 .typora-reader #write > :last-child { margin-bottom: 0; }
 .typora-reader #write > .article-header { border: 0; padding: 0; margin: 0; }
-.typora-reader #write .article-header h1 { margin-top: 0; margin-bottom: 12px; padding-bottom: 0; letter-spacing: normal; overflow-wrap: anywhere; }
+.typora-reader #write .article-header h1 { font-size: 37.4px; margin-top: 0; margin-bottom: 12px; padding-bottom: 0; letter-spacing: normal; overflow-wrap: anywhere; }
 .typora-reader #write .article-meta { justify-content: center; gap: 12px 20px; margin-bottom: 21px !important; font: 400 17px/1.5 Lato, sans-serif; }
 .typora-reader #write .article-date,
 .typora-reader #write .article-tags { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 6px; }
-.typora-reader #write .article-meta .badge { font: 400 14px/1.2 Lato, sans-serif; padding: 4px 7px; color: #212529; background: #f8f9fa; border: 0; border-radius: 4px; text-decoration: none; }
+.typora-reader #write .article-meta .badge { font: 400 15px/1.2 Lato, sans-serif; padding: 4px 7px; color: #212529; background: #f8f9fa; border: 0; border-radius: 4px; text-decoration: none; }
 .typora-reader #write .article-meta .badge:hover { color: #0645ad !important; background: #eef2f6; text-decoration: none; }
 .typora-reader #write .article-header > p { text-align: center; }
 .typora-reader #write .table-scroll { overflow-x: auto; margin: .8em 0; }
