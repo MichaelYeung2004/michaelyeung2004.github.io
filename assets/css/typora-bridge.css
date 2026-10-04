@@ -31,8 +31,10 @@
 .typora-reader #write .table-scroll { overflow-x: auto; margin: .8em 0; }
 .typora-reader #write .table-scroll table { display: table; width: 100%; }
 .typora-reader #write table tbody tr:not(:hover) { background-color: transparent; }
-.typora-reader #write blockquote > :first-child { margin-top: 8px; }
-.typora-reader #write blockquote > :last-child { margin-bottom: 8px; }
+.typora-reader #write blockquote { padding: 8px 12px; }
+.typora-reader #write blockquote > * { margin-left: 28px !important; }
+.typora-reader #write blockquote > :first-child { margin-top: 6px; }
+.typora-reader #write blockquote > :last-child { margin-bottom: 6px; }
 .typora-reader #write li { position: relative; }
 .typora-reader #write .md-image { display: block; text-align: center; }
 .typora-reader #write .md-image img { max-width: 100%; height: auto; }
