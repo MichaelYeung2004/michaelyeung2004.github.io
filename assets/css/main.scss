@@ -230,6 +230,28 @@
     background: #e8f0e9;
 }
 
+/* Homepage uses the upstream Bootstrap bg-light shade. */
+body.homepage {
+    background-color: #f8f9fa;
+}
+
+@include breakpoint($large) {
+    .homepage #main > .page {
+        position: relative;
+    }
+
+    .homepage #main > .page::before {
+        content: '';
+        position: absolute;
+        top: 8px;
+        bottom: 16px;
+        left: 0;
+        width: 1px;
+        background: linear-gradient(to bottom, transparent, #dce2e7 36px, #dce2e7 calc(100% - 36px), transparent);
+        pointer-events: none;
+    }
+}
+
 /* Avoid a persistent click outline while preserving a clear keyboard focus. */
 a:focus {
     outline: none;
