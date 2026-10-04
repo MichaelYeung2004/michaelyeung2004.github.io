@@ -13,7 +13,8 @@ baidu_site_verification  :
 
 author:
   name             : "Zhen Yang (杨振)"
-  avatar           : "assets/images/photos/yangzhen-optimized.jpg"
+  avatar           : "images/0440c835c573b90f155cf665f41c6b13-optimized.jpg"
+  avatar_full      : "images/0440c835c573b90f155cf665f41c6b13.png"
   bio              : "Institute of Computing Technology, Chinese Academy of Sciences"
   location         : "Beijing, China"
   employer         :

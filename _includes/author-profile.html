@@ -5,7 +5,7 @@
 <div itemscope itemtype="http://schema.org/Person" class="profile_box">
 
   <div class="author__avatar author__avatar-frame">
-    <img src="{{ author.avatar | relative_url }}" data-full-src="{{ '/assets/images/photos/yangzhen.png' | relative_url }}" class="author__avatar progressive-image" alt="{{ author.name }}" width="480" height="600" decoding="async" fetchpriority="high">
+    <img src="{{ author.avatar | relative_url }}" data-full-src="{{ author.avatar_full | default: author.avatar | relative_url }}" class="author__avatar progressive-image" alt="{{ author.name }}" width="1100" height="1402" decoding="async" fetchpriority="high">
   </div>
 
   <div class="author__content">
