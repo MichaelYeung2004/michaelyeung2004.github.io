@@ -161,15 +161,17 @@ jekyll _3.10.0_ serve --port 4100
 
 ### 发布到网站
 
-将文章和它引用的图片一起提交到 GitHub。可以用 Git 客户端，也可以在项目目录运行：
+不必逐个填写图片文件名。保存文章后，在网站项目目录运行下面三行，就能把 `_posts` 内的文章和图片一起发布：
 
 ```bash
-git add _posts/2026-10-04-my-first-note.md _posts/assets/my-result.png
-git commit -m "Add my first blog note"
+git add _posts
+git commit -m "Update blog"
 git push origin main
 ```
 
-上面的文章名和图片名需要替换成自己的；没有图片时，删掉图片路径。GitHub Pages 部署完成后，Blog 列表会自动出现新文章，并按日期倒序排列。
+这三行每次都可以照着用，不用改文章名或图片名。`git add _posts` 会一并提交该文件夹内新增、修改或删除的文章及图片，但不会提交项目其他文件夹里的修改。提交前可运行 `git diff --cached --stat` 核对清单；如果之前已经暂存了其他文件，它们也会进入这次提交。
+
+日常流程就是：**Typora 写作并保存 → 图片放在 `_posts/assets` → 运行这三行 → 等待网站部署**。新文章仍需要符合日期命名和顶部信息格式；更新已有文章时直接编辑、保存即可。没有改动时 Git 会提示没有可提交的内容。GitHub Pages 部署完成后，Blog 列表会自动更新，并按日期倒序排列。
 
 ## 5. 还没写完时，先存为草稿
 
