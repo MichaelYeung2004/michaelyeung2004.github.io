@@ -31,6 +31,8 @@
 .typora-reader #write .table-scroll { overflow-x: auto; margin: .8em 0; }
 .typora-reader #write .table-scroll table { display: table; width: 100%; }
 .typora-reader #write table tbody tr:not(:hover) { background-color: transparent; }
+.typora-reader #write blockquote > :first-child { margin-top: 8px; }
+.typora-reader #write blockquote > :last-child { margin-bottom: 8px; }
 .typora-reader #write li { position: relative; }
 .typora-reader #write .md-image { display: block; text-align: center; }
 .typora-reader #write .md-image img { max-width: 100%; height: auto; }
@@ -39,7 +41,6 @@
 .typora-reader #write pre.md-fences { padding: 16px 12px; overflow-x: auto; margin: 0; }
 .typora-reader #write pre.md-fences code { display: block; background: transparent; color: var(--codeblockfont-color); padding: 0; font-size: .95em; white-space: pre; }
 .typora-reader #write .highlight { margin: 0; }
-.typora-reader #write .copy-code { position: absolute; right: 8px; top: 8px; font-size: 11px; padding: 3px 7px; border: 1px solid #d0d5d7; border-radius: 3px; background: var(--bg-color); color: var(--codeblockfont-color); cursor: pointer; }
 .typora-reader #write .MathJax_Display { overflow-x: auto; overflow-y: hidden; max-width: 100%; }
 .typora-reader #write .md-task-list-item > input { appearance: auto; position: static; margin: 0 .5em 0 0; accent-color: var(--taskfocus-color); }
 .typora-reader #write .md-task-list-item > input::before { display: none; }

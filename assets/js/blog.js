@@ -201,22 +201,4 @@
     table.parentNode.insertBefore(wrapper, table);
     wrapper.appendChild(table);
   });
-  if (navigator.clipboard && window.isSecureContext) {
-    content.querySelectorAll('div.highlighter-rouge').forEach(function (block) {
-      var code = block.querySelector('pre code');
-      if (!code) return;
-      var button = document.createElement('button');
-      button.type = 'button';
-      button.className = 'copy-code';
-      button.textContent = '复制';
-      button.setAttribute('aria-label', '复制代码');
-      button.addEventListener('click', function () {
-        navigator.clipboard.writeText(code.textContent).then(function () {
-          button.textContent = '已复制';
-          window.setTimeout(function () { button.textContent = '复制'; }, 1800);
-        }).catch(function () { button.textContent = '请手动复制'; });
-      });
-      block.appendChild(button);
-    });
-  }
 }());
