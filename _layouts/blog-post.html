@@ -7,9 +7,11 @@ layout: blog-shell
       <a href="{{ '/blog/' | relative_url }}" target="_self" class="small">← 所有文章</a>
       <div class="typora-reader"><div class="typora-content"><div class="blog-content" id="write">
         <header class="article-header">
-          <div class="blog-tags">{% for tag in page.tags %}<a href="{{ '/blog/' | relative_url }}?tag={{ tag | url_encode }}" target="_self" aria-label="查看标签：{{ tag | escape }}">{{ tag | escape }}</a>{% endfor %}</div>
           <h1><span>{{ page.title | escape }}</span></h1>
-          <div class="article-meta"><span>{{ site.author.name }}</span><span aria-hidden="true">·</span><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%Y.%m.%d' }}</time></div>
+          <div class="article-meta text-muted mb-3">
+            <span class="article-date"><i class="fas fa-calendar-alt" aria-hidden="true"></i> <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%B %d, %Y' }}</time></span>
+            {% if page.tags.size > 0 %}<span class="article-tags"><i class="fas fa-tags" aria-hidden="true"></i> {% for tag in page.tags %}<a class="badge badge-light" href="{{ '/blog/' | relative_url }}?tag={{ tag | url_encode }}" target="_self" aria-label="查看标签：{{ tag | escape }}">{{ tag | escape }}</a>{% endfor %}</span>{% endif %}
+          </div>
           {% if page.description %}<p>{{ page.description | escape }}</p>{% endif %}
         </header>
         {% assign blog_image_root = '/_posts/assets/' | relative_url %}
