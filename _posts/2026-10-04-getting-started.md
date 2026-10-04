@@ -2,7 +2,7 @@
 title: 如何在这里写一篇博客
 date: 2026-10-04 09:00:00 +0800
 description: 从 Typora 里的第一行 Markdown，到网站上的一篇文章：一份写作、排版与发布的小教程。
-tags: [使用教程, Markdown]
+tags: [使用教程]
 ---
 
 这个 Blog 用 Markdown 写作，文章页面直接使用本地 Typora **dyzj-light** 主题的设置、字体和图标。你可以在熟悉的编辑器里整理笔记，再将文件放进网站仓库。标题、摘要、标签和目录会自动生成。
