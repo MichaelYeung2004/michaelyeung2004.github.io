@@ -13,3 +13,6 @@ main:
 
   - title: "Research Experience"
     url: "/#-research-experience"
+
+  - title: "Blog"
+    url: "/blog/"

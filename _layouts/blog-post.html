@@ -1,0 +1,20 @@
+---
+layout: blog-shell
+---
+<a class="blog-back" href="{{ '/blog/' | relative_url }}" target="_self">← 所有文章</a>
+<div class="blog-reader">
+  <article class="blog-paper">
+    <header class="article-header">
+      <div class="blog-tags">{% for tag in page.tags %}<span>{{ tag }}</span>{% endfor %}</div>
+      <h1>{{ page.title | escape }}</h1>
+      <div class="article-meta"><span>{{ site.author.name }}</span><span aria-hidden="true">·</span><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%Y.%m.%d' }}</time><span class="reading-time"></span></div>
+      {% if page.description %}<p>{{ page.description | escape }}</p>{% endif %}
+    </header>
+    <div class="blog-content" id="write">{{ content }}</div>
+    <nav class="article-pagination" aria-label="相邻文章">
+      {% if page.previous %}<a href="{{ page.previous.url | relative_url }}" target="_self"><small>上一篇</small>{{ page.previous.title | escape }}</a>{% endif %}
+      {% if page.next %}<a href="{{ page.next.url | relative_url }}" target="_self"><small>下一篇</small>{{ page.next.title | escape }}</a>{% endif %}
+    </nav>
+  </article>
+  <aside class="blog-toc" hidden><details open><summary>ON THIS PAGE <span>目录</span></summary><nav aria-label="文章目录"></nav></details></aside>
+</div>
