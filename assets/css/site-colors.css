@@ -1,9 +1,15 @@
-/* Original deep-blue palette; personal social icons keep their bright blue. */
-body a { color: #0645ad; }
-body a:hover { color: #0645ad; }
-#navbar-year .nav-link.active { background-color: #0645ad; color: #fff; }
-.text-primary { color: #0645ad !important; }
-.bg-primary, .btn-primary, .badge-primary { background-color: #0645ad !important; }
-.btn-primary { border-color: #0645ad; }
-.form-control:focus, .custom-select:focus { border-color: #799aca; box-shadow: 0 0 0 .2rem rgba(6,69,173,.25); }
-.homepage .author__urls_sm a:hover { color: #007bff; }
+/* Bright-blue site palette; homepage main content and paper cards stay deep blue. */
+body { --site-blue: #007bff; }
+.homepage .page__content { --site-blue: #0645ad; }
+.paper-box { --site-blue: #0645ad; }
+body a, body a:hover { color: var(--site-blue); }
+.paper-box-text > p:first-of-type a { color: var(--site-blue); }
+.paper-box .badge { background-color: var(--site-blue); }
+#navbar-year .nav-link.active { background-color: #007bff; color: #fff; }
+.text-primary { color: var(--site-blue) !important; }
+.bg-primary, .btn-primary, .badge-primary { background-color: var(--site-blue) !important; }
+.btn-primary { border-color: var(--site-blue); }
+.form-control:focus, .custom-select:focus { border-color: #80bdff; box-shadow: 0 0 0 .2rem rgba(0,123,255,.25); }
+.author__urls_sm a, .author__urls_sm a:hover { color: #007bff; }
+body:not(.homepage) .publication-card a,
+body:not(.homepage) .publication-card a:hover { color: #007bff; }
