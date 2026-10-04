@@ -48,6 +48,8 @@ author:
   youtube          :
   wikipedia        :
 
+future: true
+
 include:
   - _posts
   - .htaccess

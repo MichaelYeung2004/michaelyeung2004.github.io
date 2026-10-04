@@ -7,7 +7,7 @@ Blog 地址：`/blog/`。保留最初的浅色青绿色单栏布局，仅参考 
 日常更新不必逐个指定图片。在项目目录运行 `git add _posts`、`git commit -m "Update blog"`、`git push origin main`，就能一起提交文章和 `_posts/assets` 内的图片。提交前用 `git diff --cached --stat` 检查清单，避免把此前已暂存的其他修改一起发布。不要用 `git add .`，以免带上无关文件。
 
 1. 在 Typora 打开 `docs/blog-template.md`，另存为 `_posts/YYYY-MM-DD-english-slug.md`（没有 `_posts` 文件夹时先创建），例如 `_posts/2026-10-04-first-note.md`。
-2. 保留最上方两个 `---` 之间的信息，填写 `title`、`date`、`description` 和 `tags`。日期不要晚于实际发布时间；正文不必重复写文章标题。
+2. 保留最上方两个 `---` 之间的信息，填写 `title`、`date`、`description` 和 `tags`。日期用于展示与排序，未来日期也会正常发布；正文不必重复写文章标题。
 3. 在第二个 `---` 下面写 Markdown 正文。二级、三级标题会自动加入阅读目录。
 4. 图片放到 `_posts/assets/`，正文写 `![图片说明](assets/example.png)` 或 `![图片说明](/_posts/assets/example.png)`。相对路径会自动转换成网站路径，Typora 也能直接预览。不要使用本机磁盘路径。
 5. 提交并推送到 GitHub 后自动构建；文章默认地址为 `/blog/english-slug/`，列表按日期倒序。
