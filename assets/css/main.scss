@@ -177,6 +177,7 @@ body.homepage {
         display: block;
         padding: 0;
         min-width: 0;
+        text-align: center;
     }
     .homepage .author__urls-wrapper {
         display: block;
@@ -192,7 +193,7 @@ body.homepage {
         flex-wrap: nowrap;
         gap: 12px;
         padding: 0;
-        font-size: 22px;
+        font-size: 1.75em;
     }
     .homepage .author__urls_sm a {
         display: inline-flex;
