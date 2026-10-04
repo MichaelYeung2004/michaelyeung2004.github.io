@@ -20,7 +20,7 @@ layout: compress
   {% if page.navbar_title == 'Publications' %}<link rel="stylesheet" href="{{ '/assets/css/publication-cards.css' | relative_url }}?v={{ site.time | date: '%s' }}">{% endif %}
   {% if page.layout == 'blog-post' %}
   <link rel="stylesheet" href="{{ '/assets/css/dyzj-light-web.css' | relative_url }}">
-  <link rel="stylesheet" href="{{ '/assets/css/typora-bridge.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/typora-bridge.css' | relative_url }}?v={{ site.time | date: '%s' }}">
   {% endif %}
   {% include head/custom.html %}
   <link rel="stylesheet" href="{{ '/assets/css/vendor/bootstrap-navbar.css' | relative_url }}?v={{ site.time | date: '%s' }}">
