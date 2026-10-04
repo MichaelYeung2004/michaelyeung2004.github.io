@@ -3,7 +3,8 @@
 .blog-search-controls { gap: 10px; }
 .blog-search-controls select { width: auto; }
 .blog-card mark { background: #fff0a6; color: inherit; padding: 0; }
-.blog-card .badge { font-size: 12px; }
+.blog-card .badge { font-size: 12px; font-weight: 400; }
+.blog-card .blog-excerpt { font-size: 15px; line-height: 1.65; }
 .blog-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
 .article-meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; color: #879398; font-size: 14px; }
 .article-pagination a { max-width: 48%; }

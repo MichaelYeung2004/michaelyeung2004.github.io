@@ -1,5 +1,5 @@
 (function () {
-  var button = document.querySelector('.homepage .navbar-toggler');
+  var button = document.querySelector('.site-navbar .navbar-toggler');
   var menu = document.getElementById('navbarResponsive');
   if (!button || !menu) return;
   button.addEventListener('click', function () {
