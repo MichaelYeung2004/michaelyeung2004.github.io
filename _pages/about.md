@@ -12,13 +12,20 @@ redirect_from:
 
 I am Zhen Yang (杨振), an undergraduate student in Computer Science and Technology at Sun Yat-sen University. I will be a master's student at the [Vision Information Processing and Learning (VIPL) Laboratory](https://vipl.ict.ac.cn/), Institute of Computing Technology, Chinese Academy of Sciences, starting in 2027, advised by Prof. [Ruiping Wang](https://vipl.ict.ac.cn/people/rpwang/). My research interests lie in 3D Computer Vision and Multimodal Large Language Models.
 
-# 🔥 News
-
-<div class="news-scroll" markdown="1">
-
-- **[2026.09]** I will join [VIPL](https://vipl.ict.ac.cn/) as a master's student in 2027.
-
-</div>
+<section class="news-panel" id="-news" aria-label="News">
+  <details open>
+    <summary class="news-panel__head"><span class="news-panel__title">News</span><span class="news-panel__chevron" aria-hidden="true"></span></summary>
+    <div class="news-panel__body">
+      <ul class="news-timeline">
+        <li class="news-timeline__item">
+          <span class="news-timeline__dot" aria-hidden="true"></span>
+          <time class="news-timeline__date" datetime="2026-09">Sep. 2026</time>
+          <p>I will join <a href="https://vipl.ict.ac.cn/">VIPL</a> as a master's student in 2027.</p>
+        </li>
+      </ul>
+    </div>
+  </details>
+</section>
 
 # 📝 Publications
 
