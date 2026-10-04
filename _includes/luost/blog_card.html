@@ -1,0 +1,43 @@
+{% assign item = include.item %}
+{% assign hide_bottom_border = include.hide_bottom_border %}
+{% assign first = include.first %}
+{% assign last = include.last %}
+
+<article class="blog-card border-bottom border-gray p-3 {% if hide_bottom_border %}border-0{% endif %}" data-description="{{ item.description | default: item.excerpt | strip_html | escape }}" data-tags="{{ item.tags | jsonify | escape }}" data-year="{{ item.date | date: '%Y' }}" data-date="{{ item.date | date_to_xmlschema }}" data-categories="{{ item.categories | jsonify | escape }}">
+    <template class="blog-search-body">{{ item.content }}</template>
+    <div class="row">
+        <div class="col-12">
+            <h5 class="mb-2 blog-card-title">
+                <a href="{{ item.url | relative_url }}" class="text-dark text-decoration-none">
+                    {{ item.title }}
+                </a>
+            </h5>
+            <div class="text-muted small mb-2">
+                <i class="fas fa-calendar-alt"></i> {{ item.date | date: "%B %d, %Y" }}
+                {% if item.tags %}
+                    <span class="ml-3">
+                        <i class="fas fa-tags"></i>
+                        {% for tag in item.tags %}
+                            <a class="badge badge-light" href="{{ '/blog/' | relative_url }}?tag={{ tag | url_encode }}" target="_self">{{ tag }}</a>
+                        {% endfor %}
+                    </span>
+                {% endif %}
+            </div>
+            <div class="text-muted small blog-excerpt">
+                {% if item.description %}
+                    {{ item.description | escape }}
+                {% elsif item.excerpt %}
+                    {{ item.excerpt | strip_html | truncate: 500 }}
+                {% else %}
+                    {{ item.content | strip_html | truncate: 500 }}
+                {% endif %} 
+            </div>
+            <div class="blog-match-type text-muted small" hidden></div>
+            <div class="mt-2">
+                <a href="{{ item.url | relative_url }}">
+                    Read more <i class="fas fa-angle-double-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</article>

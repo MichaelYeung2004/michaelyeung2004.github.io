@@ -13,7 +13,7 @@ const cards = [card('Alpha old', 'Opening sentence. Next sentence.', '2026-01-01
 cards[2].dataset.description = 'The full description, not the opening sentence.';
 const search = { value: 'Alpha', addEventListener() {} };
 const scope = { value: 'all', addEventListener() {} };
-const list = { order: [], querySelectorAll() { return []; }, appendChild(item) { this.order.push(item); } };
+const list = { order: [], querySelectorAll() { return []; }, appendChild(item) { this.order = this.order.filter(existing => existing !== item); this.order.push(item); } };
 const elements = { '.blog-search input': search, '[data-search-scope]': scope, '.blog-post-list': list };
 const document = {
   querySelectorAll(selector) { return selector === '.blog-card' ? cards : []; },
@@ -23,7 +23,7 @@ const document = {
 function run(query, range = 'all') {
   search.value = query; scope.value = range; list.order = [];
   vm.runInNewContext(fs.readFileSync('assets/js/blog.js', 'utf8'), { document, Intl });
-  return list.order.filter(item => cards.includes(item));
+  return list.order.filter(item => cards.includes(item) && !item.hidden);
 }
 assert.deepEqual(run('Alpha'), [cards[2], cards[0], cards[1]], 'Title first, descending dates within each match type');
 assert.equal(cards[2].nodes['.blog-excerpt'].children.map(n => n.textContent).join(''), 'The full description, not the opening sentence.');

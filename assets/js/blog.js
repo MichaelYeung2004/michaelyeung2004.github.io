@@ -74,19 +74,38 @@
       if (matches) matched.push(entry);
     });
     matched.sort(function (a, b) { return (query ? a.rank - b.rank : 0) || b.date - a.date; });
-    if (list) list.querySelectorAll('.blog-year-heading').forEach(function (heading) { heading.remove(); });
+    if (list) {
+      entries.forEach(function (entry) { list.appendChild(entry.card); });
+      list.querySelectorAll('.blog-year-heading,.blog-year-group').forEach(function (heading) { heading.remove(); });
+    }
     var lastYear = '';
+    var useGroups = list && list.dataset && list.dataset.yearGroups === 'true';
+    var group = null;
     matched.forEach(function (entry, index) {
       if (!query && index < visibleLimit && entry.card.dataset.year !== lastYear) {
         var heading = document.createElement('h2');
-        heading.className = 'blog-year-heading';
+        heading.className = 'blog-year-heading pt-4';
         heading.textContent = entry.card.dataset.year;
-        heading.id = 'blog-year-' + entry.card.dataset.year;
+        heading.id = 'year-' + entry.card.dataset.year;
         list.appendChild(heading);
         lastYear = entry.card.dataset.year;
+        group = null;
       }
-      list.appendChild(entry.card); entry.card.hidden = index >= visibleLimit;
+      if (useGroups && index < visibleLimit) {
+        if (!group) {
+          group = document.createElement('div');
+          group.className = 'blog-year-group my-0 p-0 bg-white shadow-sm rounded-xl';
+          list.appendChild(group);
+        }
+        group.appendChild(entry.card);
+      } else list.appendChild(entry.card);
+      entry.card.hidden = index >= visibleLimit;
     });
+    var yearNav = document.querySelector('#navbar-year');
+    if (yearNav) {
+      yearNav.hidden = !!query;
+      yearNav.querySelectorAll('a').forEach(function (link) { link.hidden = !document.getElementById(link.hash.slice(1)); });
+    }
     shown = matched.length;
     var empty = document.querySelector('.blog-no-results');
     if (empty) empty.hidden = shown > 0;
@@ -151,7 +170,7 @@
       link.target = '_self';
       link.textContent = heading.textContent;
       link.dataset.level = heading.tagName.slice(1);
-      toc.querySelector('nav').appendChild(link);
+      (toc.querySelector('.blog-toc-list') || toc.querySelector('nav')).appendChild(link);
       links.push(link);
     });
   }

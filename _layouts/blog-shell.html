@@ -1,34 +1,37 @@
 ---
 layout: compress
 ---
-<!doctype html>
-<html lang="{{ page.lang | default: 'zh-CN' }}" class="js">
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: 'zh-CN' }}">
+<!-- Blog template: https://github.com/luost26/academic-homepage -->
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   {% include seo.html %}
-  {% include head/custom.html %}
-  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-  <link rel="stylesheet" href="{{ '/assets/css/blog.css' | relative_url }}">
-  <link rel="stylesheet" href="{{ '/assets/css/blog-academic.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/luost-global.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/luost-blog-layout.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/blog-compat.css' | relative_url }}?v={{ site.time | date: '%s' }}">
   {% if page.layout == 'blog-post' %}
   <link rel="stylesheet" href="{{ '/assets/css/dyzj-light-web.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/typora-bridge.css' | relative_url }}">
   {% endif %}
+  {% include head/custom.html %}
 </head>
-<body class="blog-site blog-academic">
+<body class="bg-light d-flex flex-column min-vh-100" {% if page.permalink == '/blog/' %}data-spy="scroll" data-target="#navbar-year" data-offset="100"{% endif %}>
   <div class="reading-progress" aria-hidden="true"></div>
-  {% include masthead.html %}
-  <main class="blog-main" id="main">
-    {% if page.permalink == '/blog/' %}
-    <aside class="sidebar sticky">{% include author-profile.html %}</aside>
-    <div class="page"><div class="page__inner-wrap"><section class="page__content blog-index-content">{{ content }}</section></div></div>
-    {% else %}
+  {% include luost/navbar.html active_page="Blog" %}
+  <main class="flex-grow-1 flex-shrink-0 {% unless page.layout == 'blog-post' %}container-lg{% endunless %}">
     {{ content }}
-    {% endif %}
   </main>
-  <footer class="blog-footer"><span>© {{ 'now' | date: '%Y' }} Zhen Yang</span><span>Typography: dyzj-light</span><a href="#main" target="_self">Back to top ↑</a></footer>
-  {% include scripts.html %}
+  {% include luost/footer.html %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
   <script src="{{ '/assets/js/blog.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
 </body>
 </html>
