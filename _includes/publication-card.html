@@ -9,10 +9,9 @@
     <p>{{ item.authors }}</p>
     <div class="publication-meta"><span class="publication-venue publication-venue--preprint">{{ item.venue }}</span><span class="publication-year">{{ item.year }}</span></div>
     <div class="publication-links">
-      <a class="publication-link publication-link--arxiv" href="{{ item.links.arXiv }}"><span class="publication-link__icon"><i class="fas fa-file-alt" aria-hidden="true"></i></span><span>arXiv</span></a>
-      <a class="publication-link publication-link--pdf" href="{{ item.links.PDF }}"><span class="publication-link__icon"><i class="fas fa-file-pdf" aria-hidden="true"></i></span><span>PDF</span></a>
-      <a class="publication-link publication-link--project" href="{{ item.links.Project }}"><span class="publication-link__icon"><i class="fas fa-globe" aria-hidden="true"></i></span><span>Project</span></a>
-      <a class="publication-link publication-link--code" href="{{ item.links.Code }}"><span class="publication-link__icon"><i class="fas fa-code" aria-hidden="true"></i></span><span>Code</span></a>
+      <a class="publication-link" href="{{ item.links.arXiv }}">[Paper]</a>
+      <a class="publication-link" href="{{ item.links.Project }}">[Project]</a>
+      <a class="publication-link" href="{{ item.links.Code }}">[Code]</a>
     </div>
   </div>
 </div>
