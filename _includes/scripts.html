@@ -1,6 +1,6 @@
 <script src="{{ '/assets/js/main.min.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/progressive-images.js' | relative_url }}"></script>
-<script src="{{ '/assets/js/home-navbar.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js" integrity="sha512-XKa9Hemdy1Ui3KSGgJdgMyYlUg1gM+QhL6cnlyTe2qzMCYm4nAZ1PsVerQzTTXzonUR+dmswHqgJPuwCq1MaAg==" crossorigin="anonymous"></script>
 {% if page.permalink == '/' %}<script src="{{ '/assets/js/home-sidebar.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>{% endif %}
 
 {% include analytics.html %}

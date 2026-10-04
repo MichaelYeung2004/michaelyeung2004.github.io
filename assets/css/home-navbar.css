@@ -1,23 +1,18 @@
-/* Shared homepage navbar: pixel sizing also isolates it from Markdown themes. */
-/* Reserve the same scrollbar space on short and long pages to prevent header shifts. */
+/* Site-specific colors and isolation; layout comes from Bootstrap 4.6.0. */
 html { overflow-y: scroll; }
 body.site-page { padding-top: 80px; }
-.site-navbar, .site-navbar * { box-sizing: border-box; }
-.site-navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1030; display: flex; align-items: center; padding: 8px 16px; margin: 0 !important; color: #313436; background: rgba(248,249,250,.92) !important; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); box-shadow: 0 2px 4px rgba(0,0,0,.075) !important; font: 400 16px/24px Lato,sans-serif; }
-.site-navbar .container-lg { width: 100%; padding: 0 15px; margin: auto; display: flex; align-items: center; flex-wrap: wrap; justify-content: space-between; }
-.site-navbar .navbar-brand { display: inline-block; padding: 5px 0; margin-right: 16px; font-size: 20px; line-height: 30px; color: rgba(0,0,0,.9); white-space: nowrap; }
-.site-navbar .navbar-nav { display: flex; padding: 0; margin: 0 0 0 auto; list-style: none; }
-.site-navbar.navbar-expand-sm .navbar-nav .nav-link { display: block; padding: 8px; font-size: 16px; line-height: 24px; color: rgba(0,0,0,.5); }
-.site-navbar.navbar-expand-sm .navbar-nav .active .nav-link,.site-navbar.navbar-expand-sm .navbar-nav .nav-link:hover { color: rgba(0,0,0,.9); }
-.site-navbar a { text-decoration: none; }
-.site-navbar .navbar-collapse { flex-grow: 1; display: flex; align-items: center; }
-.site-navbar .navbar-toggler { display: none; position: static; width: auto; height: auto; background: transparent; color: rgba(0,0,0,.5); border: 1px solid rgba(0,0,0,.1); border-radius: 4px; font: inherit; line-height: 1; }
-@media (min-width: 992px) { .site-navbar .container-lg { max-width: 960px; } }
-@media (min-width: 1200px) { .site-navbar .container-lg { max-width: 1140px; } }
-@media (max-width: 575px) {
- .site-navbar .navbar-toggler { display: block; }
- .site-navbar .navbar-collapse { display: none; flex-basis: 100%; }
- .site-navbar .navbar-collapse.show { display: block; }
- .site-navbar .navbar-nav { flex-direction: column; }
- .site-navbar.navbar-expand-sm .navbar-nav .nav-link { padding: 8px 0; }
+.site-navbar, .site-navbar *, .site-navbar *::before, .site-navbar *::after { box-sizing: border-box; }
+.site-navbar {
+  color: #313436;
+  background: rgba(248,249,250,.92) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  font: 400 16px/1.5 Lato,sans-serif;
 }
+.site-navbar a { text-decoration: none; }
+.site-navbar .navbar-nav { margin-top: 0; }
+.site-navbar .nav-item { margin: 0; font: inherit; }
+.site-navbar .navbar-nav .nav-link { font-size: 16px; line-height: 1.5; }
+.site-navbar .navbar-toggler { position: static; width: auto; height: auto; font-family: inherit; font-weight: 400; margin: 0; cursor: pointer; }
+/* Keep the existing hover color, rather than changing it to upstream's 0.7. */
+.site-navbar.navbar-light .navbar-nav .nav-link:hover { color: rgba(0,0,0,.9); }
