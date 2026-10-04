@@ -108,6 +108,10 @@
 
 }
 
+.paper-box-text > p:first-of-type {
+    font-size: 1.0625em;
+}
+
 /* News timeline adapted from Pan-Zihao/Pan-Zihao.github.io, scoped to News only. */
 .news-panel, .publications-panel {
     --news-line: rgba(58, 52, 44, 0.14);
