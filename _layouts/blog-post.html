@@ -13,9 +13,7 @@ layout: blog-shell
           </div>
           {% if page.description %}<p>{{ page.description | escape }}</p>{% endif %}
         </header>
-        {% assign blog_image_root = '/_posts/assets/' | relative_url %}
-        {% assign image_prefix = 'src="' | append: blog_image_root %}
-        {{ content | replace: 'src="./assets/', image_prefix | replace: 'src="assets/', image_prefix }}
+        {% include blog-image-paths.html html=content %}
       </div></div></div>
       {% if page.previous or page.next %}<nav class="article-pagination d-flex justify-content-between mt-4" aria-label="相邻文章">
         {% if page.previous %}<a href="{{ page.previous.url | relative_url }}" target="_self"><small>上一篇</small>{{ page.previous.title | escape }}</a>{% endif %}

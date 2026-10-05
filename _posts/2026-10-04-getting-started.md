@@ -152,7 +152,7 @@ $$
 
 这里的文件名是示例，需要换成真实存在的图片。`assets/` 相对于 Markdown 文件，适合 Typora 预览；发布时网站会自动转换到 `/_posts/assets/`。也可以直接写 `/_posts/assets/my-result.png`。
 
-> Typora 中能显示的本机图片，不一定能在网页中显示。请不要把 `C:\...`、`D:\...` 或 `file://...` 当作发布后的图片地址。
+> 本博客会在发布时自动把 `D:\michaelyeung2004.github.io\_posts\assets\` 下的本地图片路径转换为网站地址，也支持正斜杠路径和 `file:///D:/michaelyeung2004.github.io/_posts/assets/`。你可以直接使用 Typora 插入的路径，但图片必须保存在这个图床文件夹，并随文章提交。其他本机目录不会自动转换，推荐仍使用 `assets/图片名.png` 这样的相对路径。
 
 在 Typora 中插入图片后，检查文件是否已经复制到网站仓库、Markdown 中的路径是否正确。`![shadow-图片说明](图片路径)` 还可以为图片加上柔和阴影。
 

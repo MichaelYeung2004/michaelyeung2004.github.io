@@ -1,0 +1,40 @@
+{%- assign image_parts = include.html | split: '<img ' -%}
+{{- image_parts.first -}}
+{%- for part in image_parts offset: 1 -%}
+  {%- assign source_parts = part | split: 'src="' -%}
+  {%- assign rendered_part = part -%}
+  {%- if source_parts.size > 1 -%}
+    {%- assign source = source_parts[1] | split: '"' | first -%}
+    {%- assign normalized = source | replace: '\', '/' -%}
+    {%- assign file_prefix = normalized | slice: 0, 8 -%}
+    {%- if file_prefix == 'file:///' -%}
+      {%- assign normalized = normalized | remove_first: 'file:///' -%}
+    {%- endif -%}
+    {%- assign asset_path = nil -%}
+    {%- assign prefix = normalized | slice: 0, 7 -%}
+    {%- assign dot_prefix = normalized | slice: 0, 9 -%}
+    {%- if prefix == 'assets/' -%}
+      {%- assign asset_path = normalized | remove_first: 'assets/' -%}
+    {%- elsif dot_prefix == './assets/' -%}
+      {%- assign asset_path = normalized | remove_first: './assets/' -%}
+    {%- else -%}
+      {%- for root in site.data.blog_display.local_asset_roots -%}
+        {%- assign root_length = root | size -%}
+        {%- assign root_prefix = normalized | slice: 0, root_length | downcase -%}
+        {%- assign lower_root = root | downcase -%}
+        {%- if root_prefix == lower_root -%}
+          {%- assign asset_path = normalized | slice: root_length, 10000 -%}
+          {%- break -%}
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
+    {%- if asset_path -%}
+      {%- assign image_root = '/_posts/assets/' | relative_url -%}
+      {%- assign image_url = image_root | append: asset_path | uri_escape -%}
+      {%- assign old_attribute = 'src="' | append: source | append: '"' -%}
+      {%- assign new_attribute = 'src="' | append: image_url | append: '"' -%}
+      {%- assign rendered_part = part | replace: old_attribute, new_attribute -%}
+    {%- endif -%}
+  {%- endif -%}
+  {{- '<img ' -}}{{- rendered_part -}}
+{%- endfor -%}
