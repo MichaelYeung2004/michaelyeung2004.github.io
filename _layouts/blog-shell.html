@@ -44,7 +44,6 @@ layout: compress
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
   {% unless page.navbar_title == 'Publications' or page.navbar_title == 'Music' %}<script src="{{ '/assets/js/blog.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>{% endunless %}
-  {% if page.navbar_title == 'Music' %}<script src="{{ '/assets/js/music.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>{% endif %}
   {% if page.navbar_title == 'Publications' %}<script src="{{ '/assets/js/progressive-images.js' | relative_url }}" defer></script>{% endif %}
 </body>
 </html>

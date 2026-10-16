@@ -1,12 +1,10 @@
 {% assign album = include.album %}
 {% assign cover_url = album.cover %}
 {% if cover_url and cover_url != '' %}{% unless cover_url contains '://' %}{% assign cover_url = cover_url | relative_url %}{% endunless %}{% endif %}
-{% assign tag_text = album.tags | join: ' ' %}
-<article class="music-album" data-music-album data-search="{{ album.title | append: ' ' | append: album.artist | append: ' ' | append: tag_text | append: ' ' | append: album.year | escape }}">
+<article class="music-album">
   <a class="music-album__link" href="{{ album.spotify | escape }}" target="_blank" rel="noopener noreferrer" aria-label="在 Spotify 打开 {{ album.artist | escape }} 的专辑 {{ album.title | escape }}（新窗口）">
     <div class="music-album__cover music-tone-{{ album.tone | default: 'sage' | slugify }}">
       {% if cover_url and cover_url != '' %}<img src="{{ cover_url | escape }}" alt="{{ album.title | escape }} 专辑封面" width="600" height="600" loading="lazy" decoding="async">{% else %}<div class="music-album__placeholder" aria-hidden="true"><span>LP</span><i></i><span>{{ album.artist | escape }}</span></div>{% endif %}
-      <span class="music-album__index">{% if include.index < 10 %}0{% endif %}{{ include.index }}</span>
       <span class="music-album__listen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5v14l11-7z"></path></svg>Listen on Spotify</span>
     </div>
     <div class="music-album__info"><div><h3>{{ album.title | escape }}</h3><p>{{ album.artist | escape }}{% if album.year %}<span> / {{ album.year | escape }}</span>{% endif %}</p></div><span class="music-album__arrow" aria-hidden="true">↗</span></div>
