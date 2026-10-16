@@ -212,6 +212,13 @@ body.homepage {
 }
 
 @include breakpoint($large) {
+    .homepage #main {
+        width: 100%;
+        max-width: none;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
     .homepage #main > .sidebar {
         text-align: center;
         // Match the initial position instead of moving up to the old 6em threshold.
