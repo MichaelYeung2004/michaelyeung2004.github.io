@@ -1,8 +1,10 @@
-/* Match luost26/academic-homepage's body font without changing typography measurements.
+/* Match why-note.github.io's English body/sidebar font stacks without resizing text.
    Loaded only on non-Blog pages; icon and math fonts keep their own families. */
 body {
-  --non-blog-font: 'Lato', sans-serif;
+  --non-blog-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-family: var(--non-blog-font);
+  word-spacing: normal;
+  letter-spacing: normal;
 }
 .site-navbar,
 .paper-box,
@@ -29,4 +31,16 @@ table, figcaption,
 .homepage .sidebar .author__urls,
 .homepage .sidebar .author__urls_sm {
   font-family: var(--non-blog-font);
+}
+/* The reference uses a serif font specifically for its profile sidebar. */
+.sidebar,
+.sidebar p,
+.sidebar li,
+.sidebar h2, .sidebar h3, .sidebar h4, .sidebar h5, .sidebar h6,
+.homepage .sidebar,
+.homepage .sidebar .author__name,
+.homepage .sidebar .author__bio,
+.homepage .sidebar .author__urls,
+.homepage .sidebar .author__urls_sm {
+  font-family: 'Times New Roman', Times, serif;
 }

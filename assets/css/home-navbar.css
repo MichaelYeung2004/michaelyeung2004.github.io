@@ -23,7 +23,7 @@ body.site-page { padding-top: 80px; }
   background: var(--site-background, #faf9f6) !important;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  font: 400 16px/1.5 Lato,sans-serif;
+  font: 400 16px/1.5 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
 }
 .site-navbar a { text-decoration: none; }
 .site-navbar .navbar-nav { margin-top: 0; }
