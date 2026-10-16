@@ -13,7 +13,7 @@
 }
 .music-album__link:focus-visible { outline:2px solid #fff0ff; outline-offset:-4px; z-index:3; }
 .music-album__cover {
- position:relative; width:100%; aspect-ratio:1; flex-shrink:0;
+ position:relative; width:100%; aspect-ratio:1.1; flex-shrink:0;
  border-left:5px solid #a16ad1; border-right:5px solid #32124e; border-top:2px solid #5b2b81;
  background:linear-gradient(90deg,#36144a55,transparent 28%,#c07eed33 55%,#2c113b55),linear-gradient(#2d113b55,transparent 35%),url('../images/music-cabinet-grain.svg'),#8648b4;
  box-shadow:inset 0 8px 14px #220e3c88,inset 4px 0 9px #33114566,inset -4px 0 9px #33114566;
