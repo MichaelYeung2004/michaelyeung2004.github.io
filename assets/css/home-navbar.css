@@ -1,13 +1,20 @@
 /* Site-specific colors and isolation; layout comes from Bootstrap 4.6.0. */
-/* Two-glyph Noto Serif SC subset, SIL OFL; see name-song-OFL.txt. */
+/* Two-glyph Noto Sans SC subset, SIL OFL; see name-sans-OFL.txt. */
 @font-face {
-  font-family: 'Name Song';
-  src: url('../fonts/name-song.ttf') format('truetype');
+  font-family: 'Name Chinese';
+  src: url('../fonts/name-sans-regular.ttf') format('truetype');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
 }
-.name-song { font-family: SimSun, 'Songti SC', STSong, 'Name Song', serif; }
+@font-face {
+  font-family: 'Name Chinese';
+  src: url('../fonts/name-sans-bold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+.name-chinese { font-family: 'Name Chinese', 'Noto Sans SC', sans-serif; }
 html { overflow-y: scroll; }
 body.site-page { padding-top: 80px; }
 .site-navbar, .site-navbar *, .site-navbar *::before, .site-navbar *::after { box-sizing: border-box; }

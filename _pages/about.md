@@ -10,7 +10,7 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-I am Zhen Yang (<span class="name-song">杨振</span>), an undergraduate student in Computer Science and Technology at Sun Yat-sen University. I will be a master's student at the [Vision Information Processing and Learning (VIPL) Laboratory](https://vipl.ict.ac.cn/), Institute of Computing Technology, Chinese Academy of Sciences, starting in 2027, advised by Prof. [Ruiping Wang](https://vipl.ict.ac.cn/people/rpwang/). My research interests lie in 3D Computer Vision and Multimodal Large Language Models.
+I am Zhen Yang (<span class="name-chinese">杨振</span>), an undergraduate student in Computer Science and Technology at Sun Yat-sen University. I will be a master's student at the [Vision Information Processing and Learning (VIPL) Laboratory](https://vipl.ict.ac.cn/), Institute of Computing Technology, Chinese Academy of Sciences, starting in 2027, advised by Prof. [Ruiping Wang](https://vipl.ict.ac.cn/people/rpwang/). My research interests lie in 3D Computer Vision and Multimodal Large Language Models.
 
 <section class="news-panel" id="-news" aria-label="News">
   <details open>
