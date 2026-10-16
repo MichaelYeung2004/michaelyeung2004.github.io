@@ -1,4 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="180" height="480" viewBox="0 0 180 480">
-  <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".24 .009" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
-  <path d="M0 0h180v480H0z" filter="url(#grain)" opacity=".17"/>
+  <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".15 .006" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
+  <path d="M0 0h180v480H0z" filter="url(#grain)" opacity=".1"/>
 </svg>

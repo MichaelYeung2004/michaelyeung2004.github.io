@@ -10,7 +10,7 @@
       </div>
     </div>
     <div class="music-album__caption">
-      <div class="music-album__info"><div><h3>{{ album.title | escape }}</h3><p>{{ album.artist | escape }}{% if album.year %}<span> / {{ album.year | escape }}</span>{% endif %}</p></div><span class="music-album__arrow" aria-hidden="true">↗</span></div>
+      <div class="music-album__info"><div><h3>{{ album.title | escape }}</h3><p>{{ album.artist | escape }}{% if album.year %}<span> / {{ album.year | escape }}</span>{% endif %}</p></div></div>
       {% if album.note %}<p class="music-album__note">{{ album.note | escape }}</p>{% endif %}
       {% if album.tags.size > 0 %}<ul class="music-album__tags" aria-label="风格标签">{% for tag in album.tags %}<li>{{ tag | escape }}</li>{% endfor %}</ul>{% endif %}
     </div>

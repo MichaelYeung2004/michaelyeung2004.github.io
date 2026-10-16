@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="350" viewBox="0 0 400 350" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="back"><stop stop-color="#50237a"/><stop offset=".12" stop-color="#9251bd"/><stop offset=".46" stop-color="#ad70d5"/><stop offset=".7" stop-color="#a366cc"/><stop offset="1" stop-color="#582680"/></linearGradient>
+    <linearGradient id="left"><stop stop-color="#321345"/><stop offset=".6" stop-color="#502071"/><stop offset="1" stop-color="#713b9a"/></linearGradient>
+    <linearGradient id="right"><stop stop-color="#6a3092"/><stop offset="1" stop-color="#351348"/></linearGradient>
+    <linearGradient id="floor" x2="0" y2="1"><stop stop-color="#653087"/><stop offset="1" stop-color="#a96cce"/></linearGradient>
+    <linearGradient id="shade" x2="0" y2="1"><stop stop-color="#230c35" stop-opacity=".55"/><stop offset=".15" stop-color="#230c35" stop-opacity="0"/><stop offset=".9" stop-color="#230c35" stop-opacity="0"/><stop offset="1" stop-color="#351047" stop-opacity=".3"/></linearGradient>
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".15 .006" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
+  </defs>
+  <path fill="url(#back)" d="M0 0h400v350H0z"/>
+  <path fill="url(#shade)" d="M18 0h364v324H18z"/>
+  <path fill="url(#left)" d="M0 0h18v324L0 350z"/>
+  <path fill="url(#right)" d="M382 0h18v350l-18-26z"/>
+  <path fill="url(#floor)" d="m0 350 18-26h364l18 26z"/>
+  <path fill="#bca0cd" opacity=".2" d="M18 323h364v1H18z"/>
+  <path filter="url(#grain)" opacity=".14" d="M0 0h400v350H0z"/>
+</svg>
