@@ -6,7 +6,6 @@
     <div class="music-album__cover music-tone-{{ album.tone | default: 'sage' | slugify }}">
       <div class="music-album__jacket">
       {% if cover_url and cover_url != '' %}<img src="{{ cover_url | escape }}" alt="{{ album.title | escape }} 专辑封面" width="600" height="600" loading="lazy" decoding="async">{% else %}<div class="music-album__placeholder" aria-hidden="true"><span>LP</span><i></i><span>{{ album.artist | escape }}</span></div>{% endif %}
-      <span class="music-album__listen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5v14l11-7z"></path></svg>Listen on Spotify</span>
       </div>
     </div>
     <div class="music-album__caption">

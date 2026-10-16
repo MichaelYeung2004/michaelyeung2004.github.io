@@ -12,6 +12,15 @@ author_profile: false
   {% if albums.size > 0 %}
     <div class="music-grid">
       {% for album in albums %}{% include music-album.html album=album %}{% endfor %}
+      {% assign widths = '5,3,2' | split: ',' %}
+      {% for width in widths %}
+        {% assign columns = width | plus: 0 %}
+        {% assign remainder = albums.size | modulo: columns %}
+        {% if remainder != 0 %}
+          {% assign spaces = columns | minus: remainder %}
+          {% for space in (1..spaces) %}<div class="music-album music-album--empty music-album--columns-{{ columns }}" aria-hidden="true"><div class="music-album__cover"></div><div class="music-album__caption"></div></div>{% endfor %}
+        {% endif %}
+      {% endfor %}
     </div>
   {% else %}
     <p class="music-empty">暂时还没有添加专辑。</p>
