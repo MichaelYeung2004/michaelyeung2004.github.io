@@ -18,7 +18,7 @@ author_profile: false
         {% assign remainder = albums.size | modulo: columns %}
         {% if remainder != 0 %}
           {% assign spaces = columns | minus: remainder %}
-          {% for space in (1..spaces) %}<div class="music-album music-album--empty music-album--columns-{{ columns }}" aria-hidden="true"><div class="music-album__cover"></div><div class="music-album__caption"></div></div>{% endfor %}
+          {% for space in (1..spaces) %}<div class="music-album music-album--empty music-album--columns-{{ columns }}" aria-hidden="true"><div class="music-album__cover"><div class="music-album__scenery"><i class="music-album__back"></i><i class="music-album__wall music-album__wall--left"></i><i class="music-album__wall music-album__wall--right"></i><i class="music-album__floor"></i></div><span class="music-album__mount"></span></div><div class="music-album__caption"></div></div>{% endfor %}
         {% endif %}
       {% endfor %}
     </div>

@@ -4,6 +4,7 @@
 <article class="music-album">
   <a class="music-album__link" href="{{ album.spotify | escape }}" target="_blank" rel="noopener noreferrer" aria-label="在 Spotify 打开 {{ album.artist | escape }} 的专辑 {{ album.title | escape }}（新窗口）">
     <div class="music-album__cover music-tone-{{ album.tone | default: 'sage' | slugify }}">
+      <div class="music-album__scenery" aria-hidden="true"><i class="music-album__back"></i><i class="music-album__wall music-album__wall--left"></i><i class="music-album__wall music-album__wall--right"></i><i class="music-album__floor"></i></div>
       <span class="music-album__mount" aria-hidden="true"></span>
       <div class="music-album__jacket">
       {% if cover_url and cover_url != '' %}<img src="{{ cover_url | escape }}" alt="{{ album.title | escape }} 专辑封面" width="600" height="600" loading="lazy" decoding="async">{% else %}<div class="music-album__placeholder" aria-hidden="true"><span>LP</span><i></i><span>{{ album.artist | escape }}</span></div>{% endif %}
