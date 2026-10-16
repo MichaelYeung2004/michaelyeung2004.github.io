@@ -20,7 +20,7 @@ albums:
     spotify: "https://open.spotify.com/album/4uG8q3GPuWHQlRbswMIRS6"
     tone: "amber"
 
-  - title: "American Idiot (Deluxe)"
+  - title: "American Idiot"
     artist: "Green Day"
     cover: "/images/music/green-day-american-idiot.jpg"
     spotify: "https://open.spotify.com/album/5Qhn2FpGWmTjCuntF09j7g"
@@ -31,3 +31,21 @@ albums:
     cover: "/images/music/fire-ex-reborn.jpg"
     spotify: "https://open.spotify.com/album/085Z2SYvqoao1GwcdidsS7"
     tone: "sage"
+
+  - title: "HIT ME HARD AND SOFT"
+    artist: "Billie Eilish"
+    cover: "/images/music/billie-eilish-hit-me-hard-and-soft.jpg"
+    spotify: "https://open.spotify.com/album/7aJuG4TFXa2hmE4z1yxc3n"
+    tone: "blue"
+
+  - title: "SABINA之淚"
+    artist: "my little airport"
+    cover: "/images/music/my-little-airport-sabina.jpg"
+    spotify: "https://open.spotify.com/album/5Pw6K47tHMJzjlyMqqF0yf"
+    tone: "rose"
+
+  - title: "黑豹"
+    artist: "Black Panther"
+    cover: "/images/music/black-panther.jpg"
+    spotify: "https://open.spotify.com/album/33dKa7Yept397zPl3myqoz"
+    tone: "amber"
