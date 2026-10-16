@@ -1,0 +1,34 @@
+# 我的唱片架：每个专辑复制下面的格式，填在 albums 下方。
+# 封面可放在 images/music/ 中，也可以填写完整的 https 图片地址。
+# spotify 请使用 Spotify 的“分享 → 复制专辑链接”。
+# 顺序由你决定：写在前面的专辑会先显示。
+# 第一张专辑也会展示在页面上方的黑胶唱片旁。
+#
+# albums:
+#   - title: "专辑名称"
+#     artist: "歌手 / 乐队"
+#     year: "2026"
+#     cover: "/images/music/my-album.jpg"
+#     spotify: "https://open.spotify.com/album/专辑ID"
+#     note: "写一句你喜欢它的理由。"
+#     tags: ["华语", "流行"]
+#     tone: "sage"   # 可选：sage / amber / rose / blue
+#
+albums:
+  - title: "Dookie"
+    artist: "Green Day"
+    cover: "/images/music/green-day-dookie.jpg"
+    spotify: "https://open.spotify.com/album/4uG8q3GPuWHQlRbswMIRS6"
+    tone: "amber"
+
+  - title: "American Idiot (Deluxe)"
+    artist: "Green Day"
+    cover: "/images/music/green-day-american-idiot.jpg"
+    spotify: "https://open.spotify.com/album/5Qhn2FpGWmTjCuntF09j7g"
+    tone: "rose"
+
+  - title: "Reborn"
+    artist: "Fire EX."
+    cover: "/images/music/fire-ex-reborn.jpg"
+    spotify: "https://open.spotify.com/album/085Z2SYvqoao1GwcdidsS7"
+    tone: "sage"

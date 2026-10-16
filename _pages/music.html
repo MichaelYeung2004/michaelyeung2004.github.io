@@ -1,0 +1,65 @@
+---
+layout: blog-shell
+title: Music
+navbar_title: Music
+permalink: /music/
+lang: zh-CN
+author_profile: false
+---
+{% assign empty_albums = '' | split: ',' %}
+{% assign albums = site.data.music.albums | default: empty_albums %}
+{% assign first_album = albums.first %}
+<div class="music-page">
+  <header class="music-hero">
+    <div class="music-hero__copy">
+      <p class="music-eyebrow"><span aria-hidden="true"></span> A PERSONAL LISTENING ROOM</p>
+      <h1>Music<span class="music-title-dot">.</span></h1>
+      <p class="music-hero__lead">把喜欢的旋律，<br>收进这一页。</p>
+      <p class="music-hero__description">一些喜欢的专辑，一些舍不得跳过的声音。<br>点击封面，在 Spotify 继续听。</p>
+      <div class="music-hero__meta"><span class="music-mono">VOL. 01</span><span class="music-meta-line" aria-hidden="true"></span><span>{{ albums.size }} 张专辑 · 慢慢收藏</span></div>
+    </div>
+    <div class="music-record-scene">
+      <span class="music-record-scene__label" aria-hidden="true">THE SOUNDTRACK OF SMALL MOMENTS</span>
+      <div class="music-record" aria-hidden="true">
+        <div class="music-record__label"><span>ZY</span><span>SIDE A · 33⅓ RPM</span><i></i></div>
+      </div>
+      {% if first_album %}<a class="music-sleeve{% unless first_album.cover %} music-sleeve--empty{% endunless %}" href="{{ first_album.spotify | escape }}" target="_blank" rel="noopener noreferrer" aria-label="在 Spotify 打开 {{ first_album.title | escape }}（新窗口）">{% else %}<div class="music-sleeve music-sleeve--empty" aria-hidden="true">{% endif %}
+        {% if first_album.cover %}
+          {% assign hero_cover = first_album.cover %}
+          {% unless hero_cover contains '://' %}{% assign hero_cover = hero_cover | relative_url %}{% endunless %}
+          <img src="{{ hero_cover | escape }}" alt="" width="600" height="600" fetchpriority="high" decoding="async">
+        {% else %}
+          <span class="music-sleeve__edition">PERSONAL COLLECTION / 001</span>
+          <span class="music-sleeve__art"><i></i><i></i><i></i><i></i></span>
+          <span class="music-sleeve__title">Good music.<br>Good company.</span>
+          <span class="music-sleeve__footer">SELECTED WITH LOVE <span>↗</span></span>
+        {% endif %}
+      {% if first_album %}</a>{% else %}</div>{% endif %}
+      <div class="music-record-caption"><span class="music-record-caption__dot"></span><span>{% if first_album %}ON REPEAT / {{ first_album.artist | escape }}{% else %}NO AUTOPLAY. JUST GOOD RECORDS.{% endif %}</span></div>
+    </div>
+  </header>
+
+  <section class="music-collection" aria-labelledby="music-collection-title">
+    <div class="music-collection__heading">
+      <div><p class="music-eyebrow">THE COLLECTION</p><h2 id="music-collection-title">我的唱片架 <span class="music-collection__number">{% if albums.size < 10 %}0{% endif %}{{ albums.size }}</span></h2></div>
+      <span class="music-collection__hint">不排名，只偏爱。 <span aria-hidden="true">♫</span></span>
+    </div>
+    {% if albums.size > 0 %}
+      <div class="music-tools" role="search" aria-label="搜索专辑">
+        <label class="music-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m16 16 4 4"></path></svg><span class="music-sr-only">搜索专辑、歌手或标签</span><input type="search" placeholder="找一张专辑，或一位歌手…" data-music-search autocomplete="off"><button type="button" class="music-search__clear" data-music-clear aria-label="清空搜索" hidden>×</button></label>
+        <span class="music-result-count" data-music-count aria-live="polite">{{ albums.size }} 张专辑</span>
+      </div>
+      <div class="music-grid">
+        {% for album in albums %}{% include music-album.html album=album index=forloop.index %}{% endfor %}
+      </div>
+      <div class="music-no-results" data-music-no-results hidden><span aria-hidden="true">♫</span><p>这次没有找到匹配的专辑。</p><button type="button" data-music-reset>看看全部收藏</button></div>
+    {% else %}
+      <div class="music-empty">
+        <div class="music-empty__symbol" aria-hidden="true">♫</div>
+        <div><h3>留一格，给下一张心动的专辑。</h3><p>唱片架正在整理中。喜欢的声音，很快见面。</p></div>
+        <span class="music-empty__stamp" aria-hidden="true">TO BE<br>CONTINUED ↗</span>
+      </div>
+    {% endif %}
+  </section>
+  <footer class="music-footer"><span>Made of melodies &amp; memories.</span><span class="music-mono">A LITTLE CORNER OF MY WORLD <span aria-hidden="true">✦</span></span></footer>
+</div>
