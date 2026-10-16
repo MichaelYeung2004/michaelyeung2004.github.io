@@ -249,6 +249,7 @@ body.homepage {
     .homepage .author__urls {
         display: inline-block;
         text-align: left;
+        z-index: 0;
     }
 
     .homepage .author__urls > li:not(.author__tagline) {
@@ -263,6 +264,7 @@ body.homepage {
         padding: 2px 0;
         margin-bottom: 2px;
         color: #007bff;
+        cursor: pointer;
     }
 
     .homepage .author__urls a i {
