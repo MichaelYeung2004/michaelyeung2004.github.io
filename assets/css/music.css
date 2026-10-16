@@ -8,14 +8,17 @@
  box-shadow:0 5px 0 #301345,0 15px 30px #34174530;
 }
 .music-album { min-width:0; display:flex; flex-direction:column; position:relative; container-type:inline-size; }
+/* Continuous front rails sit outside the recess AND the label, as in the reference. */
+.music-album::before,.music-album::after { content:''; position:absolute; top:0; bottom:0; width:3.5cqw; z-index:4; pointer-events:none; background-image:url('../images/music-reference.png'); background-repeat:no-repeat; background-size:3080% 137.39%; }
+.music-album::before { left:0; background-position:2.24% 3.88%; }
+.music-album::after { right:0; background-position:98.66% 3.88%; }
 .music-album__link,.music-album__link:hover {
  display:flex; flex-direction:column; flex:1; width:100%; color:var(--music-ink); text-decoration:none;
+ padding-inline:3.5cqw;
 }
 .music-album__link:focus-visible { outline:2px solid #fff0ff; outline-offset:-4px; z-index:3; }
 .music-album__cover {
- position:relative; width:100%; aspect-ratio:432 / 374; flex-shrink:0;
- border-left:8px solid #9e68c6; border-right:8px solid #9e68c6;
- border-left-width:1.85cqw; border-right-width:1.85cqw;
+ position:relative; width:100%; aspect-ratio:416 / 374; flex-shrink:0;
  background:#8e51b8;
 }
 /* Only blank material strips are sampled: no reference artwork, text or logo. */
@@ -25,7 +28,7 @@
 .music-album__wall { top:0; bottom:0; width:5.3%; background-size:2100% 138.19%; background-position:5.68% 3.82%; }
 .music-album__wall--left { left:0; clip-path:polygon(0 0,100% 0,100% 91.7%,0 100%); }
 .music-album__wall--right { right:0; transform:scaleX(-1); clip-path:polygon(0 0,100% 0,100% 91.7%,0 100%); }
-.music-album__scenery .music-album__floor { left:0; right:0; bottom:0; height:8.3%; background-image:linear-gradient(#663488,#9f64c7); clip-path:polygon(5.3% 0,94.7% 0,100% 100%,0 100%); }
+.music-album__scenery .music-album__floor { left:0; right:0; bottom:0; height:8.3%; background-size:1050% 1529.03%; background-position:11.48% 78.56%; clip-path:polygon(5.3% 0,94.7% 0,100% 100%,0 100%); }
 .music-album__jacket {
  position:absolute; left:16.35%; bottom:1.6%; width:67.3%; aspect-ratio:1; overflow:hidden; z-index:1;
  border-radius:1px; background:#d7c6aa;
@@ -43,14 +46,13 @@
 .music-album__caption {
  position:relative; flex:1; min-height:43px; padding:7px 12px 8px;
  min-height:17.5cqw; padding:3cqw 5cqw;
- background:#ab73d0 url('../images/music-reference.png') 50% 82.25% / 112.14% 3950% no-repeat;
+ background:#ab73d0 url('../images/music-reference.png') 50.79% 82.25% / 115.79% 3950% no-repeat;
  border-top:1px solid #c89be6; border-bottom:2px solid #4b216b;
- border-left:8px solid #9e68c6; border-right:8px solid #9e68c6;
- border-left-width:1.85cqw; border-right-width:1.85cqw;
  box-shadow:0 8px 12px #210b3c88,inset 0 1px #e5b9fa22;
  text-shadow:0 1px 1px #38144b33; z-index:2;
 }
 .music-album--empty { display:none; }
+.music-album--empty > .music-album__cover,.music-album--empty > .music-album__caption { width:93%; align-self:center; }
 .music-album--columns-5 { display:flex; }
 .music-tone-amber .music-album__jacket { background: #dbc6a5; }
 .music-tone-rose .music-album__jacket { background: #d7bab0; }
