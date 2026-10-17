@@ -28,7 +28,7 @@ body.site-page { padding-top: 80px; }
 .site-navbar a { text-decoration: none; }
 .site-navbar .navbar-nav { margin-top: 0; }
 .site-navbar .nav-item { margin: 0; font: inherit; }
-.site-navbar .navbar-nav .nav-link { font-size: 16px; line-height: 1.5; }
+.site-navbar .navbar-nav .nav-link { font-size: 17px; line-height: 1.5; }
 .site-navbar .navbar-toggler { position: static; width: auto; height: auto; font-family: inherit; font-weight: 400; margin: 0; cursor: pointer; }
 /* Keep the existing hover color, rather than changing it to upstream's 0.7. */
 .site-navbar.navbar-light .navbar-nav .nav-link:hover { color: rgba(0,0,0,.9); }
