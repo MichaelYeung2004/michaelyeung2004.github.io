@@ -10,6 +10,7 @@
   var resultCount = document.querySelector('.blog-result-count');
   var visibleLimit = 10;
   var scope = document.querySelector('[data-search-scope]');
+  var sortOrder = document.querySelector('[data-sort-order]');
   var list = document.querySelector('.blog-post-list');
   var segmenter = typeof Intl.Segmenter === 'function' ? new Intl.Segmenter('zh', { granularity: 'sentence' }) : null;
   function sentences(text) {
@@ -73,7 +74,7 @@
       highlight(entry.excerptElement, snippet, terms);
       if (matches) matched.push(entry);
     });
-    matched.sort(function (a, b) { return b.date - a.date; });
+    matched.sort(function (a, b) { return sortOrder && sortOrder.value === 'asc' ? a.date - b.date : b.date - a.date; });
     if (list) {
       entries.forEach(function (entry) { list.appendChild(entry.card); });
       list.querySelectorAll('.blog-year-heading,.blog-year-group').forEach(function (heading) { heading.remove(); });
@@ -105,6 +106,11 @@
     if (yearNav) {
       yearNav.hidden = !!query;
       yearNav.querySelectorAll('a').forEach(function (link) { link.hidden = !document.getElementById(link.hash.slice(1)); });
+      // Keep year navigation in the same chronological order as the list.
+      if (list) list.querySelectorAll('.blog-year-heading').forEach(function (heading) {
+        var link = Array.from(yearNav.querySelectorAll('a')).find(function (item) { return item.hash === '#' + heading.id; });
+        if (link) yearNav.appendChild(link);
+      });
     }
     shown = matched.length;
     var empty = document.querySelector('.blog-no-results');
@@ -118,6 +124,7 @@
   if (yearFilter) yearFilter.addEventListener('change', resetFilters);
   if (categoryFilter) categoryFilter.addEventListener('change', resetFilters);
   if (scope) scope.addEventListener('change', resetFilters);
+  if (sortOrder) sortOrder.addEventListener('change', resetFilters);
   if (more) more.addEventListener('click', function () { visibleLimit += 10; filterPosts(); });
   if (list && typeof window !== 'undefined') {
     var requestedTag = new URLSearchParams(window.location.search).get('tag');
