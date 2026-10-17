@@ -25,7 +25,7 @@
 }
 .music-album__link:focus-visible { outline:2px solid #fff0ff; outline-offset:-4px; z-index:3; }
 .music-album__cover {
- position:relative; width:100%; aspect-ratio:416 / 374; flex-shrink:0;
+ position:relative; width:100%; aspect-ratio:416 / 374; flex-shrink:0; container-type:inline-size;
  background:#8e51b8;
 }
 /* Only blank material strips are sampled: no reference artwork, text or logo. */
@@ -43,7 +43,8 @@
  box-shadow:0 1px 2px #240d3655;
  transition:transform .3s,box-shadow .3s;
 }
-.music-album__mount { position:absolute; top:6.2%; left:46.5%; width:7%; height:3.3%; border-top:1px solid #69379c; border-bottom:1px solid #69379c; border-top-width:.6cqw; border-bottom-width:.6cqw; }
+/* Midpoint of the actual clearance: (98.4% of recess height - 78% of width) / 2. */
+.music-album__mount { position:absolute; top:calc(49.2% - 39cqw); left:50%; transform:translate(-50%,-50%); width:7%; height:3.3%; border-top:1px solid #69379c; border-bottom:1px solid #69379c; border-top-width:.6cqw; border-bottom-width:.6cqw; }
 .music-album__jacket::after { content:''; position:absolute; inset:0; border:1px solid #0002; pointer-events:none; }
 .music-album__jacket img { display:block; width:100%; height:100%; object-fit:contain; }
 .music-album__link:is(:hover,:focus-visible) .music-album__jacket {
