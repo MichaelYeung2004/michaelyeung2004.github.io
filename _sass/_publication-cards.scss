@@ -97,6 +97,13 @@
         color: #475569;
         background: #f8fafc;
         border-color: #cbd5e1;
+
+        .publication-venue__label {
+            // Segoe UI's bold "Preprint" ink sits below its inline box center.
+            // Move only the ink; retain the capsule and year's native baseline.
+            position: relative;
+            top: -0.14em;
+        }
     }
 
     &--conference {
