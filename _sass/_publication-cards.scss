@@ -78,20 +78,29 @@
 }
 
 .publication-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.45em;
     margin: 0.55em 0;
-    font-size: 1rem;
-    line-height: 1.4;
+    font-size: 0.88em;
 }
 
 .publication-venue {
-    display: inline;
-    font-size: 0.88em;
-    margin-right: 0.15em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 1.8em;
     padding: 0.1em 0.65em;
     border: 1px solid;
     border-radius: 999px;
     font-weight: 700;
-    line-height: inherit;
+    line-height: 1.35;
+
+    &__label {
+        display: block;
+        // Correct the font's low visual baseline without shifting the capsule.
+        transform: translateY(-0.07em);
+    }
 
     &--preprint {
         color: #475569;
@@ -115,7 +124,9 @@
 .publication-year {
     color: #718096;
     font-size: 1rem;
-    line-height: inherit;
+    line-height: 1.35;
+    // Match the optical centering applied to the venue label.
+    transform: translateY(-0.07em);
 }
 
 .publication-links {
@@ -138,6 +149,7 @@
 
 @media (max-width: 767px) {
     .paper-box-text { text-align: center; }
+    .paper-box .publication-meta,
     .paper-box .publication-links { justify-content: center; }
 }
 .paper-box .badge {
