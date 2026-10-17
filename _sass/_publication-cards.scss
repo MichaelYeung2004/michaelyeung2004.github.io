@@ -124,6 +124,9 @@
 .publication-year {
     color: #718096;
     font-size: 1rem;
+    line-height: 1.35;
+    // Match the optical centering applied to the venue label.
+    transform: translateY(-0.07em);
 }
 
 .publication-links {
