@@ -49,6 +49,8 @@
 
         .paper-box-image{
             justify-content: left;
+            // Match the visible title glyphs, not the top of their line box.
+            padding-top: .35em;
             flex: 0 0 210px;
             min-width: 210px;
             max-width: 210px;
