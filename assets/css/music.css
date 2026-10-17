@@ -2,16 +2,18 @@
 .music-page { --music-ink:#fff6ff; --music-muted:#e1c7f4; padding:34px 0 64px; }
 .music-page *, .music-page *::before, .music-page *::after { box-sizing:border-box; }
 .music-grid {
+ --music-columns:5;
  display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:0;
  border:3px solid #47206c; border-top-color:#a56acb; border-bottom-width:5px;
  background:#542680;
  box-shadow:0 5px 0 #301345,0 15px 30px #34174530;
+ position:relative; overflow:hidden;
 }
 .music-album { min-width:0; display:flex; flex-direction:column; position:relative; container-type:inline-size; }
-/* Continuous front rails sit outside the recess AND the label, as in the reference. */
-.music-album::before,.music-album::after { content:''; position:absolute; top:0; bottom:0; width:3.5cqw; z-index:4; pointer-events:none; background-image:url('../images/music-reference.png'); background-repeat:no-repeat; background-size:3080% 137.39%; }
-.music-album::before { left:0; background-position:2.24% 3.88%; }
-.music-album::after { right:0; background-position:98.66% 3.88%; }
+/* One shared board crosses each cell boundary; never two adjacent half-boards. */
+.music-grid::before,.music-album::after { content:''; position:absolute; top:0; bottom:0; z-index:4; pointer-events:none; background-image:url('../images/music-reference.png'); background-repeat:no-repeat; background-size:3080% 137.39%; background-position:2.24% 3.88%; }
+.music-grid::before { left:0; width:calc(3.5% / var(--music-columns)); z-index:5; }
+.music-album::after { right:-3.5cqw; width:7cqw; }
 .music-album__link,.music-album__link:hover {
  display:flex; flex-direction:column; flex:1; width:100%; color:var(--music-ink); text-decoration:none;
  padding-inline:3.5cqw;
@@ -71,13 +73,13 @@
 .music-empty { color: var(--music-muted); font-size: 14px; text-align: center; padding: 45px 0; }
 
 @media(max-width:991px) {
- .music-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+ .music-grid { --music-columns:3; grid-template-columns:repeat(3,minmax(0,1fr)); }
  .music-album--columns-5 { display:none; }
  .music-album--columns-3 { display:flex; }
 }
 @media(max-width:767px) {
  .music-page { padding-top:24px; }
- .music-grid { grid-template-columns:repeat(2,minmax(0,1fr)); border-width:3px; border-bottom-width:5px; }
+ .music-grid { --music-columns:2; grid-template-columns:repeat(2,minmax(0,1fr)); border-width:3px; border-bottom-width:5px; }
  .music-album--columns-3 { display:none; }
  .music-album--columns-2 { display:flex; }
 }
