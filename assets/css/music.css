@@ -1,12 +1,17 @@
 /* A continuous record-store cabinet with recessed square compartments. */
 .music-page { --music-ink:#fff6ff; --music-muted:#e1c7f4; padding:34px 0 64px; }
 .music-page *, .music-page *::before, .music-page *::after { box-sizing:border-box; }
+.music-cabinet {
+ padding:5px 7px 10px; border:1px solid #633082; border-radius:2px;
+ background:linear-gradient(0deg,#743c96 0,#9b64bb 4px,#6c358e 9px,transparent 10px),linear-gradient(90deg,#7c449e,#ae7ace 3px,#8048a2 7px,#8048a2 calc(100% - 7px),#ae7ace calc(100% - 3px),#7c449e);
+ box-shadow:inset 0 1px 0 #d4b0e9,inset 1px 0 0 #bc90d6,inset -1px 0 0 #bc90d6,0 2px 3px #3c1c5026,0 14px 26px #3417451f;
+}
 .music-grid {
  --music-columns:5;
  display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:0;
- border:3px solid #47206c; border-top-color:#a56acb; border-bottom-width:5px;
+ border:0;
  background:#542680;
- box-shadow:0 5px 0 #301345,0 15px 30px #34174530;
+ box-shadow:0 0 0 1px #48215f66;
  position:relative; overflow:hidden;
 }
 .music-album { min-width:0; display:flex; flex-direction:column; position:relative; container-type:inline-size; }
@@ -48,8 +53,8 @@
 .music-album__caption {
  position:relative; flex:1; min-height:43px; padding:7px 12px 8px;
  min-height:17.5cqw; padding:3cqw 5cqw;
- background:#ab73d0 url('../images/music-reference.png') 50.79% 82.25% / 115.79% 3950% no-repeat;
- border-top:1px solid #c89be6; border-bottom:2px solid #4b216b;
+ background:url('../images/music-label-grain.svg'),linear-gradient(#b380d7,#a771cd);
+ border-top:1px solid #c89be6; border-bottom:1px solid #79479d;
  box-shadow:0 8px 12px #210b3c88,inset 0 1px #e5b9fa22;
  text-shadow:0 1px 1px #38144b33; z-index:2;
 }
@@ -79,7 +84,8 @@
 }
 @media(max-width:767px) {
  .music-page { padding-top:24px; }
- .music-grid { --music-columns:2; grid-template-columns:repeat(2,minmax(0,1fr)); border-width:3px; border-bottom-width:5px; }
+ .music-cabinet { padding:4px 5px 8px; }
+ .music-grid { --music-columns:2; grid-template-columns:repeat(2,minmax(0,1fr)); }
  .music-album--columns-3 { display:none; }
  .music-album--columns-2 { display:flex; }
 }

@@ -10,6 +10,7 @@ author_profile: false
 {% assign albums = site.data.music.albums | default: empty_albums %}
 <section class="music-page" aria-label="喜欢的专辑">
   {% if albums.size > 0 %}
+    <div class="music-cabinet">
     <div class="music-grid">
       {% for album in albums %}{% include music-album.html album=album %}{% endfor %}
       {% assign widths = '5,3,2' | split: ',' %}
@@ -21,6 +22,7 @@ author_profile: false
           {% for space in (1..spaces) %}<div class="music-album music-album--empty music-album--columns-{{ columns }}" aria-hidden="true"><div class="music-album__cover"><div class="music-album__scenery"><i class="music-album__back"></i><i class="music-album__wall music-album__wall--left"></i><i class="music-album__wall music-album__wall--right"></i><i class="music-album__floor"></i></div><span class="music-album__mount"></span></div><div class="music-album__caption"></div></div>{% endfor %}
         {% endif %}
       {% endfor %}
+    </div>
     </div>
   {% else %}
     <p class="music-empty">暂时还没有添加专辑。</p>
