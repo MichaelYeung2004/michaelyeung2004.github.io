@@ -32,7 +32,7 @@
 .music-album__wall--right { right:0; transform:scaleX(-1); clip-path:polygon(0 0,100% 0,100% 91.7%,0 100%); }
 .music-album__scenery .music-album__floor { left:0; right:0; bottom:0; height:8.3%; background-size:1050% 1529.03%; background-position:11.48% 78.56%; clip-path:polygon(5.3% 0,94.7% 0,100% 100%,0 100%); }
 .music-album__jacket {
- position:absolute; left:16.35%; bottom:1.6%; width:67.3%; aspect-ratio:1; overflow:hidden; z-index:1;
+ position:absolute; left:14%; bottom:1.6%; width:72%; aspect-ratio:1; overflow:hidden; z-index:1;
  border-radius:1px; background:#d7c6aa;
  transform:none; transform-origin:center bottom;
  box-shadow:0 1px 2px #240d3655;
