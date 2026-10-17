@@ -15,7 +15,7 @@ author_profile: false
     <select class="custom-select custom-select-sm" data-search-scope aria-label="搜索范围"><option value="all">标题和正文</option><option value="title">仅标题</option><option value="body">仅正文</option></select>
     <select class="custom-select custom-select-sm" data-year-filter aria-label="按年份筛选"><option value="">全部年份</option>{% for year in blogs_by_year %}<option value="{{ year.name }}">{{ year.name }}</option>{% endfor %}</select>
     <select class="custom-select custom-select-sm" data-tag-filter aria-label="按标签筛选"><option value="">全部标签</option>{% for tag in tags %}{% if tag != '' %}<option value="{{ tag | escape }}">{{ tag | escape }}</option>{% endif %}{% endfor %}</select>
-    <select class="custom-select custom-select-sm" data-sort-order aria-label="按发布时间排序"><option value="desc">倒序（新→旧）</option><option value="asc">顺序（旧→新）</option></select>
+    <select class="custom-select custom-select-sm" data-sort-order aria-label="按发布时间排序"><option value="desc">倒序</option><option value="asc">顺序</option></select>
     {% if site.categories.size > 0 %}<select class="custom-select custom-select-sm" data-category-filter aria-label="按分类筛选"><option value="">全部分类</option>{% for category in site.categories %}<option value="{{ category[0] | escape }}">{{ category[0] }}</option>{% endfor %}</select>{% endif %}
     <span class="blog-result-count text-muted small" role="status">共 {{ posts.size }} 篇文章</span>
   </div>
