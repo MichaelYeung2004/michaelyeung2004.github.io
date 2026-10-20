@@ -7,7 +7,7 @@ lang: zh-CN
 author_profile: false
 ---
 {% assign empty_albums = '' | split: ',' %}
-{% assign albums = site.data.music.albums | default: empty_albums | sort: 'spotify' %}
+{% assign albums = site.data.music.albums | default: empty_albums %}
 <section class="music-page" aria-label="喜欢的专辑">
   {% if albums.size > 0 %}
     <div class="music-cabinet">
