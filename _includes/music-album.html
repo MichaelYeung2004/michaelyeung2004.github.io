@@ -1,13 +1,15 @@
 {% assign album = include.album %}
 {% assign cover_url = album.cover %}
+{% assign full_cover_url = album.full_cover %}
 {% if cover_url and cover_url != '' %}{% unless cover_url contains '://' %}{% assign cover_url = cover_url | relative_url %}{% endunless %}{% endif %}
+{% if full_cover_url and full_cover_url != '' %}{% unless full_cover_url contains '://' %}{% assign full_cover_url = full_cover_url | relative_url %}{% endunless %}{% endif %}
 <article class="music-album">
   <a class="music-album__link" href="{{ album.spotify | escape }}" target="_blank" rel="noopener noreferrer" aria-label="在 Spotify 打开 {{ album.artist | escape }} 的专辑 {{ album.title | escape }}（新窗口）">
     <div class="music-album__cover music-tone-{{ album.tone | default: 'sage' | slugify }}">
       <div class="music-album__scenery" aria-hidden="true"><i class="music-album__back"></i><i class="music-album__wall music-album__wall--left"></i><i class="music-album__wall music-album__wall--right"></i><i class="music-album__floor"></i></div>
       <span class="music-album__mount" aria-hidden="true"></span>
       <div class="music-album__jacket">
-      {% if cover_url and cover_url != '' %}<img src="{{ cover_url | escape }}" alt="{{ album.title | escape }} 专辑封面" width="600" height="600" loading="lazy" decoding="async">{% else %}<div class="music-album__placeholder" aria-hidden="true"><span>LP</span><i></i><span>{{ album.artist | escape }}</span></div>{% endif %}
+      {% if cover_url and cover_url != '' %}<img src="{{ cover_url | escape }}"{% if full_cover_url and full_cover_url != '' and full_cover_url != cover_url %} data-full-src="{{ full_cover_url | escape }}"{% endif %} alt="{{ album.title | escape }} 专辑封面" width="600" height="600" loading="lazy" decoding="async">{% else %}<div class="music-album__placeholder" aria-hidden="true"><span>LP</span><i></i><span>{{ album.artist | escape }}</span></div>{% endif %}
       </div>
     </div>
     <div class="music-album__caption">

@@ -4,7 +4,7 @@
 
 ## 添加专辑
 
-1. 将专辑封面保存到 `images/music/`，推荐正方形 JPG 或 WebP，宽度约 600px。
+1. 将专辑封面保存到 `images/music/`。推荐准备约 300px 的小图及来源提供的最高分辨率原图，均使用正方形 JPG 或 WebP；不要将小图放大充当高清图。
 2. 在 Spotify 打开专辑，选择“分享 → 复制专辑链接”。请用专辑链接，而非歌曲链接。
 3. 打开 `_data/music.yml`，在现有的 `albums:` 下复制一段专辑信息，并填写自己的内容。下面展示完整格式；文件里只保留一个 `albums:`：
 
@@ -14,6 +14,7 @@ albums:
     artist: "歌手 / 乐队"
     year: "2026"
     cover: "/images/music/my-album.jpg"
+    full_cover: "/images/music/my-album-full.jpg"
     spotify: "https://open.spotify.com/album/你的专辑ID"
     note: "一句你喜欢它的理由。"
     tags: ["华语", "流行"]
@@ -21,6 +22,22 @@ albums:
 ```
 
 `cover` 可以使用完整的 HTTPS 图片地址，但保存在仓库里更稳定。`note`、`tags`、`year` 和 `tone` 都可以省略。没有封面时会显示一个唱片式占位封面；`title`、`artist`、`spotify` 应填写完整。
+
+`full_cover` 可选：先展示 `cover` 小图，沿用头像的渐进加载脚本，等高清图下载、解码完成后原位替换，不改变布局。高清图失败时保留小图；不填写则只显示 `cover`。两种尺寸均由本站提供，访客不必连接 Spotify 或 Apple Music。高清版本也会自动加入空闲预取清单。
+
+### 当前封面来源（2026-10-20 核对）
+
+对比 Spotify 官方提供的 640×640 封面后，选用了 Apple Music 同图案的更高清版本。通过 Apple 官方 iTunes lookup API 获取 artwork URL，并请求大尺寸；服务端实际返回以下尺寸，而非请求尺寸 9999px。高清文件原样保存、没有人工放大，预览图由对应高清图缩小为 300×300。
+
+| 专辑 | 高清尺寸 | 官方来源 |
+| --- | --- | --- |
+| Abbey Road | 1500×1500 | [Apple Music](https://music.apple.com/us/album/1474815798) |
+| Dookie | 1425×1425 | [Apple Music](https://music.apple.com/us/album/1160081985) |
+| American Idiot | 1425×1425 | [Apple Music](https://music.apple.com/us/album/1161539183) |
+| Reborn | 3000×3000 | [Apple Music](https://music.apple.com/us/album/1547226812) |
+| HIT ME HARD AND SOFT | 3000×3000 | [Apple Music](https://music.apple.com/us/album/1739659134) |
+| SABINA之淚 | 3000×3000 | [Apple Music](https://music.apple.com/hk/album/1583189438) |
+| 黑豹 | 1400×1400 | [Apple Music](https://music.apple.com/hk/album/177025348) |
 
 ## 继续添加、排序、删除
 
