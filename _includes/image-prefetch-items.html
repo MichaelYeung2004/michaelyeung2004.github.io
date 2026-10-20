@@ -1,0 +1,25 @@
+{%- assign template_parts = include.html | split: '<template' -%}
+{%- capture visible_html -%}
+  {{- template_parts.first -}}
+  {%- for template_part in template_parts offset: 1 -%}
+    {{- template_part | split: '</template>' | last -}}
+  {%- endfor -%}
+{%- endcapture -%}
+{%- assign image_parts = visible_html | split: '<img ' -%}
+{%- assign attributes = 'src,data-full-src' | split: ',' -%}
+{%- for image_part in image_parts offset: 1 -%}
+  {%- assign tag = image_part | split: '>' | first | prepend: ' ' -%}
+  {%- for attribute in attributes -%}
+    {%- assign marker = attribute | prepend: ' ' | append: '="' -%}
+    {%- assign pieces = tag | split: marker -%}
+    {%- assign source = '' -%}
+    {%- if pieces.size > 1 -%}
+      {%- assign source = pieces[1] | split: '"' | first -%}
+    {%- else -%}
+      {%- assign marker = attribute | prepend: ' ' | append: "='" -%}
+      {%- assign pieces = tag | split: marker -%}
+      {%- if pieces.size > 1 -%}{%- assign source = pieces[1] | split: "'" | first -%}{%- endif -%}
+    {%- endif -%}
+    {%- if source != '' -%}{"src":{{ source | jsonify }},"page":{{ include.base | jsonify }}},{%- endif -%}
+  {%- endfor -%}
+{%- endfor -%}

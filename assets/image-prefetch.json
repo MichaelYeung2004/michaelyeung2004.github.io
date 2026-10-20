@@ -1,0 +1,27 @@
+---
+layout: null
+permalink: /assets/image-prefetch.json
+sitemap: false
+---
+[
+{% assign materials = '/assets/images/music-back.webp,/assets/images/music-side.webp,/assets/images/music-rail.webp,/assets/images/music-floor.webp,/assets/images/music-label-grain.svg' | split: ',' %}
+{% for material in materials %}{"src":{{ material | relative_url | jsonify }}},{% endfor %}
+{% for album in site.data.music.albums %}{"src":{{ album.cover | jsonify }}},{% endfor %}
+{"src":{{ site.author.avatar | relative_url | jsonify }}},
+{"src":{{ site.author.avatar_full | default: site.author.avatar | relative_url | jsonify }}},
+{% for paper in site.data.publication_list %}{"src":{{ paper.cover | jsonify }}},{"src":{{ paper.full_cover | default: paper.cover | jsonify }}},{% endfor %}
+{% assign documents = site.pages | concat: site.posts %}
+{% for document in documents %}
+  {% unless document.url == page.url or document.published == false %}
+    {% assign document_html = document.content | markdownify %}
+    {% if document.collection.label == 'posts' or document.layout == 'blog-post' %}
+      {% capture normalized_html %}{% include blog-image-paths.html html=document_html %}{% endcapture %}
+    {% else %}
+      {% assign normalized_html = document_html %}
+    {% endif %}
+    {% assign base_url = document.url | relative_url %}
+    {% include image-prefetch-items.html html=normalized_html base=base_url %}
+  {% endunless %}
+{% endfor %}
+null
+]
