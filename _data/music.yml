@@ -49,3 +49,9 @@ albums:
     cover: "/images/music/black-panther.jpg"
     spotify: "https://open.spotify.com/album/33dKa7Yept397zPl3myqoz"
     tone: "amber"
+
+  - title: "Abbey Road"
+    artist: "The Beatles"
+    cover: "/images/music/the-beatles-abbey-road.jpg"
+    spotify: "https://open.spotify.com/album/0ETFjACtuP2ADo6LFhL6HN"
+    tone: "amber"
